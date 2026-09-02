@@ -39,15 +39,5 @@
   ],
   "contact": "Dinesh Mehta",
   "email": "dinesh@globalpack.co"
- },
- "TEST": {
-  "name": "Test Supplier",
-  "files": [
-   "EC10_nova_corrugators_quote.pdf",
-   "EC17_nova_certificates.pdf",
-   "EC17_nova_questionnaire.docx"
-  ],
-  "contact": "You",
-  "email": "test@local"
  }
 }

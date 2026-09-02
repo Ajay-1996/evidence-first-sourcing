@@ -58,7 +58,7 @@ const TLC:Record<TL['kind'],string>={received:'#8a8578',processed:'#72909d',exce
 
 export default function Home(){
  const [E,setE]=useState<EventData|null>(null),[loadError,setLoadError]=useState('');
- const [page,setPage]=useState<Page>('suppliers'),[tab,setTab]=useState('scope'),[dataTab,setDataTab]=useState('prices');
+ const [page,setPage]=useState<Page>(()=>{const p=new URLSearchParams(window.location.search).get('page');return (['rfx','suppliers','comparison','analysis','award'].includes(p??'')?p as Page:'suppliers');}),[tab,setTab]=useState('scope'),[dataTab,setDataTab]=useState('prices');
  const [composer,setComposer]=useState(''),[messages,setMessages]=useState<{role:string,text:string}[]>([{role:'assistant',text:'This RFx is drafted and sent: 30 line items, 6 questionnaire requirements, delivered-Bhiwandi basis. Ask me to amend anything — the draft stays under your approval.'}]);
  const [drafting,setDrafting]=useState(false),[busy,setBusy]=useState<Record<string,boolean>>({});
  const [selectedVendor,setSelectedVendor]=useState(0),[note,setNote]=useState(''),[factor,setFactor]=useState(''),[issueIdx,setIssueIdx]=useState(0);
