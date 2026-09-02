@@ -33,6 +33,7 @@ for vid, q in cmp_.items():  # rule-applied cells also mean non-pristine state
     if any("rule_applied" in (c.get("flags") or []) for c in q.get("cells", [])):
         touched.add(vid)
 touched.discard("EVENT"); touched.discard("GLOBAL"); touched.add("CORRUG")
+touched = {v for v in touched if v in registry}  # purged strays (e.g. TEST) can't be re-run
 for f in ("decisions.json", "decision_log.json", "rules.json"):
     (DATA / f).unlink(missing_ok=True)
 

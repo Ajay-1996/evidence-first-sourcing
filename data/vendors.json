@@ -39,14 +39,5 @@
   ],
   "contact": "Dinesh Mehta",
   "email": "dinesh@globalpack.co"
- },
- "TEST": {
-  "name": "Test Supplier",
-  "files": [
-   "KS_omni_quote_email.txt",
-   "KS_omni_rates.csv"
-  ],
-  "contact": "You",
-  "email": "test@local"
  }
 }
