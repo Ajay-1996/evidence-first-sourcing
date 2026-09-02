@@ -1,18 +1,20 @@
 [
  {
-  "ts": "2026-09-02 11:16:15",
-  "vendor": "GLOBAL",
+  "ts": "2026-09-02 11:28:22",
+  "vendor": "CORRUG",
   "facts": {
-   "FREIGHT_BASIS": "Confirm freight_authority = email: rates are delivered/freight-included as stated; no freight added."
+   "case_pack_pieces": 65,
+   "PACK_FACTOR": "confirmed: 65 pieces per case"
   },
-  "note": "Confirm freight_authority = email: rates are delivered/freight-included as stated; no freight added."
+  "note": "[Phone call] "
  },
  {
-  "ts": "2026-09-02 11:18:43",
-  "vendor": "GLOBAL",
+  "ts": "2026-09-02 11:35:10",
+  "vendor": "TEST",
   "facts": {
-   "QUESTIONNAIRE_GAP_status": "asked_supplier"
+   "QUESTIONNAIRE_GAP_status": "asked_supplier",
+   "SOURCE_CONFLICT_status": "asked_supplier"
   },
-  "note": "Clarification round sent \u2014 1 questions in one email"
+  "note": "Clarification round sent \u2014 3 questions in one email"
  }
 ]

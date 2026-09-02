@@ -1,6 +1,10 @@
 {
- "GLOBAL": {
-  "FREIGHT_BASIS": "Confirm freight_authority = email: rates are delivered/freight-included as stated; no freight added.",
-  "QUESTIONNAIRE_GAP_status": "asked_supplier"
+ "CORRUG": {
+  "case_pack_pieces": 65,
+  "PACK_FACTOR": "confirmed: 65 pieces per case"
+ },
+ "TEST": {
+  "QUESTIONNAIRE_GAP_status": "asked_supplier",
+  "SOURCE_CONFLICT_status": "asked_supplier"
  }
 }
