@@ -4003,5 +4003,1011 @@
     "Prices subject to revision should the kraft paper index vary beyond ±5% during the contract period."
    ]
   }
+ },
+ "TEST": {
+  "vendor_id": "TEST",
+  "cells": [
+   {
+    "code": "PKG-001",
+    "normalized_inr_per_unit": 3.7,
+    "state": "assumed",
+    "flags": [
+     "needs_review"
+    ],
+    "transform_chain": [
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        200,
+        150,
+        100
+       ],
+       "gsm_combined": 390
+      },
+      "output": 0.085,
+      "text": "box weight ≈ 0.085 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 3.52,
+       "weight_kg": 0.085,
+       "per_kg": 2.1
+      },
+      "output": 3.7,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹3.7 delivered"
+     }
+    ],
+    "as_quoted": {
+     "amount": 3.52,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A7:F7",
+     "excerpt": "A7='PKG-001', B7='RSC 3-ply 200x150x100 mm', C7=18000, D7=3.52, E7=88, F7=63360"
+    },
+    "confidence": 0.85,
+    "buyer_question": null,
+    "note": "Clean match: vendor row Quote!A7 (dims 200x150x100mm, 3-ply) matches PKG-001 spec exactly. Vendor also states a per-bundle rate of Rs88 (Quote!E7, bundle size unspecified) - not used, per-piece rate (Rs3.52) governs. Vendor's stated monthly qty (18000) differs from RFX ask (9000); noted for buyer awareness, does not affect per-piece price."
+   },
+   {
+    "code": "PKG-002",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (240x180x120mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-003",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": "Vendor row Quote!A8:F8 (labeled 'PKG-004', Rs7.74/pc) describes dims 300x200x150mm, 3-ply - matching PKG-003's spec exactly, not PKG-004's (300x250x200). Please confirm with the vendor whether this row's price is intended for PKG-003.",
+    "note": null
+   },
+   {
+    "code": "PKG-004",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 7.74,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A8:F8",
+     "excerpt": "A8='PKG-004', B8='RSC 3-ply 300x200x150 mm', C8=22000, D8=7.74, F8=170280"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A8:F8 (labeled 'PKG-004', Rs7.74/pc) describes dims 300x200x150mm, which matches PKG-003's spec, not PKG-004's (300x250x200). Please confirm whether this price applies to PKG-004 as labeled, or was meant for PKG-003, and if the latter, request a separate PKG-004 quote.",
+    "note": null
+   },
+   {
+    "code": "PKG-005",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": "Vendor row Quote!A9:F9 (labeled 'PKG-006', Rs12.47/pc) describes dims 350x250x200mm, 3-ply - matching PKG-005's spec exactly, not PKG-006's (400x300x250, printed). Please confirm with the vendor whether this row's price is intended for PKG-005.",
+    "note": null
+   },
+   {
+    "code": "PKG-006",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "print_spec_unaddressed",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 12.47,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A9:F9",
+     "excerpt": "A9='PKG-006', B9='RSC 3-ply 350x250x200 mm', C9=14000, D9=12.47, F9=174580"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A9:F9 (labeled 'PKG-006', Rs12.47/pc) describes plain dims 350x250x200mm, matching PKG-005's spec, not PKG-006's (400x300x250, printed 1-col) - and it does not mention printing at all. Please confirm whether this price applies to PKG-006, and if so, whether it includes the 1-colour print.",
+    "note": null
+   },
+   {
+    "code": "PKG-007",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (250x200x150mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-008",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "needs_review",
+     "formula_derived_rate"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 17.45,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A10:F10",
+     "excerpt": "A10='PKG-008', B10='RSC 3-ply 400x300x200 mm', C10=26000, D10=\"=ROUND(0.3249*('rate card'!$B$2+'rate card'!$B$4),2)\" cached 17.45, F10=453700"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A10:F10 (labeled 'PKG-008', Rs17.45/pc) describes dims 400x300x200mm, 3-ply, which does not match PKG-008's spec (450x350x300) or any other RFX line. Please confirm with the vendor whether this price applies to the requested 450x350x300mm spec, or request a requote.",
+    "note": "Rate (Rs17.45) is formula-derived from vendor's rate-card (virgin kraft + conversion Rs/kg); recomputed and verified against cached value, so the figure itself is legible - the gate is about spec applicability, not legibility."
+   },
+   {
+    "code": "PKG-009",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 33.54,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A11:F11",
+     "excerpt": "A11='PKG-009', B11='RSC 5-ply 420x320x240 mm', C11=8000, D11=33.54, E11=838.5, F11=268320"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A11:F11 (labeled 'PKG-009', Rs33.54/pc) describes dims 420x320x240mm, 5-ply, but PKG-009's spec is 400x400x300mm, 3-ply - both dimensions and ply-count differ, and no other RFX line matches. Please confirm whether this price applies to PKG-009 as specified, or request a requote.",
+    "note": "Vendor also states a per-bundle rate of Rs838.5 (Quote!E11, bundle size unspecified) - not used, per-piece rate governs."
+   },
+   {
+    "code": "PKG-010",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 39.2,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A12:F12",
+     "excerpt": "A12='PKG-010', B12='RSC 5-ply 450x350x250 mm', C12=13000, D12=39.2, F12=509600"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A12:F12 (labeled 'PKG-010', Rs39.20/pc) describes dims 450x350x250mm, 5-ply, but PKG-010's spec is 350x300x250mm, 3-ply - both dimensions and ply-count differ, and no other RFX line matches. Please confirm whether this price applies to PKG-010 as specified, or request a requote.",
+    "note": null
+   },
+   {
+    "code": "PKG-011",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (500x400x350mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-012",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 52.52,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A13:F13",
+     "excerpt": "A13='PKG-012', B13='RSC 5-ply 500x400x300 mm', C13=16000, D13=52.52, F13=840320"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A13:F13 (labeled 'PKG-012', Rs52.52/pc) describes dims 500x400x300mm, 5-ply, but PKG-012's spec is 300x300x300mm, 3-ply - both dimensions and ply-count differ, and no other RFX line matches. Please confirm whether this price applies to PKG-012 as specified, or request a requote.",
+    "note": null
+   },
+   {
+    "code": "PKG-013",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "print_spec_unaddressed",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 67.71,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A14:F14",
+     "excerpt": "A14='PKG-013', B14='RSC 5-ply 500x400x400 mm', C14=19000, D14=67.71, F14=1286490"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A14:F14 (labeled 'PKG-013', Rs67.71/pc) describes plain dims 500x400x400mm, 5-ply - matching PKG-015's spec exactly, not PKG-013's (400x300x300, printed 2-col) - and does not mention printing. Please confirm whether this price is intended for PKG-013 (and if so, whether it includes 2-colour print) or was meant for PKG-015.",
+    "note": null
+   },
+   {
+    "code": "PKG-014",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "needs_review",
+     "formula_derived_rate"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 70.35,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A15:F15",
+     "excerpt": "A15='PKG-014', B15='RSC 5-ply 550x400x350 mm', C15=6200, D15=\"=ROUND(1.31*('rate card'!$B$2+'rate card'!$B$4),2)\" cached 70.35, E15=1700.25, F15=436170"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A15:F15 (labeled 'PKG-014', Rs70.35/pc) describes dims 550x400x350mm, 5-ply; PKG-014's spec is 450x350x350mm, 5-ply - ply matches but dimensions differ, and no other RFX line matches. Please confirm whether this price applies to PKG-014 as specified, or request a requote.",
+    "note": "Rate (Rs70.35) is formula-derived from vendor's rate-card; recomputed and verified against cached value. Vendor also states a per-bundle rate of Rs1700.25 (Quote!E15, bundle size unspecified) - not used."
+   },
+   {
+    "code": "PKG-015",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": "Vendor row Quote!A14:F14 (labeled 'PKG-013', Rs67.71/pc) describes dims 500x400x400mm, which matches PKG-015's spec exactly, not PKG-013's (400x300x300). Please confirm whether this price applies to PKG-015.",
+    "note": null
+   },
+   {
+    "code": "PKG-016",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 77.99,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A16:F16",
+     "excerpt": "A16='PKG-016', B16='RSC 5-ply 600x400x400 mm', C16=21000, D16=77.99, F16=1637790"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A16:F16 (labeled 'PKG-016', Rs77.99/pc) describes dims 600x400x400mm, which matches PKG-017's spec exactly, not PKG-016's (550x450x400). A separate row, Quote!A17:F17 (labeled 'PKG-017', Rs89.43/pc), describes dims 600x450x450mm, which matches neither PKG-016 nor PKG-017 exactly. Please confirm with the vendor which price, if either, applies to PKG-016.",
+    "note": "See exception TEST-SOURCE_CONFLICT-PKG016-017 - two vendor rows plausibly compete for the PKG-016/PKG-017 pair."
+   },
+   {
+    "code": "PKG-017",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 89.43,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A17:F17",
+     "excerpt": "A17='PKG-017', B17='RSC 5-ply 600x450x450 mm', C17=8800, D17=89.43, F17=786984"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A17:F17 (labeled 'PKG-017', Rs89.43/pc) describes dims 600x450x450mm, which does not match PKG-017's spec (600x400x400) exactly. A separate row, Quote!A16:F16 (labeled 'PKG-016', Rs77.99/pc), describes dims 600x400x400mm - an exact match to PKG-017's spec. Please confirm with the vendor which price applies to PKG-017.",
+    "note": "See exception TEST-SOURCE_CONFLICT-PKG016-017 - two vendor rows plausibly compete for the PKG-016/PKG-017 pair."
+   },
+   {
+    "code": "PKG-018",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (600x500x450mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-019",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 105.11,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A18:F18",
+     "excerpt": "A18='PKG-019', B18='RSC 5-ply 700x500x400 mm', C18=9600, D18=105.11, F18=1009056"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A18:F18 (labeled 'PKG-019', Rs105.11/pc) describes dims 700x500x400mm, 5-ply; PKG-019's spec is 450x450x400mm, 5-ply - ply matches but dimensions differ, and no other RFX line matches. Please confirm whether this price applies to PKG-019 as specified, or request a requote.",
+    "note": null
+   },
+   {
+    "code": "PKG-020",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 113.24,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A19:F19",
+     "excerpt": "A19='PKG-020', B19='RSC 5-ply 700x500x500 mm', C19=6100, D19=113.24, E19=2831, F19=690764"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A19:F19 (labeled 'PKG-020', Rs113.24/pc) describes dims 700x500x500mm, which matches PKG-022's spec exactly, not PKG-020's (500x500x450). A separate row, Quote!A20:F20 (labeled 'PKG-022', Rs206.25/pc, 7-ply), describes dims 800x600x400mm, which matches neither line. Please confirm with the vendor which price, if either, applies to PKG-020.",
+    "note": "See exception TEST-SOURCE_CONFLICT-PKG020-022 - two vendor rows plausibly compete for the PKG-020/PKG-022 pair."
+   },
+   {
+    "code": "PKG-021",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (650x500x450mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-022",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "ply_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 206.25,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A20:F20",
+     "excerpt": "A20='PKG-022', B20='RSC 7-ply 800x600x400 mm', C20=4200, D20=206.25, F20=866250"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A20:F20 (labeled 'PKG-022', Rs206.25/pc) describes dims 800x600x400mm, 7-ply, which does not match PKG-022's spec (700x500x500, 5-ply). A separate row, Quote!A19:F19 (labeled 'PKG-020', Rs113.24/pc, 5-ply), describes dims 700x500x500mm - an exact match to PKG-022's spec. Please confirm with the vendor which price applies to PKG-022.",
+    "note": "See exception TEST-SOURCE_CONFLICT-PKG020-022 - two vendor rows plausibly compete for the PKG-020/PKG-022 pair."
+   },
+   {
+    "code": "PKG-023",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "ply_mismatch",
+     "basis_conflict",
+     "print_spec_unaddressed",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 249.85,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A21:F21",
+     "excerpt": "A21='PKG-023', B21='RSC 7-ply 800x600x600 mm', C21=3300, D21=\"=ROUND(4.6527*('rate card'!$B$2+'rate card'!$B$4),2)\" cached 249.85, F21=824505"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A21:F21 (labeled 'PKG-023', Rs249.85/pc) describes dims 800x600x600mm, 7-ply, matching PKG-027's spec exactly, not PKG-023's (550x550x500, 5-ply, printed 1-col). A separate row, Quote!A23:F23 (labeled 'PKG-027', Rs376.51/pc, 7-ply), describes dims 1000x700x600mm, matching neither line, and also does not address printing. Please confirm with the vendor whether either price applies to PKG-023, or request an explicit quote against PKG-023's exact spec including the 1-colour print.",
+    "note": "See exception TEST-SOURCE_CONFLICT-PKG023-027. Neither candidate row matches PKG-023's actual spec (550x550x500, 5-ply, printed 1-col) on dims or ply, and neither mentions printing."
+   },
+   {
+    "code": "PKG-024",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (600x600x500mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-025",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 253.75,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A22:F22",
+     "excerpt": "A22='PKG-025', B22='RSC 7-ply 900x600x600 mm', C22=3600, D22=253.75, F22=913500"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A22:F22 (labeled 'PKG-025', Rs253.75/pc) describes dims 900x600x600mm, 7-ply; PKG-025's spec is 750x550x500mm, 5-ply - both dimensions and ply-count differ, and no other RFX line matches. Please confirm whether this price applies to PKG-025 as specified, or request a requote.",
+    "note": null
+   },
+   {
+    "code": "PKG-026",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (800x600x550mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-027",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "description_mismatch",
+     "basis_conflict",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 376.51,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A23:F23",
+     "excerpt": "A23='PKG-027', B23='RSC 7-ply 1000x700x600 mm', C23=2600, D23=376.51, E23=9412.75, F23=978926"
+    },
+    "confidence": 0.85,
+    "buyer_question": "Vendor row Quote!A23:F23 (labeled 'PKG-027', Rs376.51/pc) describes dims 1000x700x600mm, which does not match PKG-027's spec (800x600x600) exactly. A separate row, Quote!A21:F21 (labeled 'PKG-023', Rs249.85/pc), describes dims 800x600x600mm - an exact match to PKG-027's spec. Please confirm with the vendor which price applies to PKG-027.",
+    "note": "See exception TEST-SOURCE_CONFLICT-PKG023-027 - two vendor rows plausibly compete for the PKG-023/PKG-027 pair. Vendor also states a per-bundle rate of Rs9412.75 (Quote!E23, bundle size unspecified) - not used."
+   },
+   {
+    "code": "PKG-028",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Vendor did not quote this item - no code label or matching dimensions (900x700x600mm) found anywhere in the response."
+   },
+   {
+    "code": "PKG-029",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Closest vendor row is Quote!A23:F23 (labeled 'PKG-027', dims 1000x700x600mm), which is close but not exact to PKG-029's spec (1000x800x700mm) - and that row is already contested as a candidate for PKG-027 (see TEST-SOURCE_CONFLICT-PKG023-027), so it cannot also serve as a PKG-029 price."
+   },
+   {
+    "code": "PKG-030",
+    "normalized_inr_per_unit": 560.0,
+    "state": "assumed",
+    "flags": [
+     "needs_review"
+    ],
+    "transform_chain": [
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        1100,
+        800,
+        800
+       ],
+       "gsm_combined": 980
+      },
+      "output": 6.441,
+      "text": "box weight ≈ 6.441 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 546.47,
+       "weight_kg": 6.441,
+       "per_kg": 2.1
+      },
+      "output": 560.0,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹560.0 delivered"
+     }
+    ],
+    "as_quoted": {
+     "amount": 546.47,
+     "currency": "INR",
+     "unit_raw": "Per pc"
+    },
+    "source": {
+     "file": "EC08_shakti_packaging_quote.xlsx",
+     "locator": "Quote!A24:F24",
+     "excerpt": "A24='PKG-030', B24='RSC 7-ply 1100x800x800 mm', C24=1200, D24=546.47, F24=655764"
+    },
+    "confidence": 0.85,
+    "buyer_question": null,
+    "note": "Clean match: vendor row Quote!A24 (dims 1100x800x800mm, 7-ply) matches PKG-030 spec exactly. Vendor's stated monthly qty (1200) differs from RFX ask (350); noted for buyer awareness, does not affect per-piece price."
+   }
+  ],
+  "exceptions": [
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG020-022",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Two vendor rows compete for PKG-020 / PKG-022, at very different price points",
+    "detail": "Row Quote!A19 (labeled 'PKG-020', Rs113.24/pc, 5-ply) has dims 700x500x500mm - an exact match to PKG-022's spec, not PKG-020's (500x500x450). Row Quote!A20 (labeled 'PKG-022', Rs206.25/pc, 7-ply) has dims 800x600x400mm, matching neither RFX line and on a different ply-count. Whichever line the ambiguous row is assigned to, the other line is left with no reliable price. The spread between the two candidate rates is large because one is a 5-ply and the other a 7-ply box.",
+    "affected_lines": [
+     "PKG-020",
+     "PKG-022"
+    ],
+    "options": [
+     "Attribute Rs113.24/pc (row A19) to PKG-022 per exact dims match; PKG-020 remains unpriced pending vendor clarification/requote",
+     "Attribute Rs206.25/pc (row A20) to PKG-022 per label; PKG-020 remains unpriced pending vendor clarification/requote",
+     "Request vendor to reconfirm both rows against exact RFX dims"
+    ],
+    "delta_inr_per_unit": 93.01,
+    "annual_impact_inr": 4687704
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG023-027",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Two vendor rows compete for PKG-023 / PKG-027; neither matches PKG-023's actual spec",
+    "detail": "Row Quote!A21 (labeled 'PKG-023', Rs249.85/pc, formula-derived, 7-ply) has dims 800x600x600mm - an exact match to PKG-027's spec, not PKG-023's (550x550x500, 5-ply, printed 1-col). Row Quote!A23 (labeled 'PKG-027', Rs376.51/pc, 7-ply) has dims 1000x700x600mm, matching neither RFX line. Neither row addresses PKG-023's printing requirement at all, so PKG-023 may not be quoted anywhere in this response.",
+    "affected_lines": [
+     "PKG-023",
+     "PKG-027"
+    ],
+    "options": [
+     "Attribute Rs249.85/pc (row A21) to PKG-027 per exact dims match; treat PKG-023 as effectively unquoted (wrong dims, wrong ply, no print) and request a fresh quote",
+     "Attribute Rs376.51/pc (row A23) to PKG-027 per label; treat PKG-023 as unquoted",
+     "Request vendor to reconfirm both rows and provide an explicit PKG-023 quote including 1-colour print"
+    ],
+    "delta_inr_per_unit": 126.66,
+    "annual_impact_inr": 4103784
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG016-017",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Two vendor rows compete for PKG-016 / PKG-017",
+    "detail": "Row Quote!A16 (labeled 'PKG-016', Rs77.99/pc) has dims 600x400x400mm - an exact match to PKG-017's spec, not PKG-016's (550x450x400). Row Quote!A17 (labeled 'PKG-017', Rs89.43/pc) has dims 600x450x450mm, matching neither RFX line exactly. PKG-016's actual spec (550x450x400) is not matched by any vendor row.",
+    "affected_lines": [
+     "PKG-016",
+     "PKG-017"
+    ],
+    "options": [
+     "Attribute Rs77.99/pc (row A16) to PKG-017 per exact dims match; PKG-016 remains unpriced pending clarification",
+     "Attribute Rs89.43/pc (row A17) to PKG-017 per label; PKG-016 remains unpriced pending clarification",
+     "Request vendor to reconfirm both rows against exact RFX dims"
+    ],
+    "delta_inr_per_unit": 11.44,
+    "annual_impact_inr": 1029600
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG003-004",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Single vendor row's dims match PKG-003 but its label says PKG-004",
+    "detail": "Row Quote!A8 (labeled 'PKG-004', Rs7.74/pc) has dims 300x200x150mm, an exact match to PKG-003's spec, not PKG-004's (300x250x200). Only one row exists, so it cannot price both lines - one of PKG-003/PKG-004 will be left unquoted depending on the resolution.",
+    "affected_lines": [
+     "PKG-003",
+     "PKG-004"
+    ],
+    "options": [
+     "Attribute Rs7.74/pc to PKG-003 per exact dims match; treat PKG-004 as unquoted, request separate quote",
+     "Attribute Rs7.74/pc to PKG-004 per label as given despite dims mismatch; treat as a vendor spec/dims typo"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG005-006",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Single vendor row's dims match PKG-005 but its label says PKG-006; PKG-006's print spec also unaddressed",
+    "detail": "Row Quote!A9 (labeled 'PKG-006', Rs12.47/pc) has dims 350x250x200mm, an exact match to PKG-005's spec, not PKG-006's (400x300x250, printed 1-col), and does not mention printing at all.",
+    "affected_lines": [
+     "PKG-005",
+     "PKG-006"
+    ],
+    "options": [
+     "Attribute Rs12.47/pc to PKG-005 per exact dims match; treat PKG-006 (incl. its print requirement) as unquoted, request separate quote",
+     "Attribute Rs12.47/pc to PKG-006 per label; confirm with vendor whether it includes the 1-colour print"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG013-015",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Single vendor row's dims match PKG-015 but its label says PKG-013; PKG-013's print spec also unaddressed",
+    "detail": "Row Quote!A14 (labeled 'PKG-013', Rs67.71/pc) has dims 500x400x400mm, an exact match to PKG-015's spec, not PKG-013's (400x300x300, printed 2-col), and does not mention printing at all.",
+    "affected_lines": [
+     "PKG-013",
+     "PKG-015"
+    ],
+    "options": [
+     "Attribute Rs67.71/pc to PKG-015 per exact dims match; treat PKG-013 (incl. its print requirement) as unquoted, request separate quote",
+     "Attribute Rs67.71/pc to PKG-013 per label; confirm with vendor whether it includes the 2-colour print"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG008",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-008 vendor row dims do not match RFX spec, and no other line matches either",
+    "detail": "Row Quote!A10 (labeled 'PKG-008', Rs17.45/pc, formula-derived and verified) has dims 400x300x200mm, 3-ply; PKG-008's spec is 450x350x300mm. No RFX line matches these dims exactly, so this may be a different standard box the vendor priced instead of quoting to spec.",
+    "affected_lines": [
+     "PKG-008"
+    ],
+    "options": [
+     "Accept Rs17.45/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 450x350x300mm spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG009",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-009 vendor row dims and ply do not match RFX spec",
+    "detail": "Row Quote!A11 (labeled 'PKG-009', Rs33.54/pc) has dims 420x320x240mm, 5-ply; PKG-009's spec is 400x400x300mm, 3-ply. No RFX line matches these dims exactly.",
+    "affected_lines": [
+     "PKG-009"
+    ],
+    "options": [
+     "Accept Rs33.54/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 400x400x300mm, 3-ply spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG010",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-010 vendor row dims and ply do not match RFX spec",
+    "detail": "Row Quote!A12 (labeled 'PKG-010', Rs39.20/pc) has dims 450x350x250mm, 5-ply; PKG-010's spec is 350x300x250mm, 3-ply. No RFX line matches these dims exactly.",
+    "affected_lines": [
+     "PKG-010"
+    ],
+    "options": [
+     "Accept Rs39.20/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 350x300x250mm, 3-ply spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG012",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-012 vendor row dims and ply do not match RFX spec",
+    "detail": "Row Quote!A13 (labeled 'PKG-012', Rs52.52/pc) has dims 500x400x300mm, 5-ply; PKG-012's spec is 300x300x300mm, 3-ply. No RFX line matches these dims exactly.",
+    "affected_lines": [
+     "PKG-012"
+    ],
+    "options": [
+     "Accept Rs52.52/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 300x300x300mm, 3-ply spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG014",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-014 vendor row dims do not match RFX spec",
+    "detail": "Row Quote!A15 (labeled 'PKG-014', Rs70.35/pc, formula-derived and verified) has dims 550x400x350mm, 5-ply; PKG-014's spec is 450x350x350mm, 5-ply - ply matches, dims do not. No RFX line matches these dims exactly.",
+    "affected_lines": [
+     "PKG-014"
+    ],
+    "options": [
+     "Accept Rs70.35/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 450x350x350mm spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG019",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-019 vendor row dims do not match RFX spec",
+    "detail": "Row Quote!A18 (labeled 'PKG-019', Rs105.11/pc) has dims 700x500x400mm, 5-ply; PKG-019's spec is 450x450x400mm, 5-ply - ply matches, dims do not. No RFX line matches these dims exactly.",
+    "affected_lines": [
+     "PKG-019"
+    ],
+    "options": [
+     "Accept Rs105.11/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 450x450x400mm spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-PKG025",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "PKG-025 vendor row dims and ply do not match RFX spec",
+    "detail": "Row Quote!A22 (labeled 'PKG-025', Rs253.75/pc) has dims 900x600x600mm, 7-ply; PKG-025's spec is 750x550x500mm, 5-ply. No RFX line matches these dims exactly.",
+    "affected_lines": [
+     "PKG-025"
+    ],
+    "options": [
+     "Accept Rs253.75/pc as a like-for-like proxy pending buyer confirmation",
+     "Request vendor requote to exact 750x550x500mm, 5-ply spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-MISSING_LINE-UNQUOTED",
+    "type": "MISSING_LINE",
+    "severity": "HIGH",
+    "title": "9 of 30 RFX lines have no vendor coverage at all",
+    "detail": "Vendor's 18-row quote (Quote!A7:F24) covers only 18 of the 30 RFX lines by any dims match; PKG-002, PKG-007, PKG-011, PKG-018, PKG-021, PKG-024, PKG-026, PKG-028 have no code label or matching dimensions anywhere in the response. PKG-029's closest candidate (Quote!A23, 1000x700x600mm) is inexact and already contested for PKG-027, so PKG-029 is also effectively unquoted. This is a material coverage gap for an award decision covering ~30% of line items.",
+    "affected_lines": [
+     "PKG-002",
+     "PKG-007",
+     "PKG-011",
+     "PKG-018",
+     "PKG-021",
+     "PKG-024",
+     "PKG-026",
+     "PKG-028",
+     "PKG-029"
+    ],
+    "options": [
+     "Request a complete requote covering all unaddressed lines before evaluating this vendor for those items",
+     "Exclude this vendor from award consideration for the unaddressed lines only"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-FREIGHT_BASIS",
+    "type": "FREIGHT_BASIS",
+    "severity": "HIGH",
+    "title": "Vendor rates are ex-works, excluding freight to the delivered basis; freight lane in policy doesn't match vendor's origin",
+    "detail": "Vendor terms state rates are 'ex-works Vasai. Freight to Bhiwandi extra at actuals,' while the RFx basis is Delivered (FOR Bhiwandi DC). The policy freight estimate (Rs2.1/kg) is based on a Vapi -> Bhiwandi trailing lane average, but the vendor's stated ex-works point is Vasai, not Vapi - a different origin city, so the policy lane average may not accurately reflect the real freight cost for this vendor. Additionally, the vendor states freight is billed 'at actuals,' not a fixed rate, adding further variance versus the policy estimate.",
+    "affected_lines": [
+     "PKG-001",
+     "PKG-003",
+     "PKG-004",
+     "PKG-005",
+     "PKG-006",
+     "PKG-008",
+     "PKG-009",
+     "PKG-010",
+     "PKG-012",
+     "PKG-013",
+     "PKG-014",
+     "PKG-015",
+     "PKG-016",
+     "PKG-017",
+     "PKG-019",
+     "PKG-020",
+     "PKG-022",
+     "PKG-023",
+     "PKG-025",
+     "PKG-027",
+     "PKG-030"
+    ],
+    "options": [
+     "Apply policy lane estimate (Rs2.1/kg) as a placeholder and flag for reconciliation against vendor's actual Vasai-origin freight invoice",
+     "Request vendor quote a firm per-piece freight rate for the Vasai -> Bhiwandi lane specifically"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": 1385497
+   },
+   {
+    "id": "TEST-QUESTIONNAIRE_GAP",
+    "type": "QUESTIONNAIRE_GAP",
+    "severity": "AWARD_BLOCKING",
+    "title": "All 6 questionnaire items unanswered, including both clearance-required certifications",
+    "detail": "None of the 6 questionnaire items (ISO 9001:2015, burst-strength test certs, FSC chain-of-custody, standard lead time, 45-day payment acceptance, spare capacity headroom) are addressed anywhere in the vendor's response. Policy's clearance_rule requires a valid ISO 9001 certificate plus burst-test certs on file before award - both are missing, which blocks award to this vendor as-is. Separately, vendor_terms explicitly state payment as '50% advance, balance against delivery,' which conflicts with the RFx's 45-day payment basis and was not reconciled via the 'pay' questionnaire item.",
+    "affected_lines": [],
+    "options": [
+     "Request vendor submit ISO 9001 and burst-test certificates plus complete the remaining questionnaire items before award consideration"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-TERM_REFERENCE-BUNDLE",
+    "type": "TERM_REFERENCE",
+    "severity": "LOW",
+    "title": "Vendor sheet carries secondary 'per bundle' rates alongside per-piece rates, bundle size unspecified",
+    "detail": "Rows for PKG-001 (E7=88), PKG-009 (E11=838.5), PKG-014 (E15=1700.25), PKG-020 (E19=2831), and PKG-027 (E23=9412.75) each carry a secondary per-bundle figure per vendor_terms ('Bundle rates are for standard bundle, bundle size not specified'). These are not used for normalization - the vendor's direct per-piece rate (column D) already establishes the per-piece basis for each - but are noted for visibility since the bundle size was never disclosed.",
+    "affected_lines": [
+     "PKG-001",
+     "PKG-009",
+     "PKG-014",
+     "PKG-020",
+     "PKG-027"
+    ],
+    "options": [
+     "No action needed - per-piece rate already governs"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   }
+  ],
+  "questionnaire": [
+   {
+    "key": "iso",
+    "question": "Valid ISO 9001:2015 certificate",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   },
+   {
+    "key": "burst",
+    "question": "Burst-strength test certs for quoted grades (BS as per IS 2771)",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   },
+   {
+    "key": "fsc",
+    "question": "FSC chain-of-custody for kraft supply",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   },
+   {
+    "key": "lead",
+    "question": "Standard lead time, order -> delivery (days)",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   },
+   {
+    "key": "pay",
+    "question": "45-day payment terms accepted",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   },
+   {
+    "key": "cap",
+    "question": "Spare capacity headroom on current volumes (%)",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   }
+  ],
+  "vendor_terms": {
+   "payment": "50% advance, balance against delivery",
+   "freight": "Rates ex-works Vasai. Freight to Bhiwandi extra at actuals.",
+   "validity": "Rates firm for 30 days only",
+   "discounts": [],
+   "other": [
+    "GST 18% extra (not included in quoted rates)",
+    "Bundle rates are for standard bundle (bundle size not specified)"
+   ]
+  }
  }
 }
