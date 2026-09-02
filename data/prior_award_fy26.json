@@ -1,0 +1,137 @@
+{
+ "PKG-001": {
+  "inr_per_unit": 3.06,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-002": {
+  "inr_per_unit": 4.39,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-003": {
+  "inr_per_unit": 5.98,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-004": {
+  "inr_per_unit": 8.5,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-005": {
+  "inr_per_unit": 9.22,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-006": {
+  "inr_per_unit": 13.25,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-007": {
+  "inr_per_unit": 5.33,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-008": {
+  "inr_per_unit": 18.14,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-009": {
+  "inr_per_unit": 19.48,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-010": {
+  "inr_per_unit": 12.2,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-011": {
+  "inr_per_unit": 23.62,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-012": {
+  "inr_per_unit": 12.42,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-013": {
+  "inr_per_unit": 23.26,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-014": {
+  "inr_per_unit": 31.68,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-015": {
+  "inr_per_unit": 41.01,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-016": {
+  "inr_per_unit": 48.96,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-017": {
+  "inr_per_unit": 46.17,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-018": {
+  "inr_per_unit": 61.68,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-019": {
+  "inr_per_unit": 43.49,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-020": {
+  "inr_per_unit": 55.34,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-021": {
+  "inr_per_unit": 64.43,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-022": {
+  "inr_per_unit": 71.67,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-023": {
+  "inr_per_unit": 67.97,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-025": {
+  "inr_per_unit": 82.5,
+  "vendor": "Shree Ganesh Packwell",
+  "fy": "FY26"
+ },
+ "PKG-027": {
+  "inr_per_unit": 148.95,
+  "vendor": "Apex Corrugators",
+  "fy": "FY26"
+ },
+ "PKG-028": {
+  "inr_per_unit": 185.67,
+  "vendor": "Apex Corrugators",
+  "fy": "FY26"
+ },
+ "PKG-029": {
+  "inr_per_unit": 242.52,
+  "vendor": "Apex Corrugators",
+  "fy": "FY26"
+ }
+}

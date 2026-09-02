@@ -1,0 +1,693 @@
+{
+ "vendor_id": "BOXCO",
+ "lines": [
+  {
+   "code": "PKG-001",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (200x150x100) + ply (3P) match RFX plain RSC line",
+   "as_quoted": {
+    "amount": 3.3,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 2",
+    "excerpt": "PKG-001 | RSC 200x150x100 3P | 3.30"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-002",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (240x180x120) + ply (3P) match",
+   "as_quoted": {
+    "amount": 4.79,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 3",
+    "excerpt": "PKG-002 | RSC 240x180x120 3P | 4.79"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-003",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (300x200x150) + ply (3P) match",
+   "as_quoted": {
+    "amount": 6.32,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 4",
+    "excerpt": "PKG-003 | RSC 300x200x150 3P | 6.32"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-004",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (300x250x200) + ply (3P) match",
+   "as_quoted": {
+    "amount": 9.09,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 5",
+    "excerpt": "PKG-004 | RSC 300x250x200 3P | 9.09"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-005",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (350x250x200) + ply (3P) match",
+   "as_quoted": {
+    "amount": 9.95,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 6",
+    "excerpt": "PKG-005 | RSC 350x250x200 3P | 9.95"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-006",
+   "match_confidence": null,
+   "match_basis": "not quoted - printed carton",
+   "as_quoted": {
+    "amount": null,
+    "currency": "INR",
+    "unit_raw": null
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "para 3",
+    "excerpt": "we regret our inability to undertake the printed cartons (PKG-006, PKG-013 and PKG-023) as we do not operate printing lines"
+   },
+   "conditions": [],
+   "flags": [],
+   "note": "Vendor explicitly declined; see unquoted"
+  },
+  {
+   "code": "PKG-007",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (250x200x150) + ply (3P) match",
+   "as_quoted": {
+    "amount": 5.64,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 7",
+    "excerpt": "PKG-007 | RSC 250x200x150 3P | 5.64"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-008",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (450x350x300) + ply (3P) match",
+   "as_quoted": {
+    "amount": 19.3,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 8",
+    "excerpt": "PKG-008 | RSC 450x350x300 3P | 19.30"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-009",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (400x400x300) + ply (3P) match",
+   "as_quoted": {
+    "amount": 20.91,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 9",
+    "excerpt": "PKG-009 | RSC 400x400x300 3P | 20.91"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-010",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (350x300x250) + ply (3P) match",
+   "as_quoted": {
+    "amount": 13.41,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 10",
+    "excerpt": "PKG-010 | RSC 350x300x250 3P | 13.41"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-011",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (500x400x350) + ply (3P) match",
+   "as_quoted": {
+    "amount": 25.7,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 11",
+    "excerpt": "PKG-011 | RSC 500x400x350 3P | 25.70"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-012",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (300x300x300) + ply (3P) match",
+   "as_quoted": {
+    "amount": 13.36,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 12",
+    "excerpt": "PKG-012 | RSC 300x300x300 3P | 13.36"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-013",
+   "match_confidence": null,
+   "match_basis": "not quoted - printed carton",
+   "as_quoted": {
+    "amount": null,
+    "currency": "INR",
+    "unit_raw": null
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "para 3",
+    "excerpt": "we regret our inability to undertake the printed cartons (PKG-006, PKG-013 and PKG-023) as we do not operate printing lines"
+   },
+   "conditions": [],
+   "flags": [],
+   "note": "Vendor explicitly declined; see unquoted"
+  },
+  {
+   "code": "PKG-014",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (450x350x350) + ply (5P) match",
+   "as_quoted": {
+    "amount": 33.4,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 13",
+    "excerpt": "PKG-014 | RSC 450x350x350 5P | 33.40"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-015",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (500x400x400) + ply (5P) match",
+   "as_quoted": {
+    "amount": 42.83,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 14",
+    "excerpt": "PKG-015 | RSC 500x400x400 5P | 42.83"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-016",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (550x450x400) + ply (5P) match",
+   "as_quoted": {
+    "amount": 50.56,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 15",
+    "excerpt": "PKG-016 | RSC 550x450x400 5P | 50.56"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-017",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (600x400x400) + ply (5P) match",
+   "as_quoted": {
+    "amount": 47.21,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 16",
+    "excerpt": "PKG-017 | RSC 600x400x400 5P | 47.21"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-018",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (600x500x450) + ply (5P) match",
+   "as_quoted": {
+    "amount": 62.83,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 17",
+    "excerpt": "PKG-018 | RSC 600x500x450 5P | 62.83"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-019",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (450x450x400) + ply (5P) match",
+   "as_quoted": {
+    "amount": 45.68,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 18",
+    "excerpt": "PKG-019 | RSC 450x450x400 5P | 45.68"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-020",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (500x500x450) + ply (5P) match",
+   "as_quoted": {
+    "amount": 57.81,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 19",
+    "excerpt": "PKG-020 | RSC 500x500x450 5P | 57.81"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-021",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (650x500x450) + ply (5P) match",
+   "as_quoted": {
+    "amount": 67.94,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 20",
+    "excerpt": "PKG-021 | RSC 650x500x450 5P | 67.94"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-022",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (700x500x500) + ply (5P) match",
+   "as_quoted": {
+    "amount": 73.31,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 21",
+    "excerpt": "PKG-022 | RSC 700x500x500 5P | 73.31"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-023",
+   "match_confidence": null,
+   "match_basis": "not quoted - printed carton",
+   "as_quoted": {
+    "amount": null,
+    "currency": "INR",
+    "unit_raw": null
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "para 3",
+    "excerpt": "we regret our inability to undertake the printed cartons (PKG-006, PKG-013 and PKG-023) as we do not operate printing lines"
+   },
+   "conditions": [],
+   "flags": [],
+   "note": "Vendor explicitly declined; see unquoted"
+  },
+  {
+   "code": "PKG-024",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (600x600x500) + ply (5P) match",
+   "as_quoted": {
+    "amount": 82.3,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 22",
+    "excerpt": "PKG-024 | RSC 600x600x500 5P | 82.30"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-025",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (750x550x500) + ply (5P) match",
+   "as_quoted": {
+    "amount": 87.15,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 23",
+    "excerpt": "PKG-025 | RSC 750x550x500 5P | 87.15"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-026",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (800x600x550) + ply (5P) match",
+   "as_quoted": {
+    "amount": 99.35,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 24",
+    "excerpt": "PKG-026 | RSC 800x600x550 5P | 99.35"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-027",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (800x600x600) + ply (7P) match",
+   "as_quoted": {
+    "amount": 156.44,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 25",
+    "excerpt": "PKG-027 | RSC 800x600x600 7P | 156.44"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-028",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (900x700x600) + ply (7P) match",
+   "as_quoted": {
+    "amount": 197.61,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 26",
+    "excerpt": "PKG-028 | RSC 900x700x600 7P | 197.61"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-029",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (1000x800x700) + ply (7P) match",
+   "as_quoted": {
+    "amount": 250.35,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 27",
+    "excerpt": "PKG-029 | RSC 1000x800x700 7P | 250.35"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-030",
+   "match_confidence": 0.97,
+   "match_basis": "code + dimensions (1100x800x800) + ply (7P) match",
+   "as_quoted": {
+    "amount": 297.32,
+    "currency": "INR",
+    "unit_raw": "Rs / piece"
+   },
+   "confidence": 0.97,
+   "source": {
+    "file": "boxco_quote.docx",
+    "locator": "table 1, row 28",
+    "excerpt": "PKG-030 | RSC 1100x800x800 7P | 297.32"
+   },
+   "conditions": [
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  }
+ ],
+ "unquoted": [
+  {
+   "code": "PKG-006",
+   "reason": "vendor does not operate printing lines (stated)"
+  },
+  {
+   "code": "PKG-013",
+   "reason": "vendor does not operate printing lines (stated)"
+  },
+  {
+   "code": "PKG-023",
+   "reason": "vendor does not operate printing lines (stated)"
+  }
+ ],
+ "conflicts": [],
+ "vendor_terms": {
+  "payment": null,
+  "freight": "delivered-Bhiwandi basis",
+  "validity": "Prices firm for 12 months",
+  "discounts": [],
+  "other": [
+   "GST extra (stated as applying to all rates in para 2)",
+   "Payment terms stated only as 'shall remain the same as last year's arrangement' — references a prior arrangement not present in this document; no explicit day count quoted"
+  ]
+ },
+ "questionnaire": [
+  {
+   "key": "iso",
+   "answer": "ISO 9001:2015, certificate QMS-2214, valid to March 2028",
+   "evidence": "We hold ISO 9001:2015 (certificate QMS-2214, valid to March 2028)",
+   "confidence": 0.97
+  },
+  {
+   "key": "burst",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  },
+  {
+   "key": "fsc",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  },
+  {
+   "key": "lead",
+   "answer": "9 days from confirmed order",
+   "evidence": "our standard lead time is 9 days from confirmed order",
+   "confidence": 0.95
+  },
+  {
+   "key": "pay",
+   "answer": null,
+   "evidence": "payment terms shall remain the same as last year's arrangement",
+   "confidence": 0.3
+  },
+  {
+   "key": "cap",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  }
+ ],
+ "reading_notes": "27 of 30 RFX lines quoted; PKG-006, PKG-013, PKG-023 (all printed cartons) explicitly declined because vendor has no printing lines. Rates are per-piece INR, delivered-Bhiwandi basis, GST extra, firm for 12 months. Payment terms are stated only by reference to a prior (undocumented) arrangement, so the 'pay' questionnaire answer cannot be confirmed as 45 days from this document alone — flagged low confidence. Burst-strength certs and FSC chain-of-custody and spare capacity % were not addressed anywhere in the letter."
+}

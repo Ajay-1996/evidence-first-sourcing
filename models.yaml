@@ -1,0 +1,19 @@
+# Model routing — one place to change what runs each agent.
+# provider claude_code = headless `claude -p` on the user's Claude subscription (no API key).
+# provider anthropic   = raw API; needs ANTHROPIC_API_KEY (+ ANTHROPIC_WORKSPACE_ID for
+#                        identity-linked keys) in .env.local. Evaluators can flip per agent.
+defaults:
+  provider: claude_code
+  max_tokens: 16384
+  temperature: 0.1
+
+agents:
+  evidence:
+    model: sonnet          # reads the artifacts (vision via Read for the photo)
+  resolution:
+    model: sonnet          # classifies; deterministic code executes the plan
+  analyst:
+    model: opus            # plans queries, then explains computed results
+  draft:
+    model: sonnet
+    temperature: 0.4

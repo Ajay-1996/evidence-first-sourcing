@@ -1,0 +1,817 @@
+{
+ "vendor_id": "CORRUG",
+ "lines": [
+  {
+   "code": "PKG-001",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 200x150x100 match RFQ PKG-001 exactly",
+   "as_quoted": {
+    "amount": 320,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-001",
+    "excerpt": "PKG-001 200x150x100 .................... Rs 320"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra (header note applies to all lines)"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": "Vendor quotes 3-ply cartons per 100 pcs, not per piece."
+  },
+  {
+   "code": "PKG-002",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 240x180x120 match RFQ PKG-002 exactly",
+   "as_quoted": {
+    "amount": 455,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-002",
+    "excerpt": "PKG-002 240x180x120 .................... Rs 455"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-003",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 300x200x150 match RFQ PKG-003 exactly",
+   "as_quoted": {
+    "amount": 610,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-003",
+    "excerpt": "PKG-003 300x200x150 .................... Rs 610"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-004",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 300x250x200 match RFQ PKG-004 exactly",
+   "as_quoted": {
+    "amount": 865,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-004",
+    "excerpt": "PKG-004 300x250x200 .................... Rs 865"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-005",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 350x250x200 match RFQ PKG-005 exactly",
+   "as_quoted": {
+    "amount": 965,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-005",
+    "excerpt": "PKG-005 350x250x200 .................... Rs 965"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-006",
+   "match_confidence": 0.95,
+   "match_basis": "code and dimensions 400x300x250 match RFQ PKG-006; RFQ specifies printed 1-col, image only says PRINTED with no color count",
+   "as_quoted": {
+    "amount": 1375,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-006",
+    "excerpt": "PKG-006 400x300x250 PRINTED ......... Rs 1,375"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "print_color_count_unstated"
+   ],
+   "note": "Vendor marks item PRINTED but does not state number of print colors; RFQ requests 1-col."
+  },
+  {
+   "code": "PKG-007",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 250x200x150 match RFQ PKG-007 exactly",
+   "as_quoted": {
+    "amount": 545,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-007",
+    "excerpt": "PKG-007 250x200x150 .................... Rs 545"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-008",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 450x350x300 match RFQ PKG-008 exactly",
+   "as_quoted": {
+    "amount": 1835,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-008",
+    "excerpt": "PKG-008 450x350x300 .................... Rs 1,835"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-009",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 400x400x300 match RFQ PKG-009 exactly",
+   "as_quoted": {
+    "amount": 2030,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-009",
+    "excerpt": "PKG-009 400x400x300 .................... Rs 2,030"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-010",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 350x300x250 match RFQ PKG-010 exactly",
+   "as_quoted": {
+    "amount": 1255,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-010",
+    "excerpt": "PKG-010 350x300x250 .................... Rs 1,255"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-011",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 500x400x350 match RFQ PKG-011 exactly",
+   "as_quoted": {
+    "amount": 2450,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-011",
+    "excerpt": "PKG-011 500x400x350 .................... Rs 2,450"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-012",
+   "match_confidence": 0.98,
+   "match_basis": "code and dimensions 300x300x300 match RFQ PKG-012 exactly",
+   "as_quoted": {
+    "amount": 1300,
+    "currency": "INR",
+    "unit_raw": "per 100 pcs"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "3-ply table, row PKG-012",
+    "excerpt": "PKG-012 300x300x300 .................... Rs 1,300"
+   },
+   "conditions": [
+    "Rate is per 100 pcs, not per piece as RFQ basis specifies",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-013",
+   "match_confidence": 0.9,
+   "match_basis": "code and dimensions 400x300x300 match RFQ PKG-013; RFQ specifies 5-ply printed 2-col, image only says PRINTED with no ply or color count stated on this line (ply is section-level: '5-PLY/7-PLY')",
+   "as_quoted": {
+    "amount": 2400,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.85,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-013",
+    "excerpt": "PKG-013 400x300x300 PRINTED ......... Rs 2,400"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note, so per-piece rate cannot be derived",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible",
+    "print_color_count_unstated"
+   ],
+   "note": "Section header states '5-PLY/7-PLY' without specifying which ply applies to this row; RFQ expects 5-ply. Print color count not stated; RFQ requests 2-col."
+  },
+  {
+   "code": "PKG-014",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 450x350x350 match RFQ PKG-014",
+   "as_quoted": {
+    "amount": 3290,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-014",
+    "excerpt": "PKG-014 450x350x350 .................... Rs 3,290"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-015",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 500x400x400 match RFQ PKG-015",
+   "as_quoted": {
+    "amount": 4310,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-015",
+    "excerpt": "PKG-015 500x400x400 .................... Rs 4,310"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-016",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 550x450x400 match RFQ PKG-016",
+   "as_quoted": {
+    "amount": 5200,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-016",
+    "excerpt": "PKG-016 550x450x400 .................... Rs 5,200"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-017",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 600x400x400 match RFQ PKG-017",
+   "as_quoted": {
+    "amount": 4750,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-017",
+    "excerpt": "PKG-017 600x400x400 .................... Rs 4,750"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-018",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 600x500x450 match RFQ PKG-018",
+   "as_quoted": {
+    "amount": 6400,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-018",
+    "excerpt": "PKG-018 600x500x450 .................... Rs 6,400"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-019",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 450x450x400 match RFQ PKG-019",
+   "as_quoted": {
+    "amount": 4560,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-019",
+    "excerpt": "PKG-019 450x450x400 .................... Rs 4,560"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-020",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 500x500x450 match RFQ PKG-020",
+   "as_quoted": {
+    "amount": 5850,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-020",
+    "excerpt": "PKG-020 500x500x450 .................... Rs 5,850"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-021",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 650x500x450 match RFQ PKG-021",
+   "as_quoted": {
+    "amount": 6750,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-021",
+    "excerpt": "PKG-021 650x500x450 .................... Rs 6,750"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-022",
+   "match_confidence": 0.9,
+   "match_basis": "code and dimensions 700x500x500 match RFQ PKG-022; price cell is faded/blurred and not reliably legible",
+   "as_quoted": {
+    "amount": null,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.2,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-022",
+    "excerpt": "PKG-022 700x500x500 .................... Rs [illegible/faded]"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "needs_review",
+    "price_illegible",
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": "Price digits for this row are faded/blurred in the source image and cannot be read with confidence; do not assume a value."
+  },
+  {
+   "code": "PKG-023",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 550x550x500 match RFQ PKG-023; RFQ specifies printed 1-col, image only says PRINTED with no color count",
+   "as_quoted": {
+    "amount": 6980,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-023",
+    "excerpt": "PKG-023 550x550x500 PRINTED ......... Rs 6,980"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible",
+    "print_color_count_unstated"
+   ],
+   "note": "Print color count not stated; RFQ requests 1-col."
+  },
+  {
+   "code": "PKG-024",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 600x600x500 match RFQ PKG-024",
+   "as_quoted": {
+    "amount": 8300,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-024",
+    "excerpt": "PKG-024 600x600x500 .................... Rs 8,300"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-025",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 750x550x500 match RFQ PKG-025",
+   "as_quoted": {
+    "amount": 8620,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-025",
+    "excerpt": "PKG-025 750x550x500 .................... Rs 8,620"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-026",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 800x600x550 match RFQ PKG-026",
+   "as_quoted": {
+    "amount": 10030,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-026",
+    "excerpt": "PKG-026 800x600x550 .................... Rs 10,030"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-027",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 800x600x600 match RFQ PKG-027",
+   "as_quoted": {
+    "amount": 15890,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-027",
+    "excerpt": "PKG-027 800x600x600 .................... Rs 15,890"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-028",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 900x700x600 match RFQ PKG-028",
+   "as_quoted": {
+    "amount": 19700,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-028",
+    "excerpt": "PKG-028 900x700x600 .................... Rs 19,700"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-029",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 1000x800x700 match RFQ PKG-029",
+   "as_quoted": {
+    "amount": 25490,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-029",
+    "excerpt": "PKG-029 1000x800x700 .................... Rs 25,490"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  },
+  {
+   "code": "PKG-030",
+   "match_confidence": 0.92,
+   "match_basis": "code and dimensions 1100x800x800 match RFQ PKG-030",
+   "as_quoted": {
+    "amount": 28570,
+    "currency": "INR",
+    "unit_raw": "per case"
+   },
+   "confidence": 0.9,
+   "source": {
+    "file": "corrugated_ratecard.jpg",
+    "locator": "5-ply/7-ply table, row PKG-030",
+    "excerpt": "PKG-030 1100x800x800 .................... Rs 28,570"
+   },
+   "conditions": [
+    "Rate is per case, not per piece as RFQ basis specifies",
+    "Standard case pack quantity is illegible/obscured in source note",
+    "FOR Bhiwandi, GST extra"
+   ],
+   "flags": [
+    "unit_mismatch_vs_rfq_basis",
+    "case_pack_qty_illegible"
+   ],
+   "note": null
+  }
+ ],
+ "unquoted": [],
+ "conflicts": [],
+ "vendor_terms": {
+  "payment": "PAYMENT 30 DAYS",
+  "freight": "FOR BHIWANDI, GST EXTRA",
+  "validity": null,
+  "discounts": [],
+  "other": [
+   "PLAIN+PRINTED BOTH OK",
+   "STD CASE PACK = [illegible/obscured numeric value] PCS"
+  ]
+ },
+ "questionnaire": [
+  {
+   "key": "iso",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  },
+  {
+   "key": "burst",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  },
+  {
+   "key": "fsc",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  },
+  {
+   "key": "lead",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  },
+  {
+   "key": "pay",
+   "answer": null,
+   "evidence": "NOTE: ... PAYMENT 30 DAYS.",
+   "confidence": 0.3
+  },
+  {
+   "key": "cap",
+   "answer": null,
+   "evidence": null,
+   "confidence": 0.0
+  }
+ ],
+ "reading_notes": "Source is a single photographed rate card (not a structured questionnaire response), so none of the RFQ questionnaire items (ISO, burst-strength certs, FSC, lead time, capacity headroom) are directly addressed anywhere in the document; all left null. A payment note 'PAYMENT 30 DAYS' appears near the bottom but is a general term statement, not a direct yes/no answer to the RFQ's '45-day payment terms accepted' question, and conflicts with the RFQ's 45-day basis — flagged as evidence only, not treated as an answer. Pricing basis differs from the RFQ throughout: 3-ply items (PKG-001 to PKG-012) are quoted 'RATE PER 100 PCS' and 5-ply/7-ply items (PKG-013 to PKG-030) are quoted 'RATE PER CASE', neither of which is 'per piece' as the RFQ basis requires; all amounts are reported as-quoted with no conversion performed. The note giving standard case-pack quantity ('STD CASE PACK = ___ PCS') has its numeric value blurred/obscured in the image, so a per-piece rate cannot be derived for any 5-ply/7-ply line — flagged case_pack_qty_illegible on those 18 lines. PKG-022's price cell is faded/blurred and not reliably legible; reported as null with needs_review. Header states 'FOR BHIWANDI, GST EXTRA' as a blanket condition on all prices; whether 'FOR' implies freight-inclusive delivered pricing to Bhiwandi DC (as the RFQ basis requests) or ex-works pricing is not clarified in the document and is reported verbatim rather than interpreted. Printed items (PKG-006, PKG-013, PKG-023) are marked 'PRINTED' but no print-color count is stated, whereas the RFQ specifies 1-col or 2-col for these lines."
+}

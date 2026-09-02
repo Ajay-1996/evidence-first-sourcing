@@ -1,0 +1,9 @@
+.venv/
+.env
+.env.local
+__pycache__/
+*.pyc
+data/traces.json
+clearcut_src/
+frontend/node_modules/
+.DS_Store

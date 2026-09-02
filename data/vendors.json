@@ -1,0 +1,51 @@
+{
+ "ALPHA": {
+  "name": "Alpha Packaging",
+  "files": [
+   "alpha_quote.xlsx"
+  ],
+  "contact": "Suresh Iyer",
+  "email": "rates@alphapackaging.in"
+ },
+ "BOXCO": {
+  "name": "BoxCo Containers",
+  "files": [
+   "boxco_quote.docx"
+  ],
+  "contact": "Meera Shah",
+  "email": "sales@boxco.co.in"
+ },
+ "PACKRT": {
+  "name": "PackRight Industries",
+  "files": [
+   "packright_quote.pdf"
+  ],
+  "contact": "Anil Deshpande",
+  "email": "quotes@packright.in"
+ },
+ "CORRUG": {
+  "name": "Corrugated Industries",
+  "files": [
+   "corrugated_ratecard.jpg"
+  ],
+  "contact": "Rajesh",
+  "email": "corrugatedind@gmail.com"
+ },
+ "GLOBAL": {
+  "name": "GlobalPack Corrugators",
+  "files": [
+   "globalpack_email.txt",
+   "globalpack_rates.csv"
+  ],
+  "contact": "Dinesh Mehta",
+  "email": "dinesh@globalpack.co"
+ },
+ "TEST": {
+  "name": "Test Supplier",
+  "files": [
+   "EC08_shakti_packaging_quote.xlsx"
+  ],
+  "contact": "You",
+  "email": "test@local"
+ }
+}

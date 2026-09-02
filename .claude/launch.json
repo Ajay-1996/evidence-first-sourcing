@@ -1,0 +1,25 @@
+{
+ "version": "0.0.1",
+ "configurations": [
+  {
+   "name": "api",
+   "runtimeExecutable": "/Users/ajayvenkatesh/Procurement/.venv/bin/uvicorn",
+   "runtimeArgs": [
+    "backend.main:app",
+    "--port",
+    "8014",
+    "--reload"
+   ],
+   "port": 8014
+  },
+  {
+   "name": "ui",
+   "runtimeExecutable": "bash",
+   "runtimeArgs": [
+    "-c",
+    "cd frontend && npx vite --port 5173"
+   ],
+   "port": 5173
+  }
+ ]
+}

@@ -1,0 +1,687 @@
+{
+ "vendor_id": "PACKRT",
+ "lines": [
+  {
+   "code": "PKG-001",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 200x150x100 3P)",
+   "as_quoted": {
+    "amount": 3.12,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-001 RSC 200x150x100 3P 3.12 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-002",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 240x180x120 3P)",
+   "as_quoted": {
+    "amount": 4.34,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-002 RSC 240x180x120 3P 4.34 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-003",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 300x200x150 3P)",
+   "as_quoted": {
+    "amount": 5.96,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-003 RSC 300x200x150 3P 5.96 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-004",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 300x250x200 3P)",
+   "as_quoted": {
+    "amount": 8.59,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-004 RSC 300x250x200 3P 8.59 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-005",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 350x250x200 3P)",
+   "as_quoted": {
+    "amount": 9.41,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-005 RSC 350x250x200 3P 9.41 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-006",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply + print match (RSC 400x300x250 3P-PRINT)",
+   "as_quoted": {
+    "amount": 13.12,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-006 RSC 400x300x250 3P-PRINT 13.12 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-007",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 250x200x150 3P)",
+   "as_quoted": {
+    "amount": 5.33,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-007 RSC 250x200x150 3P 5.33 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-008",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 450x350x300 3P)",
+   "as_quoted": {
+    "amount": 18.38,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-008 RSC 450x350x300 3P 18.38 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-009",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 400x400x300 3P)",
+   "as_quoted": {
+    "amount": 19.14,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-009 RSC 400x400x300 3P 19.14 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-010",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 350x300x250 3P)",
+   "as_quoted": {
+    "amount": 12.18,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-010 RSC 350x300x250 3P 12.18 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-011",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 500x400x350 3P)",
+   "as_quoted": {
+    "amount": 23.35,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-011 RSC 500x400x350 3P 23.35 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-012",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 300x300x300 3P)",
+   "as_quoted": {
+    "amount": 12.66,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-012 RSC 300x300x300 3P 12.66 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-013",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply + print match (RSC 400x300x300 5P-PRINT)",
+   "as_quoted": {
+    "amount": 23.48,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-013 RSC 400x300x300 5P-PRINT 23.48 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-014",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 450x350x350 5P)",
+   "as_quoted": {
+    "amount": 31.69,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-014 RSC 450x350x350 5P 31.69 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-015",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 500x400x400 5P)",
+   "as_quoted": {
+    "amount": 40.62,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-015 RSC 500x400x400 5P 40.62 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-016",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 550x450x400 5P)",
+   "as_quoted": {
+    "amount": 49.99,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-016 RSC 550x450x400 5P 49.99 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-017",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 600x400x400 5P)",
+   "as_quoted": {
+    "amount": 46.7,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-017 RSC 600x400x400 5P 46.70 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-018",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 600x500x450 5P)",
+   "as_quoted": {
+    "amount": 61.8,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-018 RSC 600x500x450 5P 61.80 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-019",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 450x450x400 5P)",
+   "as_quoted": {
+    "amount": 43.16,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-019 RSC 450x450x400 5P 43.16 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-020",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 500x500x450 5P)",
+   "as_quoted": {
+    "amount": 56.05,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-020 RSC 500x500x450 5P 56.05 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-021",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 650x500x450 5P)",
+   "as_quoted": {
+    "amount": 63.29,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-021 RSC 650x500x450 5P 63.29 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-022",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 700x500x500 5P)",
+   "as_quoted": {
+    "amount": 71.22,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-022 RSC 700x500x500 5P 71.22 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-023",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply + print match (RSC 550x550x500 5P-PRINT)",
+   "as_quoted": {
+    "amount": 68.2,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-023 RSC 550x550x500 5P-PRINT 68.20 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-024",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 600x600x500 5P)",
+   "as_quoted": {
+    "amount": 79.8,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-024 RSC 600x600x500 5P 79.80 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-025",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 750x550x500 5P)",
+   "as_quoted": {
+    "amount": 81.19,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-025 RSC 750x550x500 5P 81.19 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-026",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 800x600x550 5P)",
+   "as_quoted": {
+    "amount": 96.52,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-026 RSC 800x600x550 5P 96.52 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-027",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 800x600x600 7P)",
+   "as_quoted": {
+    "amount": 149.72,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-027 RSC 800x600x600 7P 149.72 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-028",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 900x700x600 7P)",
+   "as_quoted": {
+    "amount": 187.34,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-028 RSC 900x700x600 7P 187.34 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-029",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 1000x800x700 7P)",
+   "as_quoted": {
+    "amount": 247.02,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-029 RSC 1000x800x700 7P 247.02 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-030",
+   "match_confidence": 1.0,
+   "match_basis": "code + dimensions + ply match (RSC 1100x800x800 7P)",
+   "as_quoted": {
+    "amount": 284.0,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "packright_quote.pdf",
+    "locator": "page 1",
+    "excerpt": "PKG-030 RSC 1100x800x800 7P 284.00 *"
+   },
+   "conditions": [
+    "Ex-works Chakan; freight payable at actuals"
+   ],
+   "flags": [],
+   "note": null
+  }
+ ],
+ "unquoted": [],
+ "conflicts": [],
+ "vendor_terms": {
+  "payment": "45-day payment terms - accepted",
+  "freight": "Prices are ex-works Chakan. Freight payable at actuals.",
+  "validity": null,
+  "discounts": [
+   "A settlement discount of 2.5% applies to payments made within 10 days of invoice."
+  ],
+  "other": [
+   "Prices subject to revision should the kraft paper index vary beyond ±5% during the contract period."
+  ]
+ },
+ "questionnaire": [
+  {
+   "key": "iso",
+   "answer": "Yes, cert PRI-9917 valid to Nov 2027 (copy enclosed).",
+   "evidence": "ISO 9001:2015 - Yes, cert PRI-9917 valid to Nov 2027 (copy enclosed).",
+   "confidence": 0.95
+  },
+  {
+   "key": "burst",
+   "answer": "Enclosed for all quoted grades.",
+   "evidence": "Burst strength test certificates (IS 2771) - enclosed for all quoted grades.",
+   "confidence": 0.95
+  },
+  {
+   "key": "fsc",
+   "answer": "Yes, FSC-C121077.",
+   "evidence": "FSC chain of custody - Yes, FSC-C121077.",
+   "confidence": 0.95
+  },
+  {
+   "key": "lead",
+   "answer": "11 days",
+   "evidence": "Lead time - 11 days.",
+   "confidence": 0.95
+  },
+  {
+   "key": "pay",
+   "answer": "Accepted",
+   "evidence": "45-day payment terms - accepted.",
+   "confidence": 0.95
+  },
+  {
+   "key": "cap",
+   "answer": "approx 28%",
+   "evidence": "Capacity headroom - approx 28%.",
+   "confidence": 0.9
+  }
+ ],
+ "reading_notes": "All 30 RFX line codes (PKG-001 to PKG-030) are quoted with matching descriptions (dimensions, ply, print). Every unit price carries a '*' marking prices as ex-works Chakan with freight payable at actuals — this is a different basis than the RFX-stated 'Delivered (FOR Bhiwandi DC)', so the quoted amounts are not landed/delivered prices as requested; captured as a per-line condition, not applied to any amount. Two further footnotes apply across the whole price list rather than to any single line: (**) a 2.5% settlement discount for payment within 10 days of invoice, and (†) prices subject to revision if the kraft paper index moves beyond ±5% during the contract period — both captured under vendor_terms only, not applied to any amount. PDF text was clean/machine-readable with no OCR ambiguity."
+}

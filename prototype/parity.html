@@ -1,0 +1,1216 @@
+<title>Parity</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ---------- tokens: light (default) ---------- */
+:root{
+  --paper:#F6F5F1; --card:#FFFFFF; --card2:#F1EFE9; --card3:#EBE9E1;
+  --ink:#211F1A; --ink2:#5D5A51; --mut:#8B887C; --line:#E3E0D6; --line2:#D6D2C4;
+  --accent:#0E6072; --accent-ink:#0A4C5B; --accent-wash:#E0EDF0; --accent-wash2:#CFE3E8;
+  --on-accent:#FFFFFF;
+  --kraft:#A9834E; --kraft-wash:#F3ECDD;
+  --ok:#1B7A46; --ok-wash:#E2F1E7; --warn:#8F5A00; --warn-wash:#F6EDD8; --bad:#B3261E; --bad-wash:#F9E6E4;
+  --na:#6E6B60; --na-wash:#EDEBE3;
+  --v-SGP:#2a78d6; --v-MER:#eb6834; --v-KFT:#1baf7a; --v-SUN:#eda100; --v-APX:#e87ba4;
+  --chart-grid:#E1E0D9; --chart-axis:#c3c2b7;
+  --shadow:0 10px 30px rgba(33,31,26,.10),0 2px 6px rgba(33,31,26,.07);
+  --shadow-sm:0 1px 3px rgba(33,31,26,.08);
+  --focus:#0E6072;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#151410; --card:#1E1D18; --card2:#26241D; --card3:#2C2A22;
+    --ink:#ECE9DE; --ink2:#B6B2A4; --mut:#8B887C; --line:#3A382E; --line2:#474436;
+    --accent:#6BBCCD; --accent-ink:#8FD0DE; --accent-wash:#143741; --accent-wash2:#1B4653;
+    --on-accent:#0E2A31;
+    --kraft:#C09A63; --kraft-wash:#2E2818;
+    --ok:#72CE9D; --ok-wash:#183327; --warn:#E2B368; --warn-wash:#3A2E13; --bad:#F0938C; --bad-wash:#42211E;
+    --na:#A9A597; --na-wash:#2C2B24;
+    --v-SGP:#3987e5; --v-MER:#d95926; --v-KFT:#199e70; --v-SUN:#c98500; --v-APX:#d55181;
+    --chart-grid:#2c2c2a; --chart-axis:#4a483f;
+    --shadow:0 10px 30px rgba(0,0,0,.45),0 2px 6px rgba(0,0,0,.35);
+    --shadow-sm:0 1px 3px rgba(0,0,0,.4);
+    --focus:#6BBCCD;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#151410; --card:#1E1D18; --card2:#26241D; --card3:#2C2A22;
+  --ink:#ECE9DE; --ink2:#B6B2A4; --mut:#8B887C; --line:#3A382E; --line2:#474436;
+  --accent:#6BBCCD; --accent-ink:#8FD0DE; --accent-wash:#143741; --accent-wash2:#1B4653;
+  --on-accent:#0E2A31;
+  --kraft:#C09A63; --kraft-wash:#2E2818;
+  --ok:#72CE9D; --ok-wash:#183327; --warn:#E2B368; --warn-wash:#3A2E13; --bad:#F0938C; --bad-wash:#42211E;
+  --na:#A9A597; --na-wash:#2C2B24;
+  --v-SGP:#3987e5; --v-MER:#d95926; --v-KFT:#199e70; --v-SUN:#c98500; --v-APX:#d55181;
+  --chart-grid:#2c2c2a; --chart-axis:#4a483f;
+  --shadow:0 10px 30px rgba(0,0,0,.45),0 2px 6px rgba(0,0,0,.35);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.4);
+  --focus:#6BBCCD;
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:14px/1.5 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Archivo","IBM Plex Sans",system-ui,sans-serif;margin:0;text-wrap:balance}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
+input,textarea{font:inherit;color:inherit}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.num{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:.93em}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- shell ---------- */
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 22px;border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:40}
+.wordmark{display:flex;align-items:center;gap:9px;font-family:"Archivo";font-weight:700;font-size:17px;letter-spacing:.2px}
+.wordmark .lgo{width:22px;height:22px;border-radius:6px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-size:12px;font-weight:700}
+.crumb{color:var(--ink2);font-size:13px;display:flex;align-items:center;gap:7px;min-width:0}
+.crumb b{color:var(--ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crumb .sep{color:var(--mut)}
+.topbar .grow{flex:1}
+.badge-proto{font-family:"IBM Plex Mono";font-size:10.5px;letter-spacing:.12em;padding:4px 8px;border:1px dashed var(--kraft);color:var(--kraft);border-radius:6px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:8px;font-weight:600;font-size:13px;border:1px solid var(--line2);background:var(--card);color:var(--ink);transition:background .12s,border-color .12s;box-shadow:var(--shadow-sm)}
+.btn:hover{background:var(--card2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.ghost{border-color:transparent;background:transparent;box-shadow:none}
+.btn.ghost:hover{background:var(--card2)}
+.btn.small{padding:4px 9px;font-size:12px;border-radius:7px}
+
+/* stepper */
+.stepper{display:flex;gap:6px;padding:12px 22px 0;max-width:1440px;margin:0 auto;overflow-x:auto}
+.step{flex:1;min-width:150px;text-align:left;padding:9px 12px 10px;border:1px solid var(--line);border-bottom-width:3px;border-radius:10px 10px 0 0;background:var(--card2);color:var(--ink2);transition:background .12s}
+.step:hover{background:var(--card)}
+.step .s-name{display:flex;align-items:center;gap:7px;font-family:"Archivo";font-weight:600;font-size:13.5px;letter-spacing:.02em;color:var(--ink)}
+.step .s-num{font-family:"IBM Plex Mono";font-size:10px;color:var(--mut)}
+.step .s-sub{font-size:11.5px;margin-top:2px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step.done{border-bottom-color:var(--ok)}
+.step.attn{border-bottom-color:var(--warn)}
+.step.active{background:var(--card);border-color:var(--accent);border-bottom-color:var(--accent);box-shadow:var(--shadow-sm)}
+.step.active .s-name{color:var(--accent-ink)}
+.step .tick{color:var(--ok);font-size:12px}
+.step .tick.warn{color:var(--warn)}
+
+.stage-wrap{max-width:1440px;margin:0 auto;padding:18px 22px 80px}
+.screen{display:none}
+.screen.on{display:block;animation:fadein .18s ease}
+@keyframes fadein{from{opacity:.4;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+/* generic cards & layout */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-sm)}
+.pagehead{display:flex;align-items:flex-end;gap:14px;margin:6px 2px 14px}
+.pagehead h2{font-size:19px;font-weight:700}
+.pagehead .sub{color:var(--ink2);font-size:13px;max-width:70ch}
+.pagehead .grow{flex:1}
+.split{display:grid;grid-template-columns:minmax(340px,5fr) minmax(420px,7fr);gap:16px;align-items:start}
+@media(max-width:980px){.split{grid-template-columns:1fr}}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;line-height:1.6;white-space:nowrap}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.ok{background:var(--ok-wash);color:var(--ok)}
+.chip.warn{background:var(--warn-wash);color:var(--warn)}
+.chip.bad{background:var(--bad-wash);color:var(--bad)}
+.chip.na{background:var(--na-wash);color:var(--na)}
+.chip.acc{background:var(--accent-wash);color:var(--accent-ink)}
+.chip.kraft{background:var(--kraft-wash);color:var(--kraft)}
+.chip.click{cursor:pointer;border:1px solid transparent}
+.chip.click:hover{border-color:currentColor}
+.vdot{width:8px;height:8px;border-radius:2px;display:inline-block;flex:none}
+
+/* tables */
+.tbl-scroll{overflow-x:auto;border-radius:12px}
+table.tbl{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.tbl th{font-family:"Archivo";font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line2);background:var(--card2);position:sticky;top:0;z-index:2}
+.tbl td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.r,.tbl th.r{text-align:right}
+.tbl tbody tr:hover td{background:color-mix(in srgb,var(--accent-wash) 35%,transparent)}
+
+/* comparison matrix */
+.matrix-scroll{overflow:auto;max-height:calc(100vh - 320px);border-radius:12px;position:relative}
+table.matrix{border-collapse:separate;border-spacing:0;font-size:12.5px;min-width:1080px;width:100%}
+.matrix th{position:sticky;top:0;z-index:5;background:var(--card2);border-bottom:1px solid var(--line2);padding:0;text-align:left}
+.matrix th.itemcol,.matrix td.itemcol{position:sticky;left:0;z-index:4;background:var(--card);min-width:230px;max-width:250px;border-right:1px solid var(--line2)}
+.matrix th.itemcol{z-index:6;background:var(--card2)}
+.matrix td{border-bottom:1px solid var(--line);padding:0}
+.matrix .vhead{padding:9px 10px 7px;display:block}
+.matrix .vhead .vh-name{display:flex;align-items:center;gap:6px;font-family:"Archivo";font-weight:600;font-size:12.5px;color:var(--ink)}
+.matrix .vhead .vh-meta{font-size:10.5px;color:var(--ink2);margin-top:2px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.covbar{height:3px;border-radius:2px;background:var(--line);overflow:hidden;margin-top:5px}
+.covbar i{display:block;height:100%;border-radius:2px}
+.mx-item{padding:6px 10px}
+.mx-item .m-code{font-family:"IBM Plex Mono";font-size:10.5px;color:var(--mut)}
+.mx-item .m-desc{font-weight:500;font-size:12px;line-height:1.35}
+.mx-item .m-qty{font-size:10.5px;color:var(--ink2)}
+.cell{display:block;width:100%;text-align:right;padding:7px 10px;position:relative;border-left:1px solid var(--line);min-height:100%}
+.cell:hover{background:var(--accent-wash)}
+.cell .c-val{font-family:"IBM Plex Mono";font-variant-numeric:tabular-nums;font-size:12.5px;font-weight:500}
+.cell .c-orig{display:block;font-size:10px;color:var(--mut);font-family:"IBM Plex Mono"}
+.cell .c-flag{position:absolute;top:4px;left:5px;font-size:9px;line-height:1;display:flex;gap:2px}
+.cell.best .c-val{color:var(--ok);font-weight:600}
+.cell.best::after{content:"";position:absolute;inset:2px;border-radius:6px;border:1px solid var(--ok);opacity:.45;pointer-events:none}
+.cell.assumed{background:color-mix(in srgb,var(--warn-wash) 45%,transparent)}
+.cell.review{background:color-mix(in srgb,var(--bad-wash) 55%,transparent)}
+.cell.missing{color:var(--mut)}
+.cell.missing .c-val{color:var(--mut);font-weight:400}
+.cell.excluded{opacity:.38}
+.fmark{display:inline-block;width:13px;height:13px;border-radius:4px;font-size:8.5px;font-weight:700;line-height:13px;text-align:center;font-family:"IBM Plex Mono"}
+.fmark.u{background:var(--warn-wash);color:var(--warn)}
+.fmark.fx{background:var(--accent-wash);color:var(--accent-ink)}
+.fmark.d{background:var(--warn-wash);color:var(--warn)}
+.fmark.a{background:var(--warn-wash);color:var(--warn)}
+.fmark.q{background:var(--bad-wash);color:var(--bad)}
+.fmark.s{background:var(--kraft-wash);color:var(--kraft)}
+.matrix tfoot td{position:sticky;bottom:0;background:var(--card2);border-top:1px solid var(--line2);font-weight:600;z-index:4}
+.matrix tfoot td.itemcol{z-index:5}
+
+/* popover */
+.pop{position:fixed;z-index:90;width:330px;background:var(--card);border:1px solid var(--line2);border-radius:12px;box-shadow:var(--shadow);padding:0;font-size:12.5px;animation:fadein .12s ease}
+.pop .p-head{padding:10px 13px 8px;border-bottom:1px solid var(--line)}
+.pop .p-body{padding:10px 13px}
+.pop .p-row{display:flex;justify-content:space-between;gap:10px;padding:2.5px 0}
+.pop .p-row .k{color:var(--ink2)}
+.pop .p-chain{margin:8px 0 2px;border-left:2px solid var(--line2);padding-left:10px;display:flex;flex-direction:column;gap:6px}
+.pop .p-chain .st{position:relative}
+.pop .p-chain .st::before{content:"";position:absolute;left:-13.5px;top:5px;width:5px;height:5px;border-radius:50%;background:var(--mut)}
+.pop .p-chain .st.warn::before{background:var(--warn)}
+.pop .p-src{background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-family:"IBM Plex Mono";font-size:11px;color:var(--ink2);margin-top:8px;white-space:pre-wrap}
+.pop .p-actions{display:flex;gap:8px;padding:9px 13px;border-top:1px solid var(--line)}
+
+/* analyst panel */
+.cmp-layout{display:grid;grid-template-columns:1fr;gap:14px}
+.cmp-layout.with-analyst{grid-template-columns:minmax(0,1fr) 420px}
+@media(max-width:1150px){.cmp-layout.with-analyst{grid-template-columns:1fr}}
+.analyst{display:flex;flex-direction:column;max-height:calc(100vh - 250px);min-height:520px;position:sticky;top:120px}
+.analyst .a-head{display:flex;align-items:center;gap:9px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.analyst .a-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+.analyst .a-foot{border-top:1px solid var(--line);padding:10px 12px}
+.a-input{display:flex;gap:8px;align-items:center;background:var(--card2);border:1px solid var(--line2);border-radius:10px;padding:8px 11px}
+.a-input input{flex:1;background:none;border:0;outline:0;font-size:13px;color:var(--ink)}
+.a-input input::placeholder{color:var(--mut)}
+.msg-u{align-self:flex-end;max-width:88%;background:var(--accent-wash);color:var(--ink);border-radius:12px 12px 3px 12px;padding:8px 12px;font-size:13px}
+.msg-a{align-self:stretch;background:var(--card2);border:1px solid var(--line);border-radius:3px 12px 12px 12px;padding:11px 13px;font-size:13px}
+.msg-a .a-title{font-family:"Archivo";font-weight:600;font-size:12.5px;display:flex;gap:7px;align-items:center;margin-bottom:6px}
+.msg-a p{margin:6px 0}
+.msg-a table.tbl{font-size:12px;background:var(--card);border-radius:8px;overflow:hidden}
+.msg-a .tbl th{position:static}
+.basis{margin-top:9px;border-top:1px dashed var(--line2);padding-top:7px;font-size:11px;color:var(--ink2)}
+.basis b{color:var(--ink2)}
+.sugg{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.sugg button{font-size:11.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);background:var(--card);color:var(--accent-ink);font-weight:500}
+.sugg button:hover{background:var(--accent-wash)}
+.thinking{display:inline-flex;gap:4px;padding:10px 12px}
+.thinking i{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:blink 1s infinite}
+.thinking i:nth-child(2){animation-delay:.18s}.thinking i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,70%,100%{opacity:.25}35%{opacity:1}}
+
+/* chart */
+.chart-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px}
+.chart-card .ch-title{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);font-family:"Archivo";font-weight:600;margin-bottom:6px}
+
+/* tabs */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line2);margin-bottom:0;padding:0 6px}
+.tab{padding:9px 14px;font-weight:600;font-size:13px;color:var(--ink2);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--accent-ink);border-bottom-color:var(--accent)}
+.tab .cnt{font-family:"IBM Plex Mono";font-size:10.5px;background:var(--card3);border-radius:999px;padding:1px 6px;margin-left:5px;color:var(--ink2)}
+.tab.on .cnt{background:var(--accent-wash);color:var(--accent-ink)}
+
+/* drawer + modal + toast */
+.scrim{position:fixed;inset:0;background:rgba(20,18,12,.45);z-index:70;animation:fadein .15s ease}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(1060px,94vw);background:var(--paper);z-index:80;box-shadow:var(--shadow);display:flex;flex-direction:column;animation:slidein .2s ease}
+@keyframes slidein{from{transform:translateX(30px);opacity:.5}to{transform:none;opacity:1}}
+.drawer .d-head{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+.drawer .d-body{flex:1;overflow-y:auto;padding:18px 20px}
+.modal{position:fixed;z-index:80;inset:0;display:grid;place-items:center;padding:24px}
+.modal .m-card{width:min(860px,94vw);max-height:88vh;overflow-y:auto;background:var(--card);border:1px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);animation:fadein .15s ease}
+.toast-wrap{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:95;display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{background:var(--ink);color:var(--paper);border-radius:10px;padding:9px 16px;font-size:13px;font-weight:500;box-shadow:var(--shadow);animation:fadein .18s ease}
+
+/* draft screen */
+.chatpane{display:flex;flex-direction:column;gap:10px;padding:16px;max-height:calc(100vh - 260px);overflow-y:auto}
+.cb{max-width:92%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.55}
+.cb.user{align-self:flex-end;background:var(--accent-wash);border-radius:12px 12px 3px 12px}
+.cb.ai{align-self:flex-start;background:var(--card2);border:1px solid var(--line);border-radius:3px 12px 12px 12px}
+.cb .who{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);font-family:"Archivo";font-weight:600;margin-bottom:3px}
+.cb .act{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.docpane{padding:0;max-height:calc(100vh - 260px);overflow-y:auto}
+.doc-sec{padding:14px 18px;border-bottom:1px solid var(--line)}
+.doc-sec:last-child{border-bottom:0}
+.doc-sec .ds-head{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.doc-sec .ds-head h4{font-size:13px;font-weight:600;letter-spacing:.02em}
+.doc-sec.fresh{background:color-mix(in srgb,var(--accent-wash) 30%,transparent);box-shadow:inset 3px 0 0 var(--accent)}
+.kv{display:grid;grid-template-columns:170px 1fr;gap:4px 14px;font-size:12.5px}
+.kv .k{color:var(--ink2)}
+.qitem{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:12.5px}
+.qitem:last-child{border-bottom:0}
+.qitem .qn{font-family:"IBM Plex Mono";font-size:10.5px;color:var(--mut);padding-top:1px}
+
+/* invite screen */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.vcard{padding:13px 15px}
+.vcard .vc-top{display:flex;align-items:center;gap:9px}
+.vcard .vc-name{font-family:"Archivo";font-weight:600;font-size:14px}
+.vcard .vc-mail{font-family:"IBM Plex Mono";font-size:11px;color:var(--ink2)}
+.timeline{display:flex;gap:3px;margin:10px 0 6px}
+.timeline .td{flex:1;height:18px;border-radius:4px;background:var(--card2);border:1px solid var(--line);position:relative;font-size:8.5px;color:var(--mut);display:grid;place-items:center;font-family:"IBM Plex Mono"}
+.timeline .td.sent{background:var(--accent-wash);border-color:var(--accent-wash2);color:var(--accent-ink)}
+.timeline .td.got{background:var(--ok-wash);border-color:var(--ok);color:var(--ok);font-weight:700}
+.timeline .td.nudge{background:var(--warn-wash);border-color:var(--warn-wash);color:var(--warn)}
+
+/* responses screen */
+.filetile{width:40px;height:48px;border-radius:6px;border:1px solid var(--line2);display:grid;place-items:center;font-family:"IBM Plex Mono";font-size:9.5px;font-weight:700;position:relative;flex:none;background:var(--card2)}
+.filetile::before{content:"";position:absolute;top:0;right:0;border-style:solid;border-width:0 10px 10px 0;border-color:transparent var(--paper) transparent transparent}
+.ft-xlsx{color:#1B7A46}.ft-pdf{color:#B3261E}.ft-docx{color:#2a78d6}.ft-jpg{color:var(--kraft)}.ft-eml{color:var(--ink2)}
+.resp-row{display:grid;grid-template-columns:auto 1.3fr 1fr 1fr auto;gap:14px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.resp-row:hover{background:var(--card2)}
+.resp-row:last-child{border-bottom:0}
+.conf-strip{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--card3);margin-top:5px;max-width:220px}
+.conf-strip i{height:100%}
+.q-item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);align-items:start}
+.q-item.res{opacity:.62}
+.q-item .qi-title{font-weight:600;font-size:13px}
+.q-item .qi-sub{font-size:12px;color:var(--ink2);margin-top:2px}
+
+/* facsimiles */
+.fax{border:1px solid var(--line2);border-radius:10px;background:var(--card2);padding:14px;overflow:auto;max-height:480px}
+.fax-sheet{background:#fff;color:#1a1a1a;border:1px solid #cfcfcf;font-family:"IBM Plex Mono";font-size:10.5px;min-width:430px}
+.fax-sheet .fr{display:grid;grid-template-columns:34px 1.6fr .8fr .8fr .9fr;border-bottom:1px solid #e3e3e3}
+.fax-sheet .fr>div{padding:3px 6px;border-right:1px solid #e3e3e3;white-space:nowrap;overflow:hidden}
+.fax-sheet .fr.hd>div{background:#f0f0e6;font-weight:700}
+.fax-pdf{background:#fff;color:#222;padding:22px 26px;font-family:Georgia,serif;font-size:12px;min-width:420px;line-height:1.5}
+.fax-doc{background:#fff;color:#222;padding:22px 26px;font-family:"Calibri","Segoe UI",sans-serif;font-size:12.5px;min-width:420px;line-height:1.6}
+.fax-photo-stage{background:linear-gradient(135deg,#57534a,#3d3a33);padding:26px;display:grid;place-items:center;border-radius:10px}
+.fax-photo{transform:rotate(-4.5deg) perspective(700px) rotateY(4deg);box-shadow:0 14px 30px rgba(0,0,0,.5);background:#E8DCC3;color:#33291a;padding:16px 20px;font-family:"Courier New",monospace;font-size:11px;filter:contrast(.92) brightness(.97);min-width:330px}
+.fax-photo .ph-tbl{border-collapse:collapse;width:100%}
+.fax-photo .ph-tbl td,.fax-photo .ph-tbl th{border:1px solid #a08d67;padding:2px 7px;text-align:left}
+.blurcell{filter:blur(2.6px);opacity:.75}
+.fax-eml{background:#fff;color:#222;padding:16px 20px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;min-width:400px}
+.fax-eml .eh{font-family:"IBM Plex Mono";font-size:11px;color:#666;border-bottom:1px solid #e5e5e5;padding-bottom:8px;margin-bottom:10px}
+.hl-src{outline:2px solid var(--accent);outline-offset:1px;border-radius:3px;background:color-mix(in srgb,var(--accent-wash) 70%,transparent)}
+.xfield{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:8px 11px;border:1px solid var(--line);border-radius:9px;margin-bottom:7px;cursor:pointer;background:var(--card)}
+.xfield:hover{border-color:var(--accent)}
+.xfield .xf-k{font-size:12px;color:var(--ink2)}
+.xfield .xf-v{font-family:"IBM Plex Mono";font-size:12px;font-weight:500;text-align:right}
+.xfield .xf-note{grid-column:1/-1;font-size:11px;color:var(--ink2)}
+
+/* award screen */
+.scen{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;margin-bottom:16px}
+.scard{padding:15px 16px;position:relative;cursor:pointer;border-width:1.5px}
+.scard:hover{border-color:var(--accent)}
+.scard.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash)}
+.scard .sc-tag{font-size:10px;letter-spacing:.1em;font-family:"Archivo";font-weight:700;text-transform:uppercase;color:var(--mut)}
+.scard .sc-name{font-family:"Archivo";font-weight:700;font-size:15px;margin:3px 0 2px}
+.scard .sc-amt{font-family:"IBM Plex Mono";font-size:21px;font-weight:600;margin:8px 0 2px}
+.scard .sc-note{font-size:11.5px;color:var(--ink2)}
+.scard .sc-delta{font-size:11.5px;font-weight:600}
+.memo{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:26px 30px;font-size:13px;max-width:820px}
+.memo h3{font-size:16px;margin-bottom:2px}
+.memo .m-meta{font-family:"IBM Plex Mono";font-size:11px;color:var(--ink2);margin-bottom:14px}
+.memo h5{font-family:"Archivo";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin:16px 0 6px}
+.memo p{margin:6px 0}
+.audit li{margin:4px 0;font-size:12.5px}
+.signrow{display:flex;gap:14px;margin-top:18px}
+.signbox{flex:1;border:1px dashed var(--line2);border-radius:8px;padding:10px 12px;font-size:11.5px;color:var(--ink2)}
+
+/* demo drawer */
+.demo-step{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);align-items:start}
+.demo-step .dn{font-family:"IBM Plex Mono";font-size:11px;color:var(--kraft);font-weight:600;padding-top:2px}
+.demo-step b{font-size:13.5px}
+.demo-step p{margin:3px 0 0;font-size:12.5px;color:var(--ink2)}
+
+.footnote{margin-top:26px;text-align:center;color:var(--mut);font-size:11.5px}
+.footnote .mono{font-size:10.5px}
+</style>
+<header class="topbar">
+  <div class="wordmark"><span class="lgo">≡</span>Parity</div>
+  <div class="crumb"><span>Events</span><span class="sep">/</span><b>FY27 Corrugated Packaging — Annual Rate Contract</b><span class="chip acc" id="spend-chip"></span></div>
+  <div class="grow"></div>
+  <span class="badge-proto">UX PROTOTYPE · DATA FABRICATED · ANALYST SCRIPTED</span>
+  <button class="btn small" id="btn-demo">Demo script</button>
+</header>
+<nav class="stepper" id="stepper" aria-label="RFQ stages"></nav>
+<main class="stage-wrap">
+  <section class="screen" id="scr-draft"></section>
+  <section class="screen" id="scr-invite"></section>
+  <section class="screen" id="scr-responses"></section>
+  <section class="screen" id="scr-compare"></section>
+  <section class="screen" id="scr-award"></section>
+  <p class="footnote">Parity — UX prototype for the Aerchain product assignment · every number on this page is computed at runtime from the fabricated vendor quotes, not typed into the layout<br><span class="mono">In the working build, extraction, normalization and the analyst run on live AI loops; here they are pre-computed and scripted.</span></p>
+</main>
+<div id="overlay-root"></div>
+<div class="toast-wrap" id="toasts"></div>
+
+<script>
+"use strict";
+/* ================= seeded jitter ================= */
+function hash32(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function jit(key,amp){const h=hash32(key);const r=(h%10000)/10000;return 1+(r*2-1)*amp}
+
+/* ================= line items ================= */
+/* [code, L,W,H (mm), ply, combined gsm, print, qty/month, newFY27] */
+const SKU_RAW=[
+["PKG-001",200,150,100,3,390,"",9000,0],
+["PKG-002",240,180,120,3,400,"",8000,0],
+["PKG-003",300,200,150,3,400,"",7500,0],
+["PKG-004",300,250,200,3,410,"",6200,0],
+["PKG-005",350,250,200,3,410,"",7000,0],
+["PKG-006",400,300,250,3,420,"1c",6500,0],
+["PKG-007",250,200,150,3,395,"",4000,0],
+["PKG-008",450,350,300,3,430,"",3600,0],
+["PKG-009",400,400,300,3,430,"",3000,0],
+["PKG-010",350,300,250,3,415,"",4500,0],
+["PKG-011",500,400,350,3,435,"",2400,0],
+["PKG-012",300,300,300,3,420,"",3300,0],
+["PKG-013",400,300,300,5,620,"2c",5000,0],
+["PKG-014",450,350,350,5,640,"",4500,0],
+["PKG-015",500,400,400,5,650,"",4200,0],
+["PKG-016",550,450,400,5,660,"",3600,0],
+["PKG-017",600,400,400,5,660,"",3900,0],
+["PKG-018",600,500,450,5,680,"",2800,0],
+["PKG-019",450,450,400,5,650,"",3400,0],
+["PKG-020",500,500,450,5,670,"",2500,0],
+["PKG-021",650,500,450,5,680,"",2100,0],
+["PKG-022",700,500,500,5,690,"",1700,0],
+["PKG-023",550,550,500,5,680,"1c",2000,0],
+["PKG-024",600,600,500,5,690,"",1400,1],
+["PKG-025",750,550,500,5,700,"",1300,0],
+["PKG-026",800,600,550,5,700,"",1100,1],
+["PKG-027",800,600,600,7,940,"",700,0],
+["PKG-028",900,700,600,7,950,"",550,0],
+["PKG-029",1000,800,700,7,960,"",420,0],
+["PKG-030",1100,800,800,7,980,"",350,1],
+];
+const SKUS=SKU_RAW.map(r=>{
+  const [code,L,W,H,ply,gsm,print,qty,nu]=r;
+  const areaM2=((2*(L+W)+40)/1000)*((W+H+30)/1000);
+  const wKg=areaM2*gsm*1.05/1000;
+  return {code,L,W,H,ply,gsm,print,qty,isNew:!!nu,wKg,
+    desc:`RSC ${L}×${W}×${H}, ${ply}-ply`+(print?`, printed ${print==="1c"?"1-col":"2-col"}`:", plain"),
+    spec:`${ply}-ply, ${gsm} gsm combined${print?", flexo "+(print==="1c"?"1-colour":"2-colour"):""}`};
+});
+const BYCODE=Object.fromEntries(SKUS.map(s=>[s.code,s]));
+const FX_USD=83.60, FX_DATE="28 Aug 2026 · RBI reference rate";
+const FREIGHT_EST=2.1; /* ₹/kg lane estimate Vapi→Bhiwandi */
+const LY_FACTOR=0.96;  /* FY26 awarded 7-ply prices vs current base */
+
+/* ================= vendors ================= */
+const VENDORS=[
+ {id:"SGP",name:"Shree Ganesh Packwell",city:"Bhiwandi",contact:"rates@sgpackwell.in",fmt:"xlsx",fmtLabel:"Excel workbook (own format)",recvDay:2,
+  story:"Clean numbers in their own template — prices per 100 pieces, two lines missing the unit header."},
+ {id:"MER",name:"Meridian Containers",city:"Chennai",contact:"quotes@meridiancontainers.com",fmt:"pdf",fmtLabel:"PDF on letterhead",recvDay:4,
+  story:"Per-piece pricing; two export lines quoted in USD; an 8% early-payment discount buried in a footnote."},
+ {id:"KFT",name:"Kraftedge Industries",city:"Pune",contact:"sales@kraftedge.co.in",fmt:"docx",fmtLabel:"Word document, commercials in prose",recvDay:6,
+  story:"Rates inside paragraphs, MOQs mid-sentence, and a quiet spec change on three lines."},
+ {id:"SUN",name:"Sundaram Packaging",city:"Coimbatore",contact:"sundarampack@gmail.com",fmt:"jpg",fmtLabel:"Photo of a printed rate card",recvDay:8,
+  story:"₹/kg rate card photographed at an angle. Four cells hard to read; plain boxes only."},
+ {id:"APX",name:"Apex Corrugators",city:"Vapi",contact:"pravin.apex@gmail.com",fmt:"eml",fmtLabel:"Two-line email, no attachment",recvDay:9,
+  story:"“₹42/kg for the 5-ply, 38 for the 3-ply, rest same as last year, freight extra.”"},
+];
+const VBY=Object.fromEntries(VENDORS.map(v=>[v.id,v]));
+
+/* per-vendor pricing behaviour */
+const KGBASE={3:37.5,5:41.0,7:45.0};
+const SUN_KG={3:39.4,5:40.1,7:44.6};
+const APX_KG={3:38.0,5:42.0};
+const SGP_F={3:0.958,5:1.005,7:1.035};
+const MER_F={3:1.012,5:1.008,7:0.968};
+const MER_SKIP=["PKG-001","PKG-007"];
+const MER_USD=["PKG-029","PKG-030"];
+const KFT_DEV=["PKG-004","PKG-009","PKG-015"];
+const SGP_UNIT_INFER=["PKG-005","PKG-011"];
+const SUN_ILLEG_PEND=["PKG-017","PKG-022"];
+const SUN_ILLEG_DONE=["PKG-020","PKG-025"];
+
+const r2=x=>Math.round(x*100)/100;
+
+/* build one quote cell; returns null if not quoted */
+function buildCell(v,s){
+  const base=KGBASE[s.ply]*s.wKg;
+  if(v==="SGP"){
+    const norm0=base*SGP_F[s.ply]*jit("SGP"+s.code,0.028);
+    const per100=Math.round(norm0*100/5)*5;
+    const norm=per100/100;
+    const inferred=SGP_UNIT_INFER.includes(s.code);
+    return {norm:r2(norm),orig:`₹${per100.toLocaleString("en-IN")} / 100 pcs`,
+      state:inferred?"review":"ok",flags:inferred?["u","q"]:["u"],conf:inferred?0.62:0.97,
+      transforms:[{t:`÷ 100 → ₹${r2(norm)} per piece`,warn:false}].concat(inferred?[{t:"Unit header blank in sheet — “per 100 pcs” inferred from the 28 labelled rows",warn:true}]:[]),
+      src:{kind:"xlsx",ref:`FY27_rates_SGP.xlsx · sheet “Rates” · row ${SKUS.indexOf(s)+2}`,snippet:`${s.code} | ${s.desc} | ${per100.toLocaleString("en-IN")}${inferred?" |  (unit column empty)":" | per 100"}`},
+      note:inferred?"Unit inferred — confirm before award":null};
+  }
+  if(v==="MER"){
+    if(MER_SKIP.includes(s.code))return {missing:true,reason:"Not quoted — “below our minimum board size”"};
+    const norm0=base*MER_F[s.ply]*jit("MER"+s.code,0.026);
+    if(MER_USD.includes(s.code)){
+      const usd=r2(norm0/FX_USD);
+      const norm=r2(usd*FX_USD);
+      return {norm,orig:`US$ ${usd.toFixed(2)} / pc`,state:"ok",flags:["fx"],conf:0.95,
+        transforms:[{t:`× ₹${FX_USD.toFixed(2)}/USD → ₹${norm}`,warn:false},{t:`Rate: ${FX_DATE} (editable event-wide)`,warn:false}],
+        src:{kind:"pdf",ref:"Meridian_Quote_MC-2417.pdf · p.2, export table",snippet:`${s.code}  ${s.desc}   US$ ${usd.toFixed(2)}/pc  (export grade)`},note:"Quoted in USD — converted"};
+    }
+    const norm=Math.round(norm0*20)/20;
+    return {norm:r2(norm),orig:`₹${norm.toFixed(2)} / pc`,state:"ok",flags:[],conf:0.96,
+      transforms:[],src:{kind:"pdf",ref:"Meridian_Quote_MC-2417.pdf · p.1, rate table",snippet:`${s.code}  ${s.desc}   ₹ ${norm.toFixed(2)} per piece, FOR Bhiwandi`},
+      note:null};
+  }
+  if(v==="KFT"){
+    const dev=KFT_DEV.includes(s.code);
+    const f=dev?1.028:1.055;
+    const norm=Math.round(base*f*jit("KFT"+s.code,0.024)*10)/10;
+    const moq=s.qty<3000?5000:null;
+    return {norm:r2(norm),orig:`₹${norm.toFixed(2)} / pc`,state:dev?"assumed":"ok",flags:dev?["s"]:[],conf:0.9,
+      transforms:dev?[{t:"Offers 140 gsm fluting against the 150 gsm spec — treated as a deviation, not a match",warn:true}]:[],
+      src:{kind:"docx",ref:"Kraftedge_Commercial_Offer.docx · ¶ "+(s.ply)+"-ply section",snippet:dev?`“…for ${s.code} we propose our standard 140 gsm fluting construction at Rs ${norm.toFixed(2)} per box…”`:`“…${s.code} at Rs ${norm.toFixed(2)} per box, delivered…${moq?` minimum order ${moq.toLocaleString("en-IN")} boxes per lot…`:""}”`},
+      note:dev?"Spec deviation — needs buyer acceptance":(moq?`MOQ ${moq.toLocaleString("en-IN")}/lot`:null),moq};
+  }
+  if(v==="SUN"){
+    if(s.print)return {missing:true,reason:"Not quoted — plain boxes only, no printing line"};
+    const rate=SUN_KG[s.ply];
+    const norm=r2(s.wKg*rate*jit("SUN"+s.code,0.006));
+    const pend=SUN_ILLEG_PEND.includes(s.code),done=SUN_ILLEG_DONE.includes(s.code);
+    const st=pend?"review":"assumed";
+    const tr=[{t:`₹${rate.toFixed(1)}/kg × ${(s.wKg).toFixed(3)} kg est. box weight → ₹${norm}`,warn:false},
+              {t:"Weight derived from dimensions + board grammage (±4%) — Sundaram prices by weight",warn:true}];
+    if(pend)tr.push({t:"Rate cell illegible in the photo — reading unconfirmed",warn:true});
+    if(done)tr.push({t:"Illegible cell — buyer confirmed reading on call, 26 Aug",warn:false});
+    return {norm:pend?null:norm,pendingVal:norm,orig:`₹${rate.toFixed(1)} / kg`,state:done?"ok":st,
+      flags:pend?["d","q"]:["d"],conf:pend?0.34:(done?0.92:0.83),transforms:tr,
+      src:{kind:"jpg",ref:"IMG_20260827_1132.jpg · rate card, "+s.ply+"-ply row",snippet:pend?`[ ${s.ply}-PLY … ₹ 4░.░ / kg ]  ← blurred`:`${s.ply}-PLY (PLAIN)   ₹ ${rate.toFixed(1)} / KG`},
+      note:pend?"Illegible in photo — confirm or fix":"Priced by weight, not per piece"};
+  }
+  if(v==="APX"){
+    if(s.ply===7){
+      if(s.isNew)return {missing:true,reason:"“Same as last year” — no FY26 price exists for this new SKU"};
+      const norm=r2(KGBASE[7]*s.wKg*LY_FACTOR*jit("APX"+s.code,0.01));
+      return {norm,orig:"“rest same as last year”",state:"assumed",flags:["a","q"],conf:0.55,
+        transforms:[{t:`Pulled ₹${norm} from the FY26 award record for ${s.code}`,warn:true},{t:"Vendor has not restated the price — confirm before any award",warn:true}],
+        src:{kind:"eml",ref:"Email · Pravin (Apex) · 30 Aug, 21:41",snippet:"…rest same as last year, freight extra."},
+        note:"FY26 reference price — unconfirmed"};
+    }
+    const kg=APX_KG[s.ply];
+    const eff=kg+FREIGHT_EST;
+    const norm=r2(s.wKg*eff*jit("APX"+s.code,0.008));
+    return {norm,orig:`₹${kg.toFixed(0)} / kg + freight`,state:"assumed",flags:["d","a"],conf:0.7,
+      transforms:[{t:`₹${kg}/kg × ${(s.wKg).toFixed(3)} kg est. box weight`,warn:false},
+        {t:`“Freight extra” ≠ required Delivered basis — added ₹${FREIGHT_EST.toFixed(1)}/kg (Vapi→Bhiwandi lane, last 6 mo)`,warn:true}],
+      src:{kind:"eml",ref:"Email · Pravin (Apex) · 30 Aug, 21:41",snippet:`₹42/kg for the 5-ply, 38 for the 3-ply, rest same as last year, freight extra.`},
+      note:"Freight normalised on an estimate"};
+  }
+}
+
+/* ================= build model ================= */
+const CELLS={}; /* CELLS[vid][code] = cell */
+VENDORS.forEach(v=>{CELLS[v.id]={};SKUS.forEach(s=>{CELLS[v.id][s.code]=buildCell(v.id,s)})});
+
+/* mutable review-state (drives queue, matrix, analyst) */
+const STATE={
+  screen:"compare", cmpTab:"lines", analystOpen:true, awardSel:"B",
+  resolved:{ "SUN:PKG-020":{how:"Confirmed on call"}, "SUN:PKG-025":{how:"Confirmed on call"} },
+  merDiscount:"excluded", apxFreight:"estimate", kftDev:"open",
+  chat:[], analystBusy:false, expandedDoc:false
+};
+function cellNow(vid,code){
+  const c=CELLS[vid][code]; if(!c||c.missing)return c;
+  const k=vid+":"+code;
+  if(c.state==="review"&&STATE.resolved[k]){
+    const res=STATE.resolved[k];
+    return {...c,norm:res.value!=null?res.value:(c.pendingVal||c.norm),state:"ok",conf:0.95,
+      flags:c.flags.filter(f=>f!=="q"),note:res.how,
+      transforms:c.transforms.map(t=>({...t})).concat([{t:res.how+(res.value!=null?` → ₹${res.value}`:""),warn:false}])};
+  }
+  if(vid==="KFT"&&KFT_DEV.includes(code)&&STATE.kftDev==="rejected")
+    return {...c,excluded:true,note:"Held to spec — excluded from analysis"};
+  return c;
+}
+function quotedCells(vid){return SKUS.filter(s=>{const c=cellNow(vid,s.code);return c&&!c.missing})}
+function usable(c){return c&&!c.missing&&c.norm!=null&&!c.excluded}
+
+/* annual value of a line at a unit price */
+const lineAnnual=(s,price)=>price*s.qty*12;
+function vendorAnnual(vid){ /* quoted+usable lines only */
+  let tot=0,lines=0,pend=0;
+  SKUS.forEach(s=>{const c=cellNow(vid,s.code);
+    if(c&&!c.missing){lines++;if(c.norm!=null)tot+=lineAnnual(s,c.norm);else pend++}});
+  return {tot,lines,pend};
+}
+function coverage(vid){return quotedCells(vid).length}
+function bestPerLine(pool){ /* pool = vendor ids */
+  return SKUS.map(s=>{
+    let best=null;
+    pool.forEach(vid=>{const c=cellNow(vid,s.code);
+      if(usable(c)&&(best==null||c.norm<best.norm))best={vid,norm:c.norm,cell:c}});
+    return {s,best};
+  });
+}
+function splitTotal(pool){
+  const rows=bestPerLine(pool);let tot=0;const uncovered=[];const share={};
+  rows.forEach(r=>{if(r.best){tot+=lineAnnual(r.s,r.best.norm);share[r.best.vid]=(share[r.best.vid]||0)+lineAnnual(r.s,r.best.norm)}else uncovered.push(r.s)});
+  const wins={};rows.forEach(r=>{if(r.best)wins[r.best.vid]=(wins[r.best.vid]||0)+1});
+  return {rows,tot,uncovered,share,wins};
+}
+const CLEARED=["SGP","MER","KFT"]; /* rule shown in UI: valid ISO 9001 + burst certs on file */
+function pendingCount(){let n=0;SKUS.forEach(s=>VENDORS.forEach(v=>{const c=cellNow(v.id,s.code);if(c&&!c.missing&&c.state==="review")n++}));return n}
+
+/* ================= questionnaire ================= */
+const QUESTIONS=[
+ {q:"Valid ISO 9001:2015 certificate",key:"iso"},
+ {q:"Burst-strength test certs for quoted grades (BS as per IS 2771)",key:"burst"},
+ {q:"FSC chain-of-custody for kraft supply",key:"fsc"},
+ {q:"Standard lead time, order → delivery (days)",key:"lead"},
+ {q:"45-day payment terms accepted",key:"pay"},
+ {q:"Spare capacity headroom on current volumes",key:"cap"},
+];
+const QA={
+ SGP:{iso:["yes","Cert #QMS-4471, valid to Mar 2028",1],burst:["yes","Reports attached for 3/5/7-ply",1],fsc:["no","Not certified; “in process, expected Q4”",0],lead:["7 days","",1],pay:["yes","",1],cap:["~40%","Two corrugators, second shift open",1]},
+ MER:{iso:["yes","Cert attached, valid to Jan 2027",1],burst:["yes","All grades incl. export 7-ply",1],fsc:["yes","FSC-C112640",1],lead:["10 days","",1],pay:["yes","8% discount if paid within 10 days (footnote)",1],cap:["~25%","",1]},
+ KFT:{iso:["yes","Valid to Sep 2027",1],burst:["yes","Attached; notes 140 gsm fluting on 3 lines",1],fsc:["yes","FSC-C098113",1],lead:["12 days","",1],pay:["yes","",1],cap:["~30%","",1]},
+ SUN:{iso:["expired","Certificate lapsed Nov 2025 — renewal “applied for”",0],burst:["no","No test reports provided",0],fsc:["no","",0],lead:["9 days","",1],pay:["counter","Countered with 30-day terms",0],cap:["~15%","Single plant",1]},
+ APX:{iso:["—","Not provided",0],burst:["—","Not provided",0],fsc:["—","Not provided",0],lead:["—","Not provided",0],pay:["—","Not provided",0],cap:["—","Not provided",0]},
+};
+
+/* ================= documents ================= */
+const DOCS={
+ SGP:[["FY27_rates_SGP.xlsx","Quote workbook · 3 sheets","xlsx"],["ISO9001_QMS-4471.pdf","ISO certificate","pdf"],["BurstTests_2026.pdf","Test reports, 12 pp","pdf"]],
+ MER:[["Meridian_Quote_MC-2417.pdf","Quote on letterhead · 3 pp","pdf"],["FSC_C112640.pdf","FSC chain-of-custody","pdf"],["ISO_Meridian.pdf","ISO certificate","pdf"],["BurstCerts_AllGrades.pdf","Burst certs incl. export","pdf"]],
+ KFT:[["Kraftedge_Commercial_Offer.docx","Commercial offer, prose","docx"],["Kraftedge_TechPack.pdf","Specs + burst certs · 18 pp","pdf"],["FSC_C098113.pdf","FSC certificate","pdf"],["ISO_Kraftedge.pdf","ISO certificate","pdf"]],
+ SUN:[["IMG_20260827_1132.jpg","Photo of printed rate card","jpg"]],
+ APX:[["(no attachment)","Two-line email body only","eml"]],
+};
+
+/* ================= review queue ================= */
+function queueItems(){
+  const items=[];
+  SUN_ILLEG_PEND.concat(SUN_ILLEG_DONE).forEach(code=>{
+    const k="SUN:"+code,res=STATE.resolved[k];
+    items.push({id:k,vid:"SUN",code,title:`Sundaram · ${code} — rate illegible in photo`,
+      sub:`Best reading ₹${CELLS.SUN[code].pendingVal||CELLS.SUN[code].norm}/pc via ₹/kg × est. weight. Confirm the reading or type the rate.`,
+      kind:"cell",resolved:!!res,how:res&&res.how});
+  });
+  SGP_UNIT_INFER.forEach(code=>{
+    const k="SGP:"+code,res=STATE.resolved[k];
+    items.push({id:k,vid:"SGP",code,title:`Shree Ganesh · ${code} — unit header blank`,
+      sub:`Sheet shows “${(CELLS.SGP[code].norm*100).toLocaleString("en-IN")}” with no unit. Read as per-100-pcs from the 28 labelled rows → ₹${CELLS.SGP[code].norm}/pc. Per-piece would make it 100× costlier than every peer.`,
+      kind:"cell",resolved:!!res,how:res&&res.how});
+  });
+  items.push({id:"MER:discount",vid:"MER",code:null,title:"Meridian — 8% early-payment discount (footnote)",
+    sub:"Applies only if paid within 10 days; the event terms are 45 days. Kept OUT of the comparison by default — include it only if finance will pay early.",
+    kind:"policy",resolved:STATE.merDiscount!=="excluded"?true:false,how:STATE.merDiscount==="included"?"Included at buyer's request":null,toggle:"merDiscount"});
+  items.push({id:"APX:freight",vid:"APX",code:null,title:"Apex — “freight extra” vs Delivered basis",
+    sub:`Quote excludes freight; the RFx basis is Delivered (FOR Bhiwandi). Normalised with a ₹${FREIGHT_EST.toFixed(1)}/kg lane estimate. Ask Apex for a delivered rate, or accept the estimate.`,
+    kind:"policy",resolved:STATE.apxFreight!=="estimate",how:STATE.apxFreight==="accepted"?"Estimate accepted for comparison":null,toggle:"apxFreight"});
+  items.push({id:"KFT:dev",vid:"KFT",code:null,title:"Kraftedge — 140 gsm fluting offered on 3 lines (spec asks 150)",
+    sub:"PKG-004, PKG-009, PKG-015. Lighter fluting ≈ lower burst margin. Accept the deviation, or hold these lines to spec.",
+    kind:"policy",resolved:STATE.kftDev!=="open",how:STATE.kftDev==="accepted"?"Deviation accepted":STATE.kftDev==="rejected"?"Held to spec — lines excluded":null,toggle:"kftDev"});
+  return items;
+}
+
+/* ================= formatting ================= */
+const fmt2=v=>v==null?"—":"₹"+v.toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
+function fmtL(v){ /* lakh / crore */
+  if(v>=1e7)return "₹"+(v/1e7).toLocaleString("en-IN",{maximumFractionDigits:2})+" Cr";
+  if(v>=1e5)return "₹"+(v/1e5).toLocaleString("en-IN",{maximumFractionDigits:1})+" L";
+  return "₹"+Math.round(v).toLocaleString("en-IN");
+}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const FLAG_META={u:["U","Unit converted / inferred"],fx:["$","Currency converted"],d:["W","Derived from ₹/kg × est. weight"],a:["A","Assumption — needs vendor confirmation"],q:["?","Unconfirmed — needs review"],s:["S","Spec deviation"]};
+</script>
+<script>
+"use strict";
+const $=(s,el)=>(el||document).querySelector(s), $$=(s,el)=>[...(el||document).querySelectorAll(s)];
+function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;$("#toasts").appendChild(t);setTimeout(()=>t.remove(),2600)}
+function vchip(vid){return `<span class="vdot" style="background:var(--v-${vid})"></span>`}
+function stChip(state){
+  if(state==="ok")return `<span class="chip ok">✓ confirmed</span>`;
+  if(state==="assumed")return `<span class="chip warn">△ assumed</span>`;
+  if(state==="review")return `<span class="chip bad">● needs review</span>`;
+  if(state==="excluded")return `<span class="chip na">excluded</span>`;
+  return `<span class="chip na">not quoted</span>`;
+}
+function fmarks(flags){return (flags||[]).map(f=>`<span class="fmark ${f}" title="${FLAG_META[f][1]}">${FLAG_META[f][0]}</span>`).join("")}
+
+/* ============ overlays ============ */
+function closeOverlays(){$("#overlay-root").innerHTML="";document.body.style.overflow=""}
+function openOverlay(html){$("#overlay-root").innerHTML=`<div class="scrim" onclick="closeOverlays()"></div>${html}`;document.body.style.overflow="hidden"}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeOverlays();killPop()}});
+
+/* ============ stepper / nav ============ */
+const STAGES=[
+ ["draft","Draft","Approved 22 Aug",()=>"done"],
+ ["invite","Invite","5 sent · 5 replied",()=>"done"],
+ ["responses","Responses",()=>{const o=queueItems().filter(q=>!q.resolved).length;return o?`5 in · ${o} to review`:"5 in · all reviewed"},()=>queueItems().some(q=>!q.resolved)?"attn":"done"],
+ ["compare","Compare",()=>`30 lines · one basis${pendingCount()?` · ${pendingCount()} unconfirmed`:""}`,()=>"none"],
+ ["award","Award",()=>({A:"Draft: single vendor",B:"Draft: split (cleared)",C:"Draft: split (all five)"}[STATE.awardSel]),()=>"none"],
+];
+function renderStepper(){
+  $("#stepper").innerHTML=STAGES.map((st,i)=>{
+    const [id,name,sub,mode]=st;
+    const m=typeof mode==="function"?mode():mode;
+    const sb=typeof sub==="function"?sub():sub;
+    return `<button class="step ${m} ${STATE.screen===id?"active":""}" onclick="show('${id}')" aria-current="${STATE.screen===id}">
+      <span class="s-name"><span class="s-num">0${i+1}</span>${esc(name)}${m==="done"?'<span class="tick">✓</span>':m==="attn"?'<span class="tick warn">●</span>':""}</span>
+      <span class="s-sub">${esc(sb)}</span></button>`;
+  }).join("");
+}
+function show(id){STATE.screen=id;killPop();$$(".screen").forEach(s=>s.classList.remove("on"));$("#scr-"+id).classList.add("on");renderStepper();window.scrollTo({top:0})}
+function renderAll(){renderStepper();renderDraft();renderInvite();renderResponses();renderCompare();renderAward();
+  const tot=splitTotal(VENDORS.map(v=>v.id)).tot;$("#spend-chip").textContent=fmtL(tot)+" / yr in play"}
+
+/* ============ DRAFT ============ */
+const CHAT_SCRIPT=[
+ ["u","Re-run the corrugated RFQ for FY27. Start from last year's 30 SKUs — volumes up about 10% on the 5-ply lines. Delivered Bhiwandi DC, 45-day payment, 12-month price validity."],
+ ["a","Drafted from the FY26 award. I pulled the 30 SKUs, lifted 5-ply volumes 10%, and set basis, payment and validity on the right.<div class='act'><span class='chip acc'>+ 30 line items from FY26 award</span><span class='chip acc'>5-ply volumes +10%</span><span class='chip acc'>Basis · payment · validity set</span></div>One catch — PKG-014, -021 and -027 moved to 180 gsm liner in March. Carry the new spec into the RFx?"],
+ ["u","Yes, new spec. Also add the two 5-ply SKUs from the Pune launch, and the new 7-ply export carton."],
+ ["a","Done — specs updated and three SKUs added; the export carton is PKG-030.<div class='act'><span class='chip acc'>3 specs updated to 180 gsm</span><span class='chip acc'>+ PKG-024, PKG-026 (5-ply)</span><span class='chip acc'>+ PKG-030 (7-ply export)</span></div>For PKG-030, should the questionnaire demand burst-test certs? Two vendors failed testing on export grades last year."],
+ ["u","Yes — burst certs. And ask for FSC, capacity headroom, and whether they accept the 45-day terms."],
+ ["a","Questionnaire built — six items, marked below.<div class='act'><span class='chip acc'>Questionnaire · 6 items</span></div>Last thing, done proactively: FY26 had two “freight extra” quotes that wrecked the comparison. I've set the required basis to <b>Delivered (FOR Bhiwandi)</b> — a reply on any other basis gets <b>flagged and normalised, never silently mixed in</b>.<div class='act'><span class='chip warn'>Rule: non-conforming basis ⇒ flag + normalise</span></div>"],
+];
+function renderDraft(){
+  const rows=(STATE.expandedDoc?SKUS:SKUS.slice(0,8)).map(s=>`<tr>
+    <td class="mono" style="font-size:11px;color:var(--mut)">${s.code}${s.isNew?' <span class="chip acc" style="font-size:9.5px">new</span>':""}</td>
+    <td>${esc(s.desc)}<div style="font-size:11px;color:var(--ink2)">${esc(s.spec)}</div></td>
+    <td class="r num">${s.qty.toLocaleString("en-IN")}</td><td class="r num" style="color:var(--ink2)">pc / month</td></tr>`).join("");
+  $("#scr-draft").innerHTML=`
+  <div class="pagehead"><div><h2>Draft the RFx by talking</h2>
+    <div class="sub">The co-pilot builds the document on the right as the buyer talks. Everything it adds is visible, attributed and editable — the document is the source of truth, the chat is just the fastest way to write it.</div></div>
+    <div class="grow"></div>
+    <button class="btn" onclick="toast('Inline editing is in the build scope — every field on the right becomes editable')">Edit manually</button>
+    <button class="btn primary" onclick="toast('Sent to 5 vendors on 22 Aug in this demo — see Invite')">Approve &amp; send →</button></div>
+  <div class="split">
+    <div class="card chatpane">
+      ${CHAT_SCRIPT.map(([w,t])=>`<div class="cb ${w==="u"?"user":"ai"}"><div class="who">${w==="u"?"Priya · buyer":"Co-pilot"}</div>${t}</div>`).join("")}
+      <div class="a-input" title="Scripted in the prototype — live in the build"><input disabled placeholder="Scripted in this prototype — the build drafts live"><span style="color:var(--mut)">↵</span></div>
+    </div>
+    <div class="card docpane">
+      <div class="doc-sec"><div class="ds-head"><h4>Scope &amp; basis</h4><span class="chip ok">✓ reviewed</span></div>
+        <div class="kv"><span class="k">Category</span><span>Corrugated packaging — RSC shippers</span>
+        <span class="k">Buyer</span><span>Suraksha Consumer Products · Priya Nair</span>
+        <span class="k">Delivery</span><span>FOR Bhiwandi DC · <b>Delivered basis required</b></span>
+        <span class="k">Payment</span><span>45 days from GRN</span>
+        <span class="k">Validity</span><span>12 months (Oct 2026 – Sep 2027)</span>
+        <span class="k">Currency</span><span>INR (foreign-currency quotes converted &amp; flagged)</span></div></div>
+      <div class="doc-sec fresh"><div class="ds-head"><h4>Line items · 30</h4><span class="chip acc">drafted by co-pilot</span><span class="chip acc">3 new</span></div>
+        <div class="tbl-scroll"><table class="tbl"><thead><tr><th>Code</th><th>Item</th><th class="r">Qty</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+        <button class="btn ghost small" style="margin-top:8px" onclick="STATE.expandedDoc=!STATE.expandedDoc;renderDraft()">${STATE.expandedDoc?"Show fewer":"Show all 30 lines"}</button></div>
+      <div class="doc-sec fresh"><div class="ds-head"><h4>Questionnaire · 6</h4><span class="chip acc">drafted by co-pilot</span></div>
+        ${QUESTIONS.map((q,i)=>`<div class="qitem"><span class="qn">Q${i+1}</span><span>${esc(q.q)}</span></div>`).join("")}</div>
+      <div class="doc-sec"><div class="ds-head"><h4>Terms</h4><span class="chip ok">✓ reviewed</span></div>
+        <div class="kv"><span class="k">Freight</span><span>Included (Delivered) — non-conforming quotes flagged</span>
+        <span class="k">Taxes</span><span>GST 18% extra, at actuals</span>
+        <span class="k">Escalation</span><span>Kraft-paper index corridor ±5%; renegotiation beyond</span>
+        <span class="k">Award</span><span>Buyer may split by line item; no volume guarantee</span></div></div>
+    </div>
+  </div>`;
+}
+
+/* ============ INVITE ============ */
+function renderInvite(){
+  const cards=VENDORS.map(v=>{
+    const nudged=v.recvDay>=8;
+    const days=Array.from({length:9},(_,i)=>{
+      const d=i+1;let cls="",lab=d;
+      if(d===1){cls="sent";lab="✉"}
+      if(nudged&&d===5){cls="nudge";lab="⟳"}
+      if(d===v.recvDay){cls="got";lab="✓"}
+      return `<span class="td ${cls}" title="Day ${d}">${lab}</span>`;
+    }).join("");
+    return `<div class="card vcard"><div class="vc-top">${vchip(v.id)}<div><div class="vc-name">${esc(v.name)}</div>
+      <div class="vc-mail">${esc(v.contact)} · ${esc(v.city)}</div></div><div class="grow" style="flex:1"></div>
+      <span class="chip na">${v.fmt.toUpperCase()}</span></div>
+      <div class="timeline">${days}</div>
+      <div style="font-size:11.5px;color:var(--ink2)">Sent day 1${nudged?" · nudged day 5":""} · replied day ${v.recvDay} — ${esc(v.fmtLabel)}</div></div>`;
+  }).join("");
+  $("#scr-invite").innerHTML=`
+  <div class="pagehead"><div><h2>Out to five vendors, by email</h2>
+    <div class="sub">Sent 22 Aug from the event address <span class="mono">rfq-fy27@parity.suraksha.in</span>. Replies land here automatically — whatever the format. Nobody is forced into a template; the system absorbs whatever comes back.</div></div>
+    <div class="grow"></div><button class="btn" onclick="toast('Nudge emails drafted for you to approve — stubbed here')">Draft nudges</button></div>
+  <div class="vgrid">${cards}</div>
+  <div class="card" style="margin-top:14px;padding:12px 16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <span class="chip ok">5 / 5 replied</span><span style="font-size:12.5px;color:var(--ink2)">Average response time 5.8 days · the two slowest needed one nudge each · SMTP is stubbed in the prototype, the inbox behaviour is the real design</span></div>`;
+}
+
+/* ============ RESPONSES ============ */
+function confStrip(vid){
+  let ok=0,as=0,rv=0;
+  SKUS.forEach(s=>{const c=cellNow(vid,s.code);if(!c||c.missing)return;
+    if(c.state==="ok")ok++;else if(c.state==="review")rv++;else as++});
+  const tot=ok+as+rv||1;
+  return `<div class="conf-strip" title="${ok} confirmed · ${as} assumed · ${rv} needs review">
+    <i style="width:${ok/tot*100}%;background:var(--ok)"></i><i style="width:${as/tot*100}%;background:var(--warn)"></i><i style="width:${rv/tot*100}%;background:var(--bad)"></i></div>`;
+}
+function renderResponses(){
+  const rows=VENDORS.map(v=>{
+    const cov=coverage(v.id);
+    const open=queueItems().filter(q=>q.vid===v.id&&!q.resolved).length;
+    return `<div class="resp-row" onclick="openResp('${v.id}')">
+      <div class="filetile ft-${v.fmt}">${v.fmt.toUpperCase()}</div>
+      <div><div style="font-weight:600;display:flex;gap:7px;align-items:center">${vchip(v.id)}${esc(v.name)}</div>
+        <div style="font-size:11.5px;color:var(--ink2)">${esc(v.fmtLabel)} · day ${v.recvDay}</div></div>
+      <div><div style="font-size:11px;color:var(--ink2)">Coverage <b class="num">${cov}/30</b> lines</div>
+        <div class="covbar" style="max-width:180px"><i style="width:${cov/30*100}%;background:var(--v-${v.id})"></i></div></div>
+      <div><div style="font-size:11px;color:var(--ink2)">Extraction confidence</div>${confStrip(v.id)}</div>
+      <div style="display:flex;gap:6px;align-items:center">${open?`<span class="chip warn">${open} to review</span>`:`<span class="chip ok">✓ clean</span>`}<span style="color:var(--mut)">›</span></div>
+    </div>`;
+  }).join("");
+  $("#scr-responses").innerHTML=`
+  <div class="pagehead"><div><h2>Five replies, five shapes — one reading</h2>
+    <div class="sub">Every response was read into the same structure. Nothing was retyped, and nothing uncertain was let through quietly: what the system wasn't sure of is queued on the right, with its evidence.</div></div></div>
+  <div class="split" style="grid-template-columns:minmax(420px,7fr) minmax(340px,5fr)">
+    <div class="card">${rows}</div>
+    <div>${renderQueue()}</div>
+  </div>`;
+}
+function renderQueue(){
+  const items=queueItems();
+  const open=items.filter(i=>!i.resolved);
+  return `<div style="display:flex;flex-direction:column;gap:8px">
+    <div style="display:flex;align-items:center;gap:8px;margin:2px 2px 4px"><h3 style="font-size:14px">Needs a human</h3>
+      <span class="chip ${open.length?"warn":"ok"}">${open.length?open.length+" open":"all clear"}</span>
+      <span style="font-size:11.5px;color:var(--ink2)">— the system flags, you decide. It never guesses silently.</span></div>
+    ${items.map(q=>queueCard(q)).join("")}</div>`;
+}
+function queueCard(q){
+  let actions="";
+  if(!q.resolved){
+    if(q.kind==="cell")actions=`<button class="btn small primary" onclick="event.stopPropagation();resolveCell('${q.id}','Confirmed by buyer')">Confirm</button>
+      <button class="btn small" onclick="event.stopPropagation();openFix('${q.id}')">Fix…</button>`;
+    else if(q.toggle==="merDiscount")actions=`<button class="btn small primary" onclick="event.stopPropagation();setPolicy('merDiscount','kept-out')">Keep out</button>
+      <button class="btn small" onclick="event.stopPropagation();setPolicy('merDiscount','included')">Include 8%</button>`;
+    else if(q.toggle==="apxFreight")actions=`<button class="btn small primary" onclick="event.stopPropagation();setPolicy('apxFreight','accepted')">Accept estimate</button>
+      <button class="btn small" onclick="event.stopPropagation();toast('Clarification email to Apex drafted for your approval — stubbed here')">Ask Apex</button>`;
+    else if(q.toggle==="kftDev")actions=`<button class="btn small primary" onclick="event.stopPropagation();setPolicy('kftDev','accepted')">Accept deviation</button>
+      <button class="btn small" onclick="event.stopPropagation();setPolicy('kftDev','rejected')">Hold to spec</button>`;
+  }
+  return `<div class="q-item ${q.resolved?"res":""}">
+    <div style="padding-top:2px">${vchip(q.vid)}</div>
+    <div><div class="qi-title">${esc(q.title)}</div><div class="qi-sub">${esc(q.sub)}</div>
+      ${q.resolved?`<div style="margin-top:5px"><span class="chip ok">✓ ${esc(q.how||"resolved")}</span></div>`:""}</div>
+    <div style="display:flex;gap:6px;flex-direction:column;align-items:stretch">${actions}</div></div>`;
+}
+function resolveCell(id,how,value){STATE.resolved[id]={how,value};renderAll();show(STATE.screen);toast("Confirmed — comparison and totals updated")}
+function openFix(id){
+  const [vid,code]=id.split(":");const c=CELLS[vid][code];
+  openOverlay(`<div class="modal"><div class="m-card" style="width:380px;padding:18px 20px" onclick="event.stopPropagation()">
+    <h3 style="font-size:15px">Fix ${esc(code)} · ${esc(VBY[vid].name)}</h3>
+    <p style="font-size:12.5px;color:var(--ink2)">Best machine reading: <b class="num">${fmt2(c.pendingVal||c.norm)}</b> per piece. Type what the document actually says.</p>
+    <div class="a-input" style="margin:10px 0"><span class="mono" style="color:var(--mut)">₹</span><input id="fixval" type="number" step="0.01" value="${c.pendingVal||c.norm}"> <span style="color:var(--mut);font-size:12px">/ pc</span></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn small" onclick="closeOverlays()">Cancel</button>
+    <button class="btn small primary" onclick="resolveCell('${id}','Corrected by buyer',parseFloat($('#fixval').value)||null);closeOverlays()">Save</button></div></div></div>`);
+}
+function setPolicy(key,val){STATE[key]=val;renderAll();show(STATE.screen);
+  toast(key==="kftDev"&&val==="rejected"?"3 Kraftedge lines excluded from analysis":"Decision recorded — it travels with the audit trail")}
+
+/* ============ response detail drawer ============ */
+function openResp(vid){
+  const v=VBY[vid];
+  openOverlay(`<div class="drawer" role="dialog" aria-label="Response detail">
+    <div class="d-head"><div class="filetile ft-${v.fmt}">${v.fmt.toUpperCase()}</div>
+      <div><div style="font-family:Archivo;font-weight:700;font-size:16px">${esc(v.name)}</div>
+      <div style="font-size:12px;color:var(--ink2)">${esc(v.fmtLabel)} · received day ${v.recvDay} · ${esc(v.contact)}</div></div>
+      <div class="grow" style="flex:1"></div>
+      <span class="chip na">coverage ${coverage(vid)}/30</span>
+      <button class="btn small" onclick="closeOverlays();show('compare')">Open in comparison</button>
+      <button class="btn small ghost" onclick="closeOverlays()" aria-label="Close">✕</button></div>
+    <div class="d-body"><div class="split" style="grid-template-columns:minmax(380px,1fr) minmax(340px,1fr)">
+      <div><h4 style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px">What they sent</h4>
+        <div class="fax">${faxFor(vid)}</div>
+        <p style="font-size:12px;color:var(--ink2);margin-top:8px">${esc(v.story)}</p></div>
+      <div><h4 style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px">What Parity read — hover to trace</h4>
+        ${xfieldsFor(vid)}</div>
+    </div></div></div>`);
+}
+function hover(on,srcId){const el=document.getElementById(srcId);if(el)el.classList.toggle("hl-src",on)}
+function faxFor(vid){
+  if(vid==="SGP"){
+    const rows=["PKG-003","PKG-004","PKG-005","PKG-006","PKG-011","PKG-013"].map((code,i)=>{
+      const s=BYCODE[code],c=CELLS.SGP[code];const inf=SGP_UNIT_INFER.includes(code);
+      return `<div class="fr"><div>${i+4}</div><div>${code} ${s.L}x${s.W}x${s.H} ${s.ply}P</div><div>${s.qty}</div>
+        <div id="src-SGP-${code}">${(c.norm*100).toLocaleString("en-IN")}</div><div>${inf?"":"per 100 nos"}</div></div>`;
+    }).join("");
+    return `<div class="fax-sheet"><div class="fr hd"><div>#</div><div>ITEM (OUR CODE)</div><div>MONTHLY</div><div>RATE</div><div>UNIT</div></div>${rows}
+      <div class="fr"><div></div><div>… 24 more rows</div><div></div><div></div><div></div></div></div>`;
+  }
+  if(vid==="MER"){
+    const r=(code)=>{const c=CELLS.MER[code];return c.missing?"—":c.orig.replace(" / pc","")};
+    return `<div class="fax-pdf"><div style="text-align:center;border-bottom:2px solid #26425f;padding-bottom:8px;margin-bottom:12px">
+      <b style="font-size:15px;color:#26425f">MERIDIAN CONTAINERS PVT LTD</b><br><span style="font-size:10px">Ambattur Industrial Estate, Chennai · Ref MC-2417</span></div>
+      <p>Dear Ms. Nair, please find our rates against RFQ FY27, <b>FOR Bhiwandi, per piece</b>:</p>
+      <p style="font-family:'IBM Plex Mono';font-size:11px;line-height:1.8">PKG-013 … <span id="src-MER-PKG-013">${r("PKG-013")}</span>&nbsp;&nbsp;&nbsp;PKG-015 … <span>${r("PKG-015")}</span><br>
+      PKG-017 … <span>${r("PKG-017")}</span>&nbsp;&nbsp;&nbsp;PKG-020 … <span>${r("PKG-020")}</span><br>… (26 lines on p.1–2)</p>
+      <p>Export-grade heavy duty (p.2): <span id="src-MER-PKG-029" style="white-space:nowrap">PKG-029 — US$ ${CELLS.MER["PKG-029"].orig.replace("US$ ","").replace(" / pc","")}</span>, <span id="src-MER-PKG-030">PKG-030 — US$ ${CELLS.MER["PKG-030"].orig.replace("US$ ","").replace(" / pc","")}</span> per piece.</p>
+      <p style="font-size:10px;color:#555;border-top:1px solid #ddd;padding-top:8px;margin-top:14px"><span id="src-MER-disc">* Rates net of our standard 8% cash discount applicable on payment within 10 days of invoice.</span><br>** PKG-001 and PKG-007 are below our minimum board size and are not offered.</p></div>`;
+  }
+  if(vid==="KFT"){
+    const c4=CELLS.KFT["PKG-004"],c13=CELLS.KFT["PKG-013"];
+    return `<div class="fax-doc"><p><b>Commercial Offer — Corrugated RSC Cartons (FY27)</b></p>
+      <p>Further to your enquiry, Kraftedge Industries is pleased to offer the complete schedule of thirty items on a delivered-Bhiwandi basis. For the three-ply range, indicative pricing runs from Rs ${CELLS.KFT["PKG-001"].norm.toFixed(2)} per box for the smallest carton to Rs ${CELLS.KFT["PKG-011"].norm.toFixed(2)} for PKG-011; <span id="src-KFT-PKG-013">the printed shipper PKG-013 is offered at Rs ${c13.norm.toFixed(2)} per box inclusive of two-colour flexo</span>.</p>
+      <p><span id="src-KFT-dev">Kindly note that for items PKG-004, PKG-009 and PKG-015 we propose our standard <b>140 gsm fluting</b> construction (against 150 gsm requested), at Rs ${c4.norm.toFixed(2)}, Rs ${CELLS.KFT["PKG-009"].norm.toFixed(2)} and Rs ${CELLS.KFT["PKG-015"].norm.toFixed(2)} respectively</span> — performance is equivalent for your stacking loads.</p>
+      <p><span id="src-KFT-moq">Small-format items carry a minimum order of 5,000 boxes per lot.</span> Payment at 45 days is acceptable. Complete line-wise annexure follows on pages 2–4…</p></div>`;
+  }
+  if(vid==="SUN"){
+    return `<div class="fax-photo-stage"><div class="fax-photo">
+      <div style="text-align:center;border-bottom:1.5px solid #7a6845;padding-bottom:5px;margin-bottom:8px"><b>SUNDARAM PACKAGING — RATE CARD (FY 2026-27)</b><br><span style="font-size:9px">PLAIN CARTONS ONLY · FOR DESTINATION · SUBJECT TO PAPER INDEX</span></div>
+      <table class="ph-tbl"><tr><th>BOARD</th><th>RATE</th><th>REMARKS</th></tr>
+      <tr><td>3-PLY (ALL SIZES)</td><td id="src-SUN-p3">₹ 39.4 / KG</td><td>MIN 500 KG</td></tr>
+      <tr><td>5-PLY (ALL SIZES)</td><td id="src-SUN-p5">₹ 40.1 / KG <span class="blurcell" id="src-SUN-blur">(₹4░.░ on two rows)</span></td><td class="blurcell">SLOTTED ░░░</td></tr>
+      <tr><td>7-PLY / HEAVY</td><td id="src-SUN-p7">₹ 44.6 / KG</td><td>ON ORDER</td></tr></table>
+      <div style="margin-top:8px;font-size:9.5px">PAYMENT: 30 DAYS ONLY · CONTACT: 98430-xxxxx</div></div></div>`;
+  }
+  return `<div class="fax-eml"><div class="eh">From: Pravin &lt;pravin.apex@gmail.com&gt;<br>To: rfq-fy27@parity.suraksha.in<br>Subject: Re: RFQ – Corrugated FY27 · 30 Aug, 21:41</div>
+    <p>Madam,</p><p><span id="src-APX-body">₹42/kg for the 5-ply, 38 for the 3-ply, rest same as last year, freight extra.</span></p>
+    <p>Regards,<br>Pravin<br>Apex Corrugators, Vapi</p></div>`;
+}
+function xfield(k,v,note,srcId,state){
+  return `<div class="xfield" onmouseenter="hover(true,'${srcId}')" onmouseleave="hover(false,'${srcId}')">
+    <span class="xf-k">${k}</span><span class="xf-v">${v}</span>
+    ${note?`<span class="xf-note">${note}</span>`:""}
+    ${state?`<span class="xf-note">${stChip(state)}</span>`:""}</div>`;
+}
+function xfieldsFor(vid){
+  const sum=(label,val)=>`<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);padding:2px 0"><span>${label}</span><b class="num" style="color:var(--ink)">${val}</b></div>`;
+  const head=`<div class="card" style="padding:10px 13px;margin-bottom:10px">${
+    sum("Lines read",coverage(vid)+" / 30")}${
+    sum("Questionnaire answers",Object.values(QA[vid]).filter(a=>a[0]!=="—").length+" / 6")}${
+    sum("Fields needing review",queueItems().filter(q=>q.vid===vid&&!q.resolved).length)}</div>`;
+  if(vid==="SGP")return head
+    +xfield("PKG-005 · rate","₹"+(CELLS.SGP["PKG-005"].norm*100).toLocaleString("en-IN")+" / ?","Unit column empty — read as per-100-pcs from the 28 labelled rows; per-piece would be 100× every peer","src-SGP-PKG-005",cellNow("SGP","PKG-005").state)
+    +xfield("PKG-011 · rate","₹"+(CELLS.SGP["PKG-011"].norm*100).toLocaleString("en-IN")+" / ?","Same blank-unit pattern","src-SGP-PKG-011",cellNow("SGP","PKG-011").state)
+    +xfield("PKG-004 · rate","₹"+(CELLS.SGP["PKG-004"].norm*100).toLocaleString("en-IN")+" / 100 pcs","→ ₹"+CELLS.SGP["PKG-004"].norm.toFixed(2)+" per piece","src-SGP-PKG-004","ok")
+    +xfield("28 more lines","per-100 → per-piece","All ÷100 with the unit stated in the sheet","","ok");
+  if(vid==="MER")return head
+    +xfield("PKG-029 · rate",CELLS.MER["PKG-029"].orig,"× ₹83.60 (RBI, 28 Aug) → "+fmt2(CELLS.MER["PKG-029"].norm)+" — rate editable event-wide","src-MER-PKG-029","ok")
+    +xfield("PKG-030 · rate",CELLS.MER["PKG-030"].orig,"× ₹83.60 → "+fmt2(CELLS.MER["PKG-030"].norm),"src-MER-PKG-030","ok")
+    +xfield("8% discount","footnote, p.3","Conditional on 10-day payment; event terms are 45 days ⇒ kept out of comparison by default","src-MER-disc",STATE.merDiscount==="excluded"?"review":"ok")
+    +xfield("PKG-001 / -007","not offered","Below minimum board size — shown as gaps, never zeros","", "missing");
+  if(vid==="KFT")return head
+    +xfield("PKG-013 · rate","₹"+CELLS.KFT["PKG-013"].norm.toFixed(2)+" / pc","Pulled out of a prose sentence","src-KFT-PKG-013","ok")
+    +xfield("Spec deviation ×3","140 gsm fluting","PKG-004 / -009 / -015 quoted against a lighter spec — flagged, not blended","src-KFT-dev",STATE.kftDev==="open"?"review":"assumed")
+    +xfield("MOQ","5,000 / lot on small formats","Found mid-sentence; attached to the affected lines","src-KFT-moq","ok")
+    +xfield("27 more lines","from prose + annexure","","","ok");
+  if(vid==="SUN")return head
+    +xfield("Pricing basis","₹ / kg by board grade","Per-piece = rate × estimated box weight (dims + grammage, ±4%). The original ₹/kg is kept alongside every derived number","src-SUN-p3","assumed")
+    +xfield("PKG-017, -022 · rate","illegible","Two 5-ply cells unreadable in the photo — held out of totals until a human confirms","src-SUN-blur",cellNow("SUN","PKG-017").state)
+    +xfield("PKG-020, -025 · rate","was illegible","Buyer confirmed reading on a call, 26 Aug — now trusted","src-SUN-p5","ok")
+    +xfield("Printed lines ×3","not offered","Plain cartons only — PKG-006 / -013 / -023 stay gaps","", "missing")
+    +xfield("Payment","30 days only","Conflicts with 45-day terms — carried to the questionnaire tab","src-SUN-p7","assumed");
+  return head
+    +xfield("5-ply · all lines","₹42 / kg","× est. weight per box → per-piece, line by line","src-APX-body","assumed")
+    +xfield("3-ply · all lines","₹38 / kg","Same derivation","src-APX-body","assumed")
+    +xfield("7-ply · 3 lines","“same as last year”","FY26 award prices pulled in and marked unconfirmed; PKG-030 is new — no last year exists ⇒ gap","src-APX-body","review")
+    +xfield("“Freight extra”","basis conflict","RFx demands Delivered ⇒ ₹2.1/kg lane estimate added, flagged on every cell","src-APX-body","assumed")
+    +xfield("Questionnaire","nothing provided","All six answers blank — visible in the Compare → Questionnaire tab","", "missing");
+}
+</script>
+<script>
+"use strict";
+/* ============ COMPARE ============ */
+function renderCompare(){
+  const openFlags=queueItems().filter(q=>!q.resolved).length;
+  $("#scr-compare").innerHTML=`
+  <div class="pagehead"><div><h2>One basis. Nothing hidden.</h2>
+    <div class="sub">Thirty lines, five vendors — normalised to ₹ per piece, delivered. Every converted or assumed number keeps its original alongside and a mark you can open. Click any cell for its full chain of custody.</div></div>
+    <div class="grow"></div>
+    <button class="btn ${STATE.analystOpen?"":"primary"}" onclick="STATE.analystOpen=!STATE.analystOpen;renderCompare()">${STATE.analystOpen?"Hide analyst":"✦ Ask the analyst"}</button></div>
+  <div class="cmp-layout ${STATE.analystOpen?"with-analyst":""}">
+    <div class="card" style="overflow:hidden">
+      <div class="tabs">
+        ${[["lines","Line items","30"],["quest","Questionnaire","6"],["docs","Documents",String(Object.values(DOCS).flat().length)],["flags","Flags",String(openFlags)]].map(([id,l,c])=>
+          `<button class="tab ${STATE.cmpTab===id?"on":""}" onclick="STATE.cmpTab='${id}';renderCompare()">${l}<span class="cnt">${c}</span></button>`).join("")}
+      </div>
+      <div style="padding:${STATE.cmpTab==="lines"?"0":"14px"}">${
+        STATE.cmpTab==="lines"?renderMatrix():
+        STATE.cmpTab==="quest"?renderQuest():
+        STATE.cmpTab==="docs"?renderDocs():`<div style="max-width:640px">${renderQueue()}</div>`}</div>
+    </div>
+    ${STATE.analystOpen?`<div class="card analyst">${renderAnalyst()}</div>`:""}
+  </div>`;
+  const ab=$("#a-body");if(ab)ab.scrollTop=ab.scrollHeight;
+}
+function legendBar(){
+  return `<div style="display:flex;gap:11px;flex-wrap:wrap;align-items:center;padding:9px 14px;border-top:1px solid var(--line);font-size:11px;color:var(--ink2)">
+    <b style="font-family:Archivo;font-size:10px;letter-spacing:.07em">MARKS</b>
+    ${Object.entries(FLAG_META).map(([f,[g,label]])=>`<span style="display:inline-flex;gap:5px;align-items:center"><span class="fmark ${f}">${g}</span>${label}</span>`).join("")}
+    <span style="margin-left:auto">best price per line outlined green · gaps stay gaps — never zeros</span></div>`;
+}
+function renderMatrix(){
+  const best=bestPerLine(VENDORS.map(v=>v.id));
+  const bestMap={};best.forEach(r=>{if(r.best)bestMap[r.s.code]=r.best.vid});
+  const head=`<tr><th class="itemcol"><div class="vhead"><span class="vh-name">Line item</span><span class="vh-meta">₹ / piece · delivered · GST extra</span></div></th>`+
+    VENDORS.map(v=>{const cov=coverage(v.id);const cleared=CLEARED.includes(v.id);
+      return `<th><div class="vhead"><span class="vh-name">${vchip(v.id)}${esc(v.name.split(" ")[0])}</span>
+      <span class="vh-meta"><span class="num">${cov}/30</span>${cleared?`<span class="chip ok" style="font-size:9.5px">cleared</span>`:`<span class="chip bad" style="font-size:9.5px">not cleared</span>`}</span>
+      <span class="covbar"><i style="width:${cov/30*100}%;background:var(--v-${v.id})"></i></span></div></th>`}).join("")+"</tr>";
+  const body=SKUS.map(s=>{
+    return `<tr><td class="itemcol"><div class="mx-item"><span class="m-code">${s.code}${s.isNew?" · new":""}</span>
+      <div class="m-desc">${esc(s.desc)}</div><span class="m-qty num">${s.qty.toLocaleString("en-IN")} pc/mo · ~${s.wKg.toFixed(2)} kg</span></div></td>`+
+      VENDORS.map(v=>cellHTML(v.id,s,bestMap[s.code]===v.id)).join("")+"</tr>";
+  }).join("");
+  const foot=`<tr><td class="itemcol"><div class="mx-item"><div class="m-desc">Annual value, quoted lines</div><span class="m-qty">basis for like-for-like below</span></div></td>`+
+    VENDORS.map(v=>{const a=vendorAnnual(v.id);
+      return `<td style="text-align:right;padding:8px 10px"><span class="num" style="font-size:13px">${fmtL(a.tot)}</span>
+      <div style="font-size:10px;color:var(--ink2);font-weight:400">${a.lines}/30 lines${a.pend?` · <span style="color:var(--bad)">${a.pend} unconfirmed out</span>`:""}</div></td>`}).join("")+"</tr>";
+  return `<div class="matrix-scroll"><table class="matrix"><thead>${head}</thead><tbody>${body}</tbody><tfoot>${foot}</tfoot></table></div>${legendBar()}`;
+}
+function cellHTML(vid,s,isBest){
+  const c=cellNow(vid,s.code);
+  if(!c||c.missing)return `<td><span class="cell missing"><span class="c-val">—</span><span class="c-orig">${esc((c&&c.reason||"not quoted").split("—")[0])}</span></span></td>`;
+  const cls=c.excluded?"excluded":c.state==="review"?"review":c.state==="assumed"?"assumed":"";
+  return `<td><button class="cell ${cls} ${isBest&&!c.excluded?"best":""}" onclick="showPop(event,'${vid}','${s.code}')" aria-label="${esc(vid+" "+s.code)} details">
+    <span class="c-flag">${fmarks(c.flags)}</span>
+    <span class="c-val">${c.norm==null?"needs review":fmt2(c.norm).replace("₹","₹ ")}</span>
+    <span class="c-orig">${esc(c.orig)}</span></button></td>`;
+}
+function renderQuest(){
+  const head=`<tr><th style="min-width:230px">Question</th>`+VENDORS.map(v=>`<th>${vchip(v.id)} ${esc(v.name.split(" ")[0])}<div style="margin-top:3px">${CLEARED.includes(v.id)?'<span class="chip ok" style="font-size:9.5px">cleared</span>':'<span class="chip bad" style="font-size:9.5px">not cleared</span>'}</div></th>`).join("")+"</tr>";
+  const body=QUESTIONS.map(q=>`<tr><td style="font-weight:500">${esc(q.q)}</td>`+VENDORS.map(v=>{
+    const [val,note,pass]=QA[v.id][q.key];
+    return `<td><span class="chip ${val==="—"?"na":pass?"ok":"warn"}">${esc(val)}</span>${note?`<div style="font-size:11px;color:var(--ink2);margin-top:3px;max-width:180px">${esc(note)}</div>`:""}</td>`;
+  }).join("")+"</tr>").join("");
+  return `<p style="margin:2px 0 10px;font-size:12.5px;color:var(--ink2)">Clearance rule for this event (set in Draft): <b>valid ISO 9001 + burst-test certs on file</b>. Answers below are extracted from the replies and attachments — a blank is shown as a blank, and counts against clearance.</p>
+  <div class="tbl-scroll"><table class="tbl"><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
+}
+function renderDocs(){
+  return `<div class="vgrid">${VENDORS.map(v=>`<div class="card" style="padding:12px 14px">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">${vchip(v.id)}<b>${esc(v.name)}</b></div>
+    ${DOCS[v.id].map(([f,d,k])=>`<div style="display:flex;gap:10px;align-items:center;padding:5px 0;border-bottom:1px dashed var(--line)">
+      <div class="filetile ft-${k}" style="width:30px;height:36px;font-size:8px">${k.toUpperCase()}</div>
+      <div style="min-width:0"><div class="mono" style="font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(f)}</div>
+      <div style="font-size:11px;color:var(--ink2)">${esc(d)}</div></div></div>`).join("")}
+    <button class="btn ghost small" style="margin-top:8px" onclick="openResp('${v.id}')">Open response ›</button></div>`).join("")}</div>`;
+}
+
+/* ============ provenance popover ============ */
+let popEl=null,popT=0;
+function killPop(){if(popEl){popEl.remove();popEl=null}}
+addEventListener("scroll",()=>{if(Date.now()-popT>400)killPop()},true);
+document.addEventListener("click",e=>{if(popEl&&!popEl.contains(e.target)&&!e.target.closest(".cell"))killPop()});
+function showPop(ev,vid,code){
+  ev.stopPropagation();killPop();
+  const c=cellNow(vid,code),s=BYCODE[code],v=VBY[vid];
+  const chain=(c.transforms&&c.transforms.length)?`<div class="p-chain">${c.transforms.map(t=>`<div class="st ${t.warn?"warn":""}">${esc(t.t)}</div>`).join("")}</div>`:`<div style="color:var(--ink2);font-size:12px;margin-top:6px">Read directly — no conversion needed.</div>`;
+  const acts=c.state==="review"&&c.norm==null?
+    `<button class="btn small primary" onclick="resolveCell('${vid}:${code}','Confirmed by buyer');killPop()">Confirm ₹${c.pendingVal}</button>
+     <button class="btn small" onclick="killPop();openFix('${vid}:${code}')">Fix…</button>`:
+    c.state==="review"?`<button class="btn small primary" onclick="resolveCell('${vid}:${code}','Confirmed by buyer');killPop()">Confirm</button>
+     <button class="btn small" onclick="killPop();openFix('${vid}:${code}')">Fix…</button>`:"";
+  const el=document.createElement("div");el.className="pop";el.innerHTML=`
+    <div class="p-head"><div style="display:flex;gap:7px;align-items:center"><b>${esc(v.name)}</b><span class="mono" style="font-size:10.5px;color:var(--mut)">${code}</span><span style="margin-left:auto">${stChip(c.excluded?"excluded":c.state)}</span></div>
+      <div style="font-size:11px;color:var(--ink2)">${esc(s.desc)}</div></div>
+    <div class="p-body">
+      <div class="p-row"><span class="k">As quoted</span><b class="num">${esc(c.orig)}</b></div>
+      <div class="p-row"><span class="k">Normalised</span><b class="num">${c.norm==null?"held out until confirmed":fmt2(c.norm)+" / pc"}</b></div>
+      <div class="p-row"><span class="k">Confidence</span><b class="num">${Math.round(c.conf*100)}%</b></div>
+      ${chain}
+      <div class="p-src">${esc(c.src.ref)}
+${esc(c.src.snippet)}</div>
+    </div>
+    <div class="p-actions">${acts}<button class="btn small ghost" style="margin-left:auto" onclick="killPop();openResp('${vid}')">Open response ›</button></div>`;
+  document.body.appendChild(el);popEl=el;popT=Date.now();
+  const btn=ev.currentTarget;
+  const place=()=>{const r=btn.getBoundingClientRect(),W=330,H=el.offsetHeight;
+    let x=Math.max(8,Math.min(r.left+r.width/2-W/2,innerWidth-W-8));
+    let y=r.bottom+8;if(y+H>innerHeight-8)y=Math.max(8,r.top-H-8);
+    el.style.left=x+"px";el.style.top=y+"px"};
+  place();requestAnimationFrame(place);setTimeout(place,120);
+}
+
+/* ============ analyst ============ */
+function renderAnalyst(){
+  if(!STATE.chat.length)STATE.chat.push({role:"a",html:`<div class="a-title">✦ Analyst</div>
+    <p>All five quotes are in and normalised — 30 lines on one basis, questionnaire read, ${pendingCount()?pendingCount()+" cells still unconfirmed":"everything confirmed"}. Ask me anything about this comparison; I answer only from what's on this screen, and I show my basis.</p>${suggChips(["Who's cheapest if we award to a single vendor?","Split it cheapest per line — but only vendors who cleared the questionnaire","What's the risk in Sundaram's quote?"])}`});
+  return `<div class="a-head"><span style="color:var(--accent-ink);font-size:15px">✦</span><div><b style="font-family:Archivo">Analyst</b>
+      <div style="font-size:11px;color:var(--ink2)">answers from the comparison — with its working shown</div></div></div>
+    <div class="a-body" id="a-body">${STATE.chat.map(m=>m.role==="u"?`<div class="msg-u">${esc(m.text)}</div>`:`<div class="msg-a">${m.html}</div>`).join("")}
+      ${STATE.analystBusy?`<div class="msg-a thinking" aria-label="working"><i></i><i></i><i></i></div>`:""}</div>
+    <div class="a-foot"><form class="a-input" onsubmit="event.preventDefault();ask($('#a-in').value)">
+      <input id="a-in" placeholder="Ask about lines, vendors, scenarios…" autocomplete="off"><button class="btn small primary" type="submit">Ask</button></form>
+      <div style="font-size:10px;color:var(--mut);margin-top:6px">Prototype: five scripted analyses, computed live from the data. The build answers free-form.</div></div>`;
+}
+function suggChips(list){return `<div class="sugg">${list.map(q=>`<button onclick="ask(this.textContent)">${esc(q)}</button>`).join("")}</div>`}
+function ask(text){
+  text=(text||"").trim();if(!text)return;
+  STATE.chat.push({role:"u",text});STATE.analystBusy=true;renderCompare();
+  setTimeout(()=>{STATE.analystBusy=false;STATE.chat.push({role:"a",html:answer(text)});renderCompare()},700);
+}
+function basisNote(extra){
+  const pend=pendingCount();
+  const bits=[
+    `Meridian's 8% footnote discount ${STATE.merDiscount==="included"?"INCLUDED at your instruction":"excluded — conditional on 10-day payment vs 45-day terms"}`,
+    `Apex normalised with the ₹${FREIGHT_EST.toFixed(1)}/kg freight estimate${STATE.apxFreight==="accepted"?" (accepted by you)":""}`,
+    STATE.kftDev==="rejected"?"Kraftedge's 3 deviation lines EXCLUDED (held to spec)":STATE.kftDev==="accepted"?"Kraftedge's 3 deviation lines included (deviation accepted)":"Kraftedge's 140 gsm deviation on 3 lines still an open decision",
+    `USD at ₹${FX_USD.toFixed(2)} (RBI, 28 Aug)`,
+    pend?`⚠ ${pend} cell${pend>1?"s":""} still unconfirmed — totals can move`: "all extracted cells confirmed"];
+  if(extra)bits.push(extra);
+  return `<div class="basis"><b>Basis</b> — ${bits.map(esc).join(" · ")}.</div>`;
+}
+function barsHTML(rows){
+  const max=Math.max(...rows.map(r=>r.val));
+  return `<div class="chart-card">${rows.map(r=>`
+    <div style="margin:7px 0">
+      <div style="display:flex;gap:7px;align-items:baseline;font-size:11.5px"><span class="vdot" style="background:var(--v-${r.vid});align-self:center"></span>
+        <span style="font-weight:600">${esc(r.label)}</span><span style="color:var(--ink2)">${esc(r.sub||"")}</span>
+        <span class="num" style="margin-left:auto;font-weight:600">${fmtL(r.val)}</span></div>
+      <div style="height:10px;border-radius:5px;background:var(--card3);margin-top:3px;overflow:hidden">
+        <div style="height:100%;width:${r.val/max*100}%;background:var(--v-${r.vid});border-radius:0 5px 5px 0;opacity:${r.dim?".35":"1"}"></div></div>
+    </div>`).join("")}</div>`;
+}
+function stackHTML(share,tot,title){
+  const ids=Object.keys(share).sort((a,b)=>share[b]-share[a]);
+  return `<div class="chart-card"><div class="ch-title">${esc(title)}</div>
+    <div style="display:flex;height:16px;border-radius:6px;overflow:hidden;gap:2px">${ids.map(id=>`<div title="${esc(VBY[id].name)} ${fmtL(share[id])}" style="width:${share[id]/tot*100}%;background:var(--v-${id})"></div>`).join("")}</div>
+    <div style="display:flex;flex-direction:column;gap:3px;margin-top:8px">${ids.map(id=>`<div style="display:flex;gap:7px;font-size:11.5px;align-items:center">${vchip(id)}<span>${esc(VBY[id].name)}</span><span class="num" style="margin-left:auto">${fmtL(share[id])}</span><span class="num" style="color:var(--ink2);width:38px;text-align:right">${Math.round(share[id]/tot*100)}%</span></div>`).join("")}</div></div>`;
+}
+function answer(q){
+  const t=q.toLowerCase();
+  if(/(split|cleared|quality|questionnaire)/.test(t))return ansSplit();
+  if(/(single|one vendor|cheapest|overall|l1)/.test(t))return ansSingle();
+  if(/(sundaram|risk|photo)/.test(t))return ansRisk();
+  if(/(usd|currency|dollar|discount|meridian|fx)/.test(t))return ansCurrency();
+  if(/(memo|award|recommend|export|decision)/.test(t))return ansMemo();
+  return `<div class="a-title">✦ Analyst</div><p>In the prototype I'm scripted — I can run five analyses, each computed live from the comparison (in the build this is a free-form loop over the same data):</p>
+  ${suggChips(["Who's cheapest if we award to a single vendor?","Split it cheapest per line — but only vendors who cleared the questionnaire","What's the risk in Sundaram's quote?","Explain the USD conversion and Meridian's discount","Draft the award memo"])}`;
+}
+function ansSingle(){
+  const rows=VENDORS.map(v=>{const a=vendorAnnual(v.id);return {vid:v.id,label:v.name.split(" ")[0],val:a.tot,lines:a.lines,pend:a.pend,full:a.lines===30&&a.pend===0}})
+    .sort((a,b)=>a.val-b.val);
+  const full=rows.filter(r=>r.full);
+  const win=full[0];
+  const tbl=`<div class="tbl-scroll" style="margin-top:8px"><table class="tbl"><thead><tr><th>Vendor</th><th class="r">Annual (quoted lines)</th><th class="r">Coverage</th><th>Can take the full basket?</th></tr></thead><tbody>${
+    rows.map(r=>`<tr><td>${vchip(r.vid)} ${esc(r.label)}</td><td class="r num">${fmtL(r.val)}</td><td class="r num">${r.lines}/30</td>
+    <td>${r.full?'<span class="chip ok">yes</span>':`<span class="chip warn">no — ${r.lines<30?(30-r.lines)+" lines missing":r.pend+" unconfirmed"}</span>`}</td></tr>`).join("")}</tbody></table></div>`;
+  return `<div class="a-title">✦ Single-vendor award</div>
+  <p><b>${esc(VBY[win.vid].name)}</b> is the only realistic single-vendor answer at <b class="num">${fmtL(win.val)}/yr</b>${full[1]?` — ${esc(full[1].label)} covers all 30 lines too but costs <b class="num">${fmtL(full[1].val-win.val)}</b> more`:""}. The cheaper-looking columns below it are not full baskets — their totals cover fewer lines, so they are not comparable, and I won't pretend they are.</p>
+  ${barsHTML(rows.map(r=>({...r,sub:r.full?"full basket":r.lines<30?`${r.lines}/30 — not comparable`:`${r.pend} unconfirmed`,dim:!r.full})))}
+  ${tbl}${basisNote("single-vendor totals are the sum of each vendor's own price on every line they quoted")}`;
+}
+function ansSplit(){
+  const cl=splitTotal(CLEARED), all=splitTotal(VENDORS.map(v=>v.id));
+  const singles=VENDORS.map(v=>({v:v.id,...vendorAnnual(v.id)})).filter(r=>r.lines===30&&r.pend===0).sort((a,b)=>a.tot-b.tot);
+  const sBest=singles[0];
+  const save=sBest.tot-cl.tot, prem=cl.tot-all.tot;
+  const inferOpen=SGP_UNIT_INFER.filter(c=>!STATE.resolved["SGP:"+c]).length;
+  const winRows=Object.keys(cl.share).sort((a,b)=>cl.share[b]-cl.share[a]).map(id=>
+    `<tr><td>${vchip(id)} ${esc(VBY[id].name)}</td><td class="r num">${cl.wins[id]||0}</td><td class="r num">${fmtL(cl.share[id])}</td></tr>`).join("");
+  return `<div class="a-title">✦ Cheapest per line, cleared vendors only</div>
+  <p>Split across <b>${CLEARED.map(id=>esc(VBY[id].name.split(" ")[0])).join(", ")}</b> (the three who cleared ISO + burst certs), taking the cheapest confirmed price on each line:</p>
+  <p style="font-size:16px"><b class="num">${fmtL(cl.tot)} / yr</b> — <b class="num" style="color:var(--ok)">saves ${fmtL(save)}</b> (${(save/sBest.tot*100).toFixed(1)}%) vs the best single vendor (${esc(VBY[sBest.v].name.split(" ")[0])}, ${fmtL(sBest.tot)}).</p>
+  ${stackHTML(cl.share,cl.tot,"Award composition — cleared split")}
+  <div class="tbl-scroll" style="margin-top:8px"><table class="tbl"><thead><tr><th>Vendor</th><th class="r">Lines won</th><th class="r">Annual value</th></tr></thead><tbody>${winRows}</tbody></table></div>
+  ${cl.uncovered.length?`<p><span class="chip bad">● ${cl.uncovered.length} uncovered</span> ${cl.uncovered.map(s=>s.code).join(", ")} — no cleared vendor holds a usable price after your exclusions; waive, or re-quote those lines.</p>`:`<p>Every line is covered — all 30 stay inside the cleared pool.</p>`}
+  <p>The quality gate costs <b class="num">${fmtL(prem)}/yr</b>: an unconstrained split (Sundaram's ₹/kg pricing wins most 5-ply lines, Apex's unconfirmed FY26 prices take the heavy lines) would land at ${fmtL(all.tot)} — but rides on an expired ISO, no burst certs, two illegible cells and a two-line email. That's the price of sleeping at night.</p>
+  ${basisNote(inferOpen?`note: ${inferOpen} Shree Ganesh line${inferOpen>1?"s":""} in this split still ride on an inferred per-100 unit — confirm before award`:null)}`;
+}
+function ansRisk(){
+  const all=splitTotal(VENDORS.map(v=>v.id));
+  const sunShare=all.share.SUN||0,sunWins=all.wins.SUN||0;
+  const pend=SUN_ILLEG_PEND.filter(c=>!STATE.resolved["SUN:"+c]);
+  return `<div class="a-title">✦ Sundaram — what the low price is carrying</div>
+  <p>Sundaram would win <b class="num">${sunWins} lines (${fmtL(sunShare)}/yr)</b> in an unconstrained split — and every rupee of it sits on this stack:</p>
+  <div class="tbl-scroll" style="margin-top:6px"><table class="tbl"><tbody>
+  <tr><td><span class="chip warn">basis</span></td><td>Prices are ₹/kg from a photographed rate card — per-piece numbers are <b>derived through estimated box weights (±4%)</b>. A 4% weight miss moves their basket ~${fmtL(sunShare*0.04)}/yr.</td></tr>
+  <tr><td><span class="chip ${pend.length?"bad":"ok"}">reading</span></td><td>${pend.length?`<b>${pend.length} cells still illegible</b> (${pend.join(", ")}) — held out of every total until you confirm them.`:"All illegible cells now confirmed by you."}</td></tr>
+  <tr><td><span class="chip bad">quality</span></td><td>ISO 9001 <b>expired Nov 2025</b>; no burst-test reports — fails the event's clearance rule.</td></tr>
+  <tr><td><span class="chip warn">terms</span></td><td>Countered with <b>30-day payment</b> against your 45; plain cartons only, so 3 printed lines stay with others regardless.</td></tr>
+  <tr><td><span class="chip warn">capacity</span></td><td>Single plant, ~15% stated headroom — thin for a monsoon surge.</td></tr></tbody></table></div>
+  <p>If you want the price anyway: confirm the two readings, demand the renewed ISO + burst tests before PO, and cap their share. Or use them as leverage — their ₹/kg makes a good target in negotiation with the cleared three.</p>${basisNote()}`;
+}
+function ansCurrency(){
+  const rows=MER_USD.map(code=>{const c=cellNow("MER",code),s=BYCODE[code];
+    return `<tr><td class="mono">${code}</td><td class="r num">${esc(c.orig)}</td><td class="r num">× ${FX_USD.toFixed(2)}</td><td class="r num"><b>${fmt2(c.norm)}</b></td><td class="r num">${fmtL(lineAnnual(s,c.norm))}/yr</td></tr>`}).join("");
+  return `<div class="a-title">✦ Meridian — currency &amp; the footnote</div>
+  <p>Two export-grade lines came in USD. They're converted once, event-wide, at the dated reference rate — the original stays on the cell, and changing the rate re-prices both everywhere:</p>
+  <div class="tbl-scroll" style="margin-top:6px"><table class="tbl"><thead><tr><th>Line</th><th class="r">As quoted</th><th class="r">FX</th><th class="r">₹/pc</th><th class="r">Annual</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <p>The <b>8% discount</b> lives in a footnote and is conditional on <b>10-day payment</b> — your terms are 45 days, so it is <b>${STATE.merDiscount==="included"?"currently INCLUDED at your instruction":"kept out of the comparison"}</b>. A discount you won't earn isn't a price; it's bait. If finance can pay early, flip it in the Flags tab and every number updates.</p>
+  <p>A ±₹1 move in USD/INR shifts Meridian's basket by <b class="num">${fmtL(MER_USD.reduce((a,c)=>a+lineAnnual(BYCODE[c],cellNow("MER",c).norm/FX_USD),0))}/yr</b> — small here, but the mechanism matters at scale.</p>${basisNote()}`;
+}
+function ansMemo(){
+  setTimeout(()=>openMemo(),350);
+  return `<div class="a-title">✦ Award memo</div><p>Drafted from the selected scenario — opening the preview. It carries the decision, the per-vendor award, the open items, and the full audit appendix: what was converted, what was assumed, and who confirmed what. The same memo exports as PDF alongside the comparison workbook.</p><p>Pick a different scenario in the <b>Award</b> stage and the memo re-drafts itself.</p>${basisNote()}`;
+}
+
+/* ============ AWARD ============ */
+function scenarios(){
+  const all=splitTotal(VENDORS.map(v=>v.id)),cl=splitTotal(CLEARED);
+  const sgp=vendorAnnual("SGP");
+  return {
+   A:{name:"One vendor — Shree Ganesh",tot:sgp.tot,pool:["SGP"],note:"One relationship, one truck schedule. Full 30-line coverage; FSC still open; 2 unit confirmations pending.",delta:0},
+   B:{name:"Split — cleared vendors only",tot:cl.tot,pool:CLEARED,note:"Cheapest confirmed price per line among the three who cleared quality. The defensible one.",delta:sgp.tot-cl.tot,rec:true},
+   C:{name:"Split — all five, price only",tot:all.tot,pool:VENDORS.map(v=>v.id),note:"Cheapest on paper. Rides on an expired ISO, illegible cells and an unconfirmed “same as last year”.",delta:sgp.tot-all.tot},
+  };
+}
+function renderAward(){
+  const sc=scenarios();
+  $("#scr-award").innerHTML=`
+  <div class="pagehead"><div><h2>Decide it, and be able to defend it</h2>
+    <div class="sub">Three computed scenarios. Pick one — the memo drafts itself with the award, the open items, and an audit appendix of every conversion and assumption behind the numbers.</div></div>
+    <div class="grow"></div>
+    <button class="btn" onclick="toast('Export pack stubbed in the prototype — comparison .xlsx + memo .pdf in the build')">Export pack</button>
+    <button class="btn primary" onclick="toast('Routed to VP for approval — stubbed in the prototype')">Send for approval</button></div>
+  <div class="scen">${Object.entries(sc).map(([k,s])=>`
+    <button class="card scard ${STATE.awardSel===k?"sel":""}" onclick="STATE.awardSel='${k}';renderAward();renderStepper()">
+      <div class="sc-tag">Scenario ${k}${s.rec?" · recommended":""}</div><div class="sc-name">${esc(s.name)}</div>
+      <div class="sc-amt num">${fmtL(s.tot)}<span style="font-size:12px;color:var(--ink2)"> /yr</span></div>
+      ${k==="A"?`<div class="sc-delta" style="color:var(--ink2)">baseline</div>`:`<div class="sc-delta" style="color:var(--ok)">saves ${fmtL(s.delta)} vs single</div>`}
+      <div class="sc-note">${esc(s.note)}</div></button>`).join("")}</div>
+  ${buildMemoHTML(STATE.awardSel)}`;
+}
+function openMemo(){openOverlay(`<div class="modal" onclick="closeOverlays()"><div class="m-card" onclick="event.stopPropagation()" style="padding:6px">${buildMemoHTML(STATE.awardSel)}<div style="text-align:right;padding:0 14px 12px"><button class="btn small" onclick="closeOverlays()">Close</button></div></div></div>`)}
+function buildMemoHTML(key){
+  const sc=scenarios()[key];const split=splitTotal(sc.pool);
+  const counts={conv:0,ass:0,rev:0,ok:0,miss:0};
+  SKUS.forEach(s=>VENDORS.forEach(v=>{const c=cellNow(v.id,s.code);
+    if(!c||c.missing){counts.miss++;return}
+    if(c.flags&&(c.flags.includes("u")||c.flags.includes("fx")||c.flags.includes("d")))counts.conv++;
+    if(c.state==="assumed")counts.ass++;else if(c.state==="review")counts.rev++;else if(c.state==="ok")counts.ok++}));
+  const open=queueItems().filter(q=>!q.resolved&&(q.vid==="SGP"||sc.pool.includes(q.vid)));
+  const vrows=Object.keys(split.share).sort((a,b)=>split.share[b]-split.share[a]).map(id=>{
+    const lines=split.rows.filter(r=>r.best&&r.best.vid===id).map(r=>r.s.code);
+    return `<tr><td>${vchip(id)} <b>${esc(VBY[id].name)}</b><div style="font-size:11px;color:var(--ink2)">${esc(VBY[id].city)} · ${esc(VBY[id].contact)}</div></td>
+    <td class="r num">${lines.length}</td><td class="r num">${fmtL(split.share[id])}</td>
+    <td style="font-size:11px;color:var(--ink2)">${lines.slice(0,5).join(", ")}${lines.length>5?` +${lines.length-5} more`:""}</td></tr>`}).join("");
+  return `<div class="memo" style="margin:0 auto">
+    <h3>Award recommendation — FY27 Corrugated Packaging</h3>
+    <div class="m-meta">Suraksha Consumer Products · RFQ-FY27-CORR · drafted ${new Date().toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})} · scenario ${key}</div>
+    <p><b>Decision.</b> ${esc(sc.name)} at <b class="num">${fmtL(sc.tot)}/yr</b>${key!=="A"?` — <b class="num">${fmtL(sc.delta)}</b> below the single-vendor baseline`:""}. ${key==="B"?"Restricted to vendors clearing the event's quality rule (valid ISO 9001 + burst certs).":key==="C"?"Price-only; includes vendors that failed the quality rule — recorded as a conscious waiver.":"Single-vendor for operational simplicity; premium over the split is the cost of one throat to choke."}</p>
+    <h5>Award by vendor</h5>
+    <div class="tbl-scroll"><table class="tbl"><thead><tr><th>Vendor</th><th class="r">Lines</th><th class="r">Annual</th><th>Lines detail</th></tr></thead><tbody>${vrows}</tbody></table></div>
+    ${split.uncovered.length?`<p style="color:var(--bad)"><b>Uncovered:</b> ${split.uncovered.map(s=>s.code).join(", ")} — re-quote or waive before award.</p>`:""}
+    <h5>Open before PO ${open.length?`(${open.length})`:"— none"}</h5>
+    ${open.length?`<ul class="audit">${open.map(q=>`<li>${esc(q.title)}</li>`).join("")}</ul>`:`<p>All flags resolved by the buyer.</p>`}
+    <h5>Audit appendix — how these numbers were made</h5>
+    <ul class="audit">
+      <li><b class="num">150</b> vendor-line cells: <b class="num">${counts.ok}</b> confirmed · <b class="num">${counts.ass}</b> carrying a stated assumption · <b class="num">${counts.rev}</b> unconfirmed · <b class="num">${counts.miss}</b> honest gaps (never zero-filled).</li>
+      <li><b class="num">${counts.conv}</b> cells converted to the common basis (per-100 → per-piece; ₹/kg × estimated weight; USD at ₹${FX_USD.toFixed(2)}, ${esc(FX_DATE)}).</li>
+      <li>Apex normalised to Delivered with a ₹${FREIGHT_EST.toFixed(1)}/kg lane estimate (${STATE.apxFreight==="accepted"?"accepted by buyer":"pending buyer acceptance"}); Meridian's conditional 8% discount ${STATE.merDiscount==="included"?"included by buyer instruction":"excluded (terms mismatch)"}.</li>
+      <li>Kraftedge 140 gsm deviation on 3 lines: ${STATE.kftDev==="accepted"?"accepted":STATE.kftDev==="rejected"?"held to spec — lines excluded":"open"}.</li>
+      <li>Every figure traces to its source document; cell-level provenance retained in the event record.</li>
+    </ul>
+    <div class="signrow"><div class="signbox">Prepared — <b>Priya Nair</b>, Category Buyer<br>with Parity analyst</div><div class="signbox">Approval — <b>VP, Supply Chain</b><br>pending</div></div>
+  </div>`;
+}
+
+/* ============ demo drawer ============ */
+function openDemo(){
+  const steps=[
+   ["01","Draft — talk the RFx into existence","Chat on the left, living document on the right. The co-pilot imports last year's lines, asks the two questions worth asking, and sets the rule that pays off later: any reply off the Delivered basis gets flagged and normalised.", "draft"],
+   ["02","Invite — email out, replies tracked","Five vendors, one event address, no portal forced on anyone. Nine days compressed to one screen.","invite"],
+   ["03","Responses — five shapes, one reading","Excel, PDF, Word, an angled photo, a two-line email. Open Sundaram: hover the extracted fields and watch them point back into the photo. Nothing uncertain slipped through quietly — it's all in the queue.","responses"],
+   ["04","Compare — one basis, marks everywhere","₹/pc delivered, originals kept alongside. Click Apex's cells: ₹42/kg × estimated weight + freight estimate, chain shown. Confirm one of Sundaram's illegible cells and watch the totals move.","compare"],
+   ["05","Ask — the VP question","“Split it, cheapest per line, only vendors who cleared the questionnaire.” The analyst computes it from live state, prices the quality constraint, and shows its basis line.","compare"],
+   ["06","Award — a memo you can sign","Three scenarios, one recommendation, and an audit appendix listing every conversion and assumption. That's what earns the ₹3.6-crore click.","award"],
+   ["07","What's real vs stubbed","Real: the dataset, the normalisation model, all analyst math — computed live in this page. Stubbed: SMTP, exports, and the analyst's language (scripted here; a live AI loop in the build, per the brief's one rule).",null],
+  ];
+  openOverlay(`<div class="drawer" style="width:min(560px,94vw)"><div class="d-head"><b style="font-family:Archivo;font-size:15px">Demo script — seven beats</b>
+    <div class="grow" style="flex:1"></div><button class="btn small ghost" onclick="closeOverlays()">✕</button></div>
+    <div class="d-body">${steps.map(([n,t,p,scr])=>`<div class="demo-step"><span class="dn">${n}</span>
+      <div><b>${esc(t)}</b><p>${esc(p)}</p></div>
+      ${scr?`<button class="btn small" onclick="closeOverlays();show('${scr}')">Go ›</button>`:""}</div>`).join("")}</div></div>`);
+}
+$("#btn-demo").addEventListener("click",openDemo);
+
+/* ============ init ============ */
+renderAll();show("compare");
+</script>

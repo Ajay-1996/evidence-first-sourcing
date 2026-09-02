@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sourcing Workspace — fallback</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F6F5F1;--card:#FFF;--card2:#F1EFE9;--card3:#EBE9E1;--ink:#211F1A;--ink2:#5D5A51;
+  --mut:#8B887C;--line:#E3E0D6;--line2:#D6D2C4;--accent:#4338CA;--accent-ink:#3730A3;
+  --accent-wash:#E7E7FA;--on-accent:#FFF;--kraft:#A9834E;
+  --ok:#1B7A46;--ok-wash:#E2F1E7;--warn:#8F5A00;--warn-wash:#F6EDD8;--bad:#B3261E;--bad-wash:#F9E6E4;
+  --na:#6E6B60;--na-wash:#EDEBE3;
+  --shadow:0 10px 30px rgba(33,31,26,.10),0 2px 6px rgba(33,31,26,.07);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --paper:#151410;--card:#1E1D18;--card2:#26241D;--card3:#2C2A22;--ink:#ECE9DE;--ink2:#B6B2A4;
+  --line:#3A382E;--line2:#474436;--accent:#A2AAF2;--accent-ink:#C3C8F9;--accent-wash:#282B5E;--on-accent:#14163C;
+  --kraft:#C09A63;--ok:#72CE9D;--ok-wash:#183327;--warn:#E2B368;--warn-wash:#3A2E13;--bad:#F0938C;--bad-wash:#42211E;
+  --na:#A9A597;--na-wash:#2C2B24;--shadow:0 10px 30px rgba(0,0,0,.45);}}
+:root[data-theme=dark]{
+  --paper:#151410;--card:#1E1D18;--card2:#26241D;--card3:#2C2A22;--ink:#ECE9DE;--ink2:#B6B2A4;
+  --line:#3A382E;--line2:#474436;--accent:#A2AAF2;--accent-ink:#C3C8F9;--accent-wash:#282B5E;--on-accent:#14163C;
+  --kraft:#C09A63;--ok:#72CE9D;--ok-wash:#183327;--warn:#E2B368;--warn-wash:#3A2E13;--bad:#F0938C;--bad-wash:#42211E;
+  --na:#A9A597;--na-wash:#2C2B24;--shadow:0 10px 30px rgba(0,0,0,.45);}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3,h4{font-family:Archivo,sans-serif;margin:0}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:.93em}
+.top{display:flex;gap:12px;align-items:center;padding:10px 20px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.lgo{width:22px;height:22px;border-radius:6px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:700;font-size:12px}
+.wordmark{font-family:Archivo;font-weight:700;font-size:16px}
+.top .sub{color:var(--ink2);font-size:12.5px}
+.live{margin-left:auto;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:99px;color:var(--ink2);background:var(--card2)}
+.live.busy{color:var(--accent-ink);background:var(--accent-wash)}
+.live.off{color:var(--bad);background:var(--bad-wash)}
+.tabs{display:block;padding:0 0 4px}
+.tab{padding:8px 16px;font-weight:600;font-size:13.5px;color:var(--ink2);border-bottom:2px solid transparent}
+.tab.on{color:var(--accent-ink);border-bottom-color:var(--accent)}
+.tab .cnt{font-family:"IBM Plex Mono";font-size:10px;background:var(--warn-wash);color:var(--warn);border-radius:99px;padding:1px 6px;margin-left:4px}
+main{max-width:1280px;margin:0 auto;padding:16px 20px 70px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.chip{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;white-space:nowrap}
+.chip.ok{background:var(--ok-wash);color:var(--ok)}.chip.warn{background:var(--warn-wash);color:var(--warn)}
+.chip.bad{background:var(--bad-wash);color:var(--bad)}.chip.na{background:var(--na-wash);color:var(--na)}
+.chip.acc{background:var(--accent-wash);color:var(--accent-ink)}
+.btn{display:inline-flex;gap:6px;align-items:center;padding:6px 12px;border:1px solid var(--line2);border-radius:8px;background:var(--card);font-weight:600;font-size:12.5px}
+.btn:hover{background:var(--card2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.sm{padding:3px 10px;font-size:11.5px}
+.btn[disabled]{opacity:.5;cursor:default}
+.pagehead{margin:6px 2px 14px}.pagehead h2{font-size:18px}.pagehead p{color:var(--ink2);font-size:13px;margin:4px 0 0;max-width:78ch}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th{font-family:Archivo;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line2);background:var(--card2);position:sticky;top:0}
+td{padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.r,th.r{text-align:right}
+.scroll{overflow:auto;border-radius:12px;max-height:calc(100vh - 300px)}
+.cell{display:block;width:100%;text-align:right;padding:2px 0;border-radius:6px}
+.cell:hover{background:var(--accent-wash)}
+.cell .orig{display:block;font-size:10px;color:var(--mut);font-family:"IBM Plex Mono"}
+.cell.assumed{background:color-mix(in srgb,var(--warn-wash) 50%,transparent)}
+.cell.needs_review{background:color-mix(in srgb,var(--bad-wash) 55%,transparent)}
+.cell.best b{color:var(--ok)}
+.rowv{display:grid;grid-template-columns:44px 1.3fr 1.2fr auto auto;gap:12px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.rowv:last-child{border-bottom:0}
+.ft{width:38px;height:46px;border:1px solid var(--line2);border-radius:6px;display:grid;place-items:center;font-family:"IBM Plex Mono";font-size:9px;font-weight:700;background:var(--card2)}
+.exc{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--card)}
+.exc .t{font-weight:600;font-size:13px}.exc .d{font-size:12px;color:var(--ink2);margin-top:2px;max-width:66ch}
+.exc .impact{font-family:"IBM Plex Mono";font-size:12px;text-align:right;white-space:nowrap}
+.drawer-scrim{position:fixed;inset:0;background:rgba(20,18,12,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(540px,92vw);background:var(--paper);z-index:50;box-shadow:var(--shadow);overflow-y:auto;padding:18px 20px}
+.dr-k{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-family:Archivo;margin:16px 0 5px}
+.src{background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:"IBM Plex Mono";font-size:11px;white-space:pre-wrap;word-break:break-word}
+.chainv{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.chs{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card)}
+.chs .cl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-family:Archivo}
+.chs .cv{font-size:13px;margin-top:2px}
+.chs .cv.big{font-family:"IBM Plex Mono";font-size:19px;font-weight:600}
+.charrow{text-align:center;color:var(--mut);font-size:13px;line-height:1.6}
+details{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:9px 12px;margin-top:10px}
+summary{cursor:pointer;font-weight:600;font-size:12.5px;color:var(--ink2)}
+details[open] summary{margin-bottom:8px}
+ul.sum{margin:6px 0;padding-left:18px;font-size:12.5px}
+ul.sum li{margin:3px 0}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:56vh;overflow-y:auto;padding:14px}
+.mu{align-self:flex-end;background:var(--accent-wash);border-radius:12px 12px 3px 12px;padding:8px 12px;max-width:85%}
+.ma{align-self:stretch;background:var(--card2);border:1px solid var(--line);border-radius:3px 12px 12px 12px;padding:12px 14px}
+.ma .basis{border-top:1px dashed var(--line2);margin-top:9px;padding-top:7px;font-size:11px;color:var(--ink2)}
+.headline{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin-bottom:8px}
+.headline .hl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);font-family:Archivo}
+.headline .hv{font-family:"IBM Plex Mono";font-size:22px;font-weight:600;line-height:1.3}
+.headline .hs{font-size:12.5px;color:var(--ink2)}
+.assump{font-size:12.5px;margin:2px 0;color:var(--ink2)}
+.ask{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--line)}
+.ask input{flex:1;background:var(--card2);border:1px solid var(--line2);border-radius:8px;padding:8px 11px;color:var(--ink);font:inherit}
+.spin{display:inline-block;width:12px;height:12px;border:2px solid var(--line2);border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:10px;padding:8px 16px;font-size:13px;z-index:60}
+.note{font-size:11px;color:var(--mut);margin-top:10px}
+input.inline{width:140px;padding:6px 9px;border:1px solid var(--line2);border-radius:8px;background:var(--card2);color:var(--ink);font:inherit}
+/* stages */
+.stepper{display:flex;gap:6px;padding:12px 20px 0;max-width:1280px;margin:0 auto;overflow-x:auto}
+.step{flex:1;min-width:130px;text-align:left;padding:9px 12px;border:1px solid var(--line);border-bottom-width:3px;border-radius:10px;background:var(--card);color:var(--ink2)}
+.step:hover{background:var(--card2)}
+.step .n{font-family:"IBM Plex Mono";font-size:10px;color:var(--mut)}
+.step .nm{display:flex;align-items:center;gap:6px;font-family:Archivo;font-weight:600;font-size:13px;color:var(--ink)}
+.step .sb{display:block;font-size:11px;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step.done{border-bottom-color:var(--ok)}
+.step.attn{border-bottom-color:var(--warn)}
+.step.active{border-color:var(--accent);border-bottom-color:var(--accent)}
+.step.active .nm{color:var(--accent-ink)}
+.step.locked{opacity:.6}
+.tickg{color:var(--ok)}.wdot{color:var(--warn)}
+.ready{display:flex;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 16px;margin:10px auto 0;max-width:1240px;flex-wrap:wrap}
+.ready .lab{font-family:Archivo;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.meter{min-width:160px;height:8px;border-radius:4px;background:var(--card3);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ok);border-radius:4px}
+.ready .need{font-size:12px;color:var(--ink2)}
+.ready .need b{color:var(--ink)}
+/* supplier cards */
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.vcard.state-ok{box-shadow:inset 3px 0 0 var(--ok)}
+.vcard.state-attn{box-shadow:inset 3px 0 0 var(--warn)}
+.vcard.state-idle{box-shadow:inset 3px 0 0 var(--line2)}
+.vhead2{display:grid;grid-template-columns:44px 1.15fr 1.5fr auto;gap:14px;align-items:center;padding:12px 16px;cursor:pointer;width:100%;text-align:left}
+.vhead2:hover{background:var(--card2)}
+.vstat .row1{font-size:13px;font-weight:600}
+.vstat .row1.g{color:var(--ok)}.vstat .row1.w{color:var(--warn)}
+.vstat .row2{font-size:11.5px;color:var(--ink2);margin-top:1px}
+.minimeter{display:flex;height:6px;border-radius:3px;overflow:hidden;background:var(--card3);margin-top:6px;max-width:240px}
+.minimeter i{height:100%}
+.chev{color:var(--mut);font-size:15px;display:inline-block;transition:transform .15s}
+.chev.o{transform:rotate(90deg)}
+.vissues{border-top:1px solid var(--line);background:color-mix(in srgb,var(--card2) 55%,transparent);padding:4px 16px 12px}
+.iss{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:11px 4px;border-bottom:1px dashed var(--line)}
+.iss:last-of-type{border-bottom:0}
+.iss .t{font-weight:600;font-size:13px}
+.iss .d{font-size:12px;color:var(--ink2);max-width:70ch}
+.iss .impact{font-family:"IBM Plex Mono";font-size:12px;text-align:right;white-space:nowrap}
+.pill{display:inline-flex;border:1px solid var(--line2);border-radius:99px;overflow:hidden;margin-left:12px;vertical-align:middle}
+.pill button{padding:4px 14px;font-size:12px;font-weight:600;color:var(--ink2)}
+.pill button.on{background:var(--accent);color:var(--on-accent)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="top">
+  <span class="lgo">≡</span><span class="wordmark">⟨⟩</span>
+  <span class="sub">FY27 Corrugated Packaging — Annual Rate Contract</span>
+  <span class="live off" id="live">Connecting…</span>
+</div>
+<nav class="tabs" id="tabs"></nav>
+<main id="main"></main>
+<div id="overlay"></div>
+<script>
+"use strict";
+const API="";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtL=v=>v>=1e7?`₹${(v/1e7).toFixed(2)} Cr`:v>=1e5?`₹${(v/1e5).toFixed(1)} L`:`₹${Math.round(v).toLocaleString("en-IN")}`;
+const fmt2=v=>v==null?"—":"₹"+Number(v).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
+let S={tab:"responses",rfx:null,vendors:{},cmp:{},open:[],qual:{},policy:{},dec:{},rules:[],busy:{},chat:[],asking:false,draft:[],drafting:false,reveal:{},vopen:{}};
+
+async function j(url,opts){const r=await fetch(API+url,opts);if(!r.ok)throw new Error((await r.text()).slice(0,300));return r.json()}
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3400)}
+function setLive(){
+  const el=$("#live");if(!el)return;
+  const busy=Object.values(S.busy).some(Boolean)||S.asking||S.drafting;
+  el.className="live"+(busy?" busy":"");el.innerHTML=busy?'<span class="spin"></span> Live processing…':"Ready";
+}
+async function refresh(){
+  try{
+    const [rfx,ven,cmp]=await Promise.all([j("/rfx"),j("/vendors"),j("/compare")]);
+    S.rfx=rfx;S.vendors=ven;S.cmp=cmp.comparison;S.open=cmp.open_items;S.qual=cmp.qualification;S.policy=cmp.policy;S.dec=cmp.decisions||{};S.rules=cmp.rules||[];
+    setLive();
+  }catch(e){const el=$("#live");el.className="live off";el.textContent="Server offline"}
+  render();
+}
+/* materiality split: what needs the buyer vs what was handled */
+const INFO_TYPES=["MISSING_LINE"]; /* facts to know, not decisions to make */
+function decisionItems(){return S.open.filter(e=>["HIGH","AWARD_BLOCKING"].includes(e.severity)&&!INFO_TYPES.includes(e.type))}
+function fyiItems(){return S.open.filter(e=>!decisionItems().includes(e))}
+function awaiting(e){return ((S.dec[e.vendor]||{})[(e.type||e.id)+"_status"])==="asked_supplier"}
+
+function readiness(){
+  let usable=0,held=0;
+  Object.values(S.cmp).forEach(q=>(q.cells||[]).forEach(c=>{
+    if(c.state==="needs_review")held++;else if(c.normalized_inr_per_unit!=null)usable++}));
+  const processed=Object.keys(S.cmp).length;
+  const dec=decisionItems().filter(e=>!awaiting(e));
+  const waiting=S.open.filter(awaiting).length;
+  const atStake=dec.reduce((a,e)=>a+(e.annual_impact_inr||0),0);
+  const waived=!!(S.dec.EVENT||{}).award_waiver;
+  return {usable,held,processed,unproc:5-processed,dec:dec.length,waiting,atStake,waived,
+    pct:usable+held?Math.round(usable/(usable+held)*100):0};
+}
+function stages(){
+  const R=readiness();
+  const stage04on=["compare","quest","analyst"].includes(S.tab);
+  const awardReady=R.dec===0&&R.unproc===0;
+  const st=[
+   ["rfx","01","RFQ","Sent · 30 lines · 6 questions","done"],
+   ["responses","02","Responses",R.unproc?`5 received · ${R.processed} processed`:"5 of 5 processed",R.unproc?"attn":"done"],
+   ["flags","03","Resolve",R.dec?`${R.dec} decisions${R.atStake?` · ${fmtL(R.atStake)} at stake`:""}`:(R.waiting?`${R.waiting} awaiting supplier`:"all resolved"),R.dec?"attn":"done"],
+   ["compare","04","Compare & Analyze",R.held?`${R.held} values held out`:"every value usable",""],
+   ["award","05","Award"+(awardReady||R.waived?"":" 🔒"),awardReady?"ready to recommend":R.waived?"proceeding under waiver":`${R.dec||""}${R.dec?" decisions open":"complete inputs first"}`,awardReady?"":"locked"],
+  ];
+  $("#tabs").innerHTML=`<div class="stepper">${st.map(([id,n,nm,sb,mode])=>{
+    const active=S.tab===id||(id==="compare"&&stage04on);
+    return `<button class="step ${mode} ${active?"active":""}" onclick="S.tab='${id}';render()">
+      <span class="n">${n}</span><span class="nm">${nm}${mode==="done"?' <span class="tickg">✓</span>':mode==="attn"?' <span class="wdot">●</span>':""}</span>
+      <span class="sb">${esc(sb)}</span></button>`}).join("")}</div>
+  <div class="ready">
+    <div><div class="lab">You are here</div><div style="font-weight:600;font-size:13px">${
+      R.unproc?"Absorbing supplier responses":R.dec?"Resolving supplier input":R.held?"Comparison forming":"Analysis-ready"}</div></div>
+    <div style="flex:1;min-width:200px"><div class="lab">Values usable</div>
+      <div class="meter"><i style="width:${R.pct}%"></i></div></div>
+    <div class="need"><div class="lab">Before you can conclude</div>${
+      (R.unproc?`<b>${R.unproc} supplier${R.unproc>1?"s":""}</b> to process · `:"")+
+      (R.dec?`<b>${R.dec} decision${R.dec>1?"s":""}</b> to make · `:"")+
+      (R.waiting?`<b>${R.waiting} repl${R.waiting>1?"ies":"y"}</b> awaited · `:"")||"nothing — "}
+      ${(!R.unproc&&!R.dec)?"<b>ready for a defensible award</b>":""}</div>
+    <div class="need"><div class="lab">Standing rules</div>
+      <button class="btn sm" onclick="rulesDrawer()">${S.rules.filter(r=>r.enabled).length} active ›</button></div>
+  </div>`;
+}
+function render(){stages();setLive();({responses:rResp,compare:rCmp,quest:rQuest,flags:rFlags,analyst:rAna,rfx:rRfx,award:rAward}[S.tab])()}
+function pill(active){
+  const p=[["compare","Grid"],["quest","Questionnaire"],["analyst","Analyst"]];
+  return `<span class="pill">${p.map(([id,l])=>`<button class="${id===active?"on":""}" ${id===active?"":`onclick="S.tab='${id}';render()"`}>${l}</button>`).join("")}</span>`;
+}
+
+/* ---------- responses ---------- */
+function vendStats(vid){
+  const q=S.cmp[vid];if(!q)return null;
+  const st={captured:0,review:0,missing:0,transformed:0};
+  (q.cells||[]).forEach(c=>{
+    if(c.state==="missing"){st.missing++;return}
+    st.captured++;
+    if(c.state==="needs_review")st.review++;
+    if((c.transform_chain||[]).length)st.transformed++;
+  });
+  return st;
+}
+const RECV={ALPHA:"27 Aug · 10:42",BOXCO:"28 Aug · 16:05",PACKRT:"29 Aug · 11:19",CORRUG:"30 Aug · 09:31",GLOBAL:"31 Aug · 21:12"};
+function vendOpen(vid){return S.open.filter(e=>e.vendor===vid)}
+/* has the buyer decided this issue TYPE on another supplier already? */
+function priorDecision(e){
+  const t=e.type||e.id;if(!t||/QUESTIONNAIRE/i.test(t))return null;
+  for(const [vid,facts] of Object.entries(S.dec)){
+    if(vid===e.vendor||vid==="EVENT")continue;
+    if(facts[t]!==undefined&&!String(t).endsWith("_status"))
+      return {vendor:vid,action:facts[t]};
+  }
+  return null;
+}
+function ruleFor(t){return S.rules.find(r=>r.type===t&&r.enabled)}
+function issueCard(e){
+  const sev=["AWARD_BLOCKING","HIGH"].includes(e.severity)?"bad":e.severity==="MEDIUM"?"warn":"na";
+  const prior=priorDecision(e),rule=ruleFor(e.type||e.id);
+  const sugg=(prior&&!rule&&!awaiting(e))?`<div style="margin-top:8px;padding:8px 11px;border:1px dashed var(--accent);border-radius:9px;font-size:12px;background:color-mix(in srgb,var(--accent-wash) 40%,transparent)">
+      ⚡ You decided a similar ${esc((e.type||"").replace(/_/g," ").toLowerCase())} issue for <b>${esc(S.vendors[prior.vendor]?.name||prior.vendor)}</b> — “${esc(String(prior.action).slice(0,60))}${String(prior.action).length>60?"…":""}”.
+      <button class="btn sm primary" style="margin-left:8px" onclick='openRuleModal(${JSON.stringify(e.type||e.id)},${JSON.stringify(String(prior.action))},${JSON.stringify(prior.vendor)})'>Set as standing rule?</button></div>`:"";
+  return `<div class="iss"><span class="chip ${sev}">${e.severity==="AWARD_BLOCKING"?"award blocking":esc((e.severity||"").toLowerCase())}</span>
+    <div><div class="t">${esc(e.title||e.question||e.type||"")}</div>
+      <div class="d">${esc(e.detail||"")}</div>
+      ${sugg}
+      <div style="margin-top:7px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+        ${awaiting(e)?`<span class="chip acc">✉ Asked supplier — awaiting reply</span>
+          <button class="btn sm" onclick="recordReply('${e.vendor}','${esc(e.type||e.id)}')">Record reply…</button>`
+        :controls(e)}
+        <button class="btn sm" onclick='viewSource(${JSON.stringify(e.vendor)},${JSON.stringify((e.affected_lines||[])[0]||null)})'>View source ›</button></div></div>
+    <div class="impact">${e.annual_impact_inr?fmtL(e.annual_impact_inr)+"/yr":""}</div></div>`;
+}
+function openRuleModal(rtype,action,fromVendor){
+  const affected=[...new Set(S.open.filter(x=>(x.type||x.id)===rtype&&!awaiting(x)).map(x=>x.vendor))];
+  drawer(`<h3>Set a standing rule</h3>
+    <div class="dr-k">Whenever this issue occurs</div>
+    <div style="font-size:13px">${esc(rtype.replace(/_/g," "))}</div>
+    <div class="dr-k">Do this</div>
+    <div style="font-size:13px">${esc(action)}</div>
+    <div class="dr-k">Rule name</div>
+    <input id="rlabel" class="inline" style="width:100%" value="${esc(rtype.replace(/_/g," ").toLowerCase()+" → "+String(action).slice(0,40))}">
+    <div class="note" style="margin-top:10px">Guardrails: every application is marked on the cell ("rule applied") — never silent.
+    Compliance issues can never become rules. You can disable or delete this rule any time from Standing rules.</div>
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn primary" onclick='createRule(${JSON.stringify(rtype)},${JSON.stringify(action)},${JSON.stringify(fromVendor)},${JSON.stringify(affected)})'>Create${affected.length?` & recompute ${affected.join(", ")}`:""}</button>
+      <button class="btn" onclick="closeDrawer()">Cancel</button></div>`);
+}
+async function createRule(rtype,action,fromVendor,affected){
+  const label=$("#rlabel").value||rtype;
+  closeDrawer();
+  try{
+    await j("/rules",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({op:"create",rtype,action,label,
+        created_from:{vendor:fromVendor,decision:action}})});
+    toast("Rule created — recorded in Standing rules");
+    for(const vid of affected){
+      S.busy[vid]=true;render();
+      try{await j("/rerun/"+vid,{method:"POST"});toast(vid+" recomputed under the rule")}
+      catch(e){toast(vid+" recompute failed: "+e.message)}
+      S.busy[vid]=false;
+    }
+  }catch(e){toast("Rule failed: "+e.message)}
+  await refresh();
+}
+function rulesDrawer(){
+  const applied=id=>{let n=0;Object.values(S.cmp).forEach(q=>(q.cells||[]).forEach(c=>{
+    if((c.flags||[]).includes("rule_applied")&&String(c.note||"").includes(id))n++}));return n};
+  drawer(`<h3>Standing rules</h3>
+    <p style="font-size:12.5px;color:var(--ink2)">Decisions you promoted to policy. Every application is marked on the affected cell; compliance can never be ruled away.</p>
+    ${S.rules.length?S.rules.map(r=>`<div class="chs" style="margin-top:10px">
+      <div style="display:flex;gap:8px;align-items:center"><b>${esc(r.label)}</b>
+        <span class="chip ${r.enabled?"ok":"na"}">${r.enabled?"active":"disabled"}</span>
+        <span class="chip acc">${applied(r.id)} cells now</span></div>
+      <div style="font-size:11.5px;color:var(--ink2);margin-top:3px">${esc(r.id)} · ${esc(r.type)} · from ${esc(S.vendors[r.created_from?.vendor]?.name||r.created_from?.vendor||"—")} · ${esc(r.created_from?.ts||"")}</div>
+      <div style="margin-top:7px;display:flex;gap:6px">
+        <button class="btn sm" onclick='ruleOp("toggle","${r.id}")'>${r.enabled?"Disable":"Enable"}</button>
+        <button class="btn sm" onclick='ruleOp("delete","${r.id}")'>Delete</button></div></div>`).join("")
+    :`<div style="font-size:13px;margin-top:8px">None yet. When the same issue type recurs across suppliers, the system offers to turn your earlier decision into a rule.</div>`}`);
+}
+async function ruleOp(op,id){
+  try{await j("/rules",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({op,rule_id:id})});
+    toast("Rule "+op+"d — applies from the next recompute")}catch(e){toast(e.message)}
+  await refresh();rulesDrawer();
+}
+function rResp(){
+  const done=Object.keys(S.cmp).length;
+  const cards=Object.entries(S.vendors).map(([vid,v])=>{
+    const st=vendStats(vid);const busy=S.busy[vid];
+    const openIss=vendOpen(vid);
+    const mine=openIss.filter(e=>["HIGH","AWARD_BLOCKING"].includes(e.severity)&&!INFO_TYPES.includes(e.type));
+    const need=mine.filter(e=>!awaiting(e)).length;
+    const stake=mine.reduce((a,e)=>a+(e.annual_impact_inr||0),0);
+    const cls=!st?"state-idle":need?"state-attn":"state-ok";
+    const isOpen=!!S.vopen[vid];
+    let status;
+    if(!st)status=`<div class="row1">Received — not processed yet</div><div class="row2">Processing reads the reply and queues anything material</div>`;
+    else if(need)status=`<div class="row1 w">Partially complete — ${need} input${need>1?"s":""} needed from you</div>
+      <div class="row2">${st.captured-st.review}/30 usable${st.review?` · <b>${st.review} lines held by ${Math.min(need,st.review)} decision${need>1?"s":""}</b>`:""}${stake?` · ${fmtL(stake)} at stake`:""}${st.missing?` · ${st.missing} not quoted`:""}</div>
+      <div class="minimeter"><i style="width:${(st.captured-st.review)/30*100}%;background:var(--ok)"></i><i style="width:${st.review/30*100}%;background:var(--warn)"></i></div>`;
+    else status=`<div class="row1 g">Complete — nothing needed from you</div>
+      <div class="row2">${st.captured-st.review}/30 usable${st.missing?` · ${st.missing} not quoted`:""} · ${openIss.length?openIss.length+" observations handled":"clean"}</div>
+      <div class="minimeter"><i style="width:${(st.captured-st.review)/30*100}%;background:var(--ok)"></i></div>`;
+    const fyi=openIss.filter(e=>!mine.includes(e));
+    return `<div class="vcard ${cls}">
+      <button class="vhead2" onclick="S.vopen['${vid}']=!S.vopen['${vid}'];render()">
+        <span class="ft">${esc(v.files[0].split(".").pop().toUpperCase())}</span>
+        <span><b>${esc(v.name)}</b><div style="font-size:11.5px;color:var(--ink2)">${esc(v.contact||"")} · ${v.files.map(esc).join(" + ")}</div>
+          <div style="font-size:11px;color:var(--mut)">Received via email · ${esc(RECV[vid]||"")}</div></span>
+        <span class="vstat">${status}</span>
+        <span onclick="event.stopPropagation()" style="display:flex;gap:8px;align-items:center">
+          <button class="btn ${st?"":"primary"}" ${busy?"disabled":""} onclick="ingest('${vid}')">${busy?'<span class="spin"></span> Processing…':(st?"Reprocess":"Process →")}</button>
+          <span class="chev ${isOpen?"o":""}">›</span></span>
+      </button>
+      ${isOpen&&st?`<div class="vissues">
+        ${mine.length?mine.map(issueCard).join(""):`<div style="padding:10px 4px;font-size:12.5px;color:var(--ink2)">No decisions needed from you for this supplier.</div>`}
+        ${fyi.length?`<details style="margin:8px 0 2px"><summary>${fyi.length} further observation${fyi.length>1?"s":""} — handled automatically</summary>${fyi.map(issueCard).join("")}</details>`:""}
+        <div style="padding:6px 4px 0"><button class="btn sm" onclick="openEvidence('${vid}')">Full reading summary ›</button></div>
+      </div>`:""}
+    </div>`;
+  }).join("");
+  $("#main").innerHTML=`<div class="pagehead"><h2>${done} of 5 supplier responses processed</h2>
+    <p>Suppliers replied by email in their own formats — no portal, no template. Each card shows how complete that supplier's information is; click a card to resolve its issues right here.</p></div>
+    ${cards}`;
+}
+async function ingest(vid){
+  S.busy[vid]=true;render();
+  try{await j("/ingest/"+vid,{method:"POST"});toast(S.vendors[vid].name+" processed — comparison updated")}
+  catch(e){toast("Processing failed: "+e.message)}
+  S.busy[vid]=false;await refresh();
+}
+async function openEvidence(vid){
+  try{
+    const ev=await j("/evidence/"+vid);
+    const q=S.cmp[vid]||{};const st=vendStats(vid)||{};
+    const direct=(q.cells||[]).filter(c=>c.state!=="missing"&&!(c.transform_chain||[]).length).length;
+    const mine=decisionItems().filter(e=>e.vendor===vid&&!awaiting(e)).length;
+    const conf=(ev.conflicts||[]);
+    drawer(`<h3>${esc(S.vendors[vid].name)}</h3>
+      <div style="font-size:12px;color:var(--ink2);margin-top:2px">${esc((S.vendors[vid].files||[]).join(" + "))}</div>
+      <div class="dr-k">What we received</div>
+      <div style="font-size:12.5px">${esc(reading1line(ev))}</div>
+      <div class="dr-k">What was captured</div>
+      <ul class="sum">
+        <li>${st.captured||0} of 30 lines priced${st.missing?` — ${st.missing} not quoted`:""}</li>
+        <li>${direct} read directly · ${st.transformed||0} converted to the event basis (unit / currency / freight)</li>
+        <li>Questionnaire: ${(ev.questionnaire||[]).filter(a=>a.answer).length} of 6 answered</li>
+      </ul>
+      <div class="dr-k">What couldn't be determined</div>
+      <ul class="sum">
+        ${st.review?`<li>${st.review} line${st.review>1?"s":""} held for review — value withheld rather than guessed</li>`:""}
+        ${(ev.unquoted||[]).length?`<li>Not quoted: ${(ev.unquoted||[]).map(u=>esc(u.code)).join(", ")}</li>`:""}
+        ${conf.length?conf.map(c=>`<li>Conflict — ${esc(c.topic)}: “${esc(c.a?.claim)}” vs “${esc(c.b?.claim)}”</li>`).join(""):""}
+        ${(!st.review&&!(ev.unquoted||[]).length&&!conf.length)?"<li>Nothing — clean response</li>":""}
+      </ul>
+      <div class="dr-k">What requires you</div>
+      <div style="font-size:12.5px">${mine?`${mine} decision${mine>1?"s":""} on the <b>Decisions</b> tab`:"Nothing open"}</div>
+      <details><summary>Technical detail — full reading notes & extracted terms</summary>
+        <div style="font-size:12px;margin-bottom:8px">${esc(ev.reading_notes||"—")}</div>
+        <div class="src">${esc(JSON.stringify(ev.vendor_terms||{},null,1))}</div></details>`);
+  }catch(e){toast(e.message)}
+}
+function reading1line(ev){
+  const n=ev.reading_notes||"";const cut=n.indexOf(". ");
+  return cut>20?n.slice(0,cut+1):n.slice(0,140)||"Supplier response on file.";
+}
+
+/* ---------- compare ---------- */
+function usable(c){return c&&(c.state==="confirmed"||c.state==="assumed")&&c.normalized_inr_per_unit!=null}
+function rCmp(){
+  const vids=Object.keys(S.cmp);
+  if(!vids.length){$("#main").innerHTML=`<div class="pagehead"><h2>No comparison yet</h2><p>Process supplier responses first.</p></div>`;return}
+  const lines=S.rfx.lines;
+  const cellOf={};vids.forEach(v=>{cellOf[v]={};(S.cmp[v].cells||[]).forEach(c=>cellOf[v][c.code]=c)});
+  const head=`<tr><th>Line</th>${vids.map(v=>{const ql=S.qual[v];return `<th class="r">${esc(S.vendors[v]?.name.split(" ")[0]||v)}<div>${ql?.cleared?'<span class="chip ok">quality cleared</span>':'<span class="chip bad">not cleared</span>'}</div></th>`}).join("")}</tr>`;
+  const body=lines.map(l=>{
+    let best=null;vids.forEach(v=>{const c=cellOf[v][l.code];if(usable(c)&&(best==null||c.normalized_inr_per_unit<best))best=c.normalized_inr_per_unit});
+    return `<tr><td><span class="num" style="color:var(--mut);font-size:10.5px">${l.code}</span><div style="font-size:11.5px">${esc(l.description)}</div><span class="num" style="font-size:10px;color:var(--ink2)">${l.qty_per_month.toLocaleString("en-IN")}/mo</span></td>`+
+      vids.map(v=>{const c=cellOf[v][l.code];
+        if(!c||c.state==="missing")return `<td class="r"><button class="cell" style="color:var(--mut)" onclick='missingDrawer(${JSON.stringify(v)},${JSON.stringify(l.code)})'>—<span class="orig">not quoted</span></button></td>`;
+        const cls=c.state+(usable(c)&&c.normalized_inr_per_unit===best?" best":"");
+        return `<td class="r"><button class="cell ${cls}" onclick='cellDrawer(${JSON.stringify(v)},${JSON.stringify(l.code)})'>
+          ${c.normalized_inr_per_unit==null?`<span class="chip bad">held out</span><span class="orig">needs your decision</span>`
+            :`<b class="num">${fmt2(c.normalized_inr_per_unit)}</b>
+          <span class="orig">${esc(c.as_quoted?`${c.as_quoted.amount??"illegible"} ${c.as_quoted.currency||""} ${c.as_quoted.unit_raw||""}`:"")}</span>`}</button></td>`;
+      }).join("")+"</tr>";
+  }).join("");
+  const foot=`<tr><td><b>Annual value, usable lines</b></td>${vids.map(v=>{
+    let tot=0,n=0,g=0;lines.forEach(l=>{const c=cellOf[v][l.code];if(usable(c)){tot+=c.normalized_inr_per_unit*l.qty_per_month*12;n++}else if(c&&c.state==="needs_review")g++});
+    return `<td class="r"><b class="num">${fmtL(tot)}</b><div style="font-size:10px;color:var(--ink2)">${n}/30${g?` · <span style="color:var(--bad)">${g} awaiting decision</span>`:""}</div></td>`}).join("")}</tr>`;
+  $("#main").innerHTML=`<div class="pagehead"><h2>One basis — click any number for its chain of custody
+      ${pill("compare")}</h2>
+    <p>₹ per piece, delivered, GST extra. Values awaiting a decision stay out of the totals. Gaps stay gaps.</p></div>
+    <div class="card scroll"><table>${head}${body}${foot}</table></div>
+    <div class="note" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+      <b style="font-family:Archivo;letter-spacing:.05em">READING THE GRID</b>
+      <span>plain — read directly</span>
+      <span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--warn-wash);border:1px solid var(--warn);vertical-align:-1px"></span> converted or carries a stated assumption</span>
+      <span><span class="chip bad" style="font-size:9.5px">held out</span> awaiting your decision — excluded from totals</span>
+      <span>— not quoted — a gap, never ₹0</span></div>`;
+}
+async function missingDrawer(vid,code){
+  const c=((S.cmp[vid]||{}).cells||[]).find(x=>x.code===code)||{};
+  let evLine=null;
+  try{const ev=await j("/evidence/"+vid);evLine=(ev.unquoted||[]).find(u=>u.code===code)}catch(_){/* not processed yet */}
+  drawer(`<h3>${esc(S.vendors[vid]?.name)} · ${esc(code)}</h3>
+    <div style="margin-top:6px"><span class="chip na">NOT QUOTED</span></div>
+    <div class="dr-k">Why</div>
+    <div style="font-size:13px">${esc(evLine?.reason||c.note||"The supplier did not offer this line.")}</div>
+    <div class="dr-k">Treatment</div>
+    <div style="font-size:13px">Excluded from the price comparison and from this supplier's totals.
+    <b>Not interpreted as ₹0</b>, never averaged over, never back-filled.</div>
+    <div class="dr-k">If you need this line from them</div>
+    <div><button class="btn" onclick='askSupplier(${JSON.stringify(vid)},${JSON.stringify("MISSING_"+code)},${JSON.stringify("Line "+code+" not quoted")},${JSON.stringify("Your response did not include "+code+". Please confirm whether you can offer it")})'>Ask supplier</button></div>`);
+}
+function cellStatus(c){
+  const touched=/buyer|confirmed by|decision/i.test((c.note||"")+(c.transform_chain||[]).map(t=>t.text).join(" "));
+  if(c.state==="needs_review")return ["bad","Awaiting your decision"];
+  if(touched)return ["ok","Buyer confirmed"];
+  if((c.transform_chain||[]).length||c.state==="assumed")return ["warn","Auto-normalized"+(c.state==="assumed"?" — carries a stated assumption":"")];
+  return ["ok","No review required — read directly"];
+}
+function cellExposure(vid,code){
+  for(const e of ((S.cmp[vid]||{}).exceptions||[]))
+    if((e.affected_lines||[]).includes(code)&&e.annual_impact_inr)
+      return {label:e.type==="PACK_FACTOR"?"Exposure if the factor were wrong":"Exposure behind this flag",v:e.annual_impact_inr};
+  return null;
+}
+function cellDrawer(vid,code){
+  const c=(S.cmp[vid].cells||[]).find(x=>x.code===code);if(!c)return;
+  const aq=c.as_quoted||{};
+  const steps=(c.transform_chain||[]);
+  const [stc,stl]=cellStatus(c);
+  const exp=cellExposure(vid,code);
+  const chain=`<div class="chainv">
+    <div class="chs"><div class="cl">Supplier evidence — as supplied</div>
+      <div class="cv num" style="font-size:11px;color:var(--ink2)">${esc((c.source||{}).file||"")} · ${esc((c.source||{}).locator||"")}</div>
+      ${(c.source||{}).excerpt?`<div class="src" style="margin-top:6px;font-size:12px">“${esc(c.source.excerpt)}”</div>`:""}</div>
+    <div class="charrow">↓</div>
+    <div class="chs"><div class="cl">Extracted</div>
+      <div class="cv big">${esc(aq.amount??"illegible")} <span style="font-size:12px;font-weight:400">${esc(aq.currency||"")} ${esc(aq.unit_raw||"")}</span></div>
+      <div style="font-size:10.5px;color:var(--mut)">read confidence ${Math.round((c.confidence||0)*100)}%</div></div>
+    <div class="charrow">↓</div>
+    ${steps.length?steps.map(t=>`<div class="chs"><div class="cl">Transformation</div><div class="cv">${esc(t.text||"")}</div></div><div class="charrow">↓</div>`).join("")
+      :`<div class="chs"><div class="cl">Transformation</div><div class="cv">None — already on the requested basis</div></div><div class="charrow">↓</div>`}
+    <div class="chs" style="border-color:var(--accent)"><div class="cl">Canonical value</div>
+      <div class="cv big">${c.normalized_inr_per_unit==null?"held out":fmt2(c.normalized_inr_per_unit)+" / piece"}</div></div>
+  </div>`;
+  drawer(`<h3>${esc(S.vendors[vid]?.name)} · ${esc(code)}</h3>
+    ${chain}
+    <div class="dr-k">Status</div>
+    <div><span class="chip ${stc}">${esc(stl)}</span>
+      ${(c.flags||[]).map(f=>`<span class="chip na">${esc(f.replace(/_/g," "))}</span>`).join(" ")}</div>
+    ${exp?`<div class="dr-k">${esc(exp.label)}</div><div class="num" style="font-size:15px">${fmtL(exp.v)} / year</div>`:""}
+    ${c.buyer_question?`<div class="dr-k">Needs you</div><div style="font-size:12.5px">${esc(c.buyer_question)} <button class="btn" style="margin-left:6px" onclick="closeDrawer();S.tab='flags';render()">Open Decisions ›</button></div>`:""}
+    ${c.note?`<div class="dr-k">Note</div><div style="font-size:12.5px">${esc(c.note)}</div>`:""}`);
+}
+
+/* ---------- questionnaire alongside the numbers ---------- */
+function rQuest(){
+  const vids=Object.keys(S.cmp);
+  if(!vids.length){$("#main").innerHTML=`<div class="pagehead"><h2>No questionnaire data yet</h2><p>Process supplier responses first.</p></div>`;return}
+  const ansOf={};
+  vids.forEach(v=>{ansOf[v]={};(S.cmp[v].questionnaire||[]).forEach(q=>{
+    ansOf[v][String(q.key||"").split(":")[0].trim()]=q})});
+  const head=`<tr><th style="min-width:230px">Question</th>${vids.map(v=>{
+    const ql=S.qual[v];const files=(S.vendors[v]?.files||[]);
+    return `<th>${esc(S.vendors[v]?.name.split(" ")[0]||v)}
+      <div>${ql?.cleared?'<span class="chip ok">quality cleared</span>':'<span class="chip bad">not cleared</span>'}</div>
+      <div style="font-family:'IBM Plex Mono';font-size:9.5px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mut);margin-top:3px">📎 ${files.map(esc).join("<br>📎 ")}</div></th>`}).join("")}</tr>`;
+  const body=(S.rfx.questionnaire||[]).map(q=>`<tr>
+    <td style="font-weight:500">${esc(q.question)}<div style="font-size:10.5px;color:var(--mut)" class="num">${esc(q.key)}</div></td>
+    ${vids.map(v=>{
+      const a=ansOf[v][q.key];
+      if(!a||!a.answer)return `<td><span class="chip na">not provided</span><div style="font-size:10.5px;color:var(--mut);margin-top:2px">counts against clearance</div></td>`;
+      const neg=/^no\b|^not\b|expired|declin|counter/i.test(String(a.answer));
+      return `<td><span class="chip ${neg?"warn":"ok"}">${esc(String(a.answer).length>34?String(a.answer).slice(0,32)+"…":a.answer)}</span>
+        ${a.evidence?`<div style="font-size:10.5px;color:var(--ink2);margin-top:3px;max-width:200px">“${esc(String(a.evidence).slice(0,90))}${String(a.evidence).length>90?"…":""}”</div>`:""}</td>`;
+    }).join("")}</tr>`).join("");
+  $("#main").innerHTML=`<div class="pagehead"><h2>Questionnaire — answers beside the numbers
+      ${pill("quest")}</h2>
+    <p>Extracted from the replies and attachments, evidence quoted underneath. A blank stays a blank — absence of evidence counts against clearance (rule: ${esc(S.policy.clearance_rule||"")}).</p></div>
+    <div class="card scroll"><table>${head}${body}</table></div>`;
+}
+
+/* ---------- decisions (flags) ---------- */
+function rFlags(){
+  const dec=decisionItems(),fyi=fyiItems();
+  const card=e=>{
+    const sev=e.severity==="AWARD_BLOCKING"||e.severity==="HIGH"?"bad":e.severity==="MEDIUM"?"warn":"na";
+    const sevLabel=e.severity==="AWARD_BLOCKING"?"award blocking":esc((e.severity||"").toLowerCase());
+    return `<div class="exc"><div><span class="chip ${sev}">${sevLabel}</span></div>
+      <div><div class="t">${esc(S.vendors[e.vendor]?.name||e.vendor)} — ${esc(e.title||e.question||e.type||"")}</div>
+        <div class="d">${esc(e.detail||"")}</div>
+        <div style="margin-top:6px"><button class="btn" style="padding:3px 9px;font-size:11.5px" onclick='viewSource(${JSON.stringify(e.vendor)},${JSON.stringify((e.affected_lines||[])[0]||null)})'>View source ›</button></div>
+        ${awaiting(e)?`<div style="margin-top:8px"><span class="chip acc">✉ Asked supplier — awaiting reply</span>
+           <button class="btn" style="margin-left:6px" onclick="recordReply('${e.vendor}','${esc(e.type||e.id)}')">Record reply…</button></div>`
+         :`<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">${controls(e)}</div>`}</div>
+      <div class="impact">${e.annual_impact_inr?fmtL(e.annual_impact_inr)+"/yr":""}</div></div>`;
+  };
+  $("#main").innerHTML=`<div class="pagehead"><h2>${dec.length?dec.length+" decision"+(dec.length>1?"s":"")+" need you":"Nothing needs you"}</h2>
+    <p>Everything else was handled automatically. Ranked by what it could do to the award; deciding one recomputes the affected supplier immediately.</p></div>
+    ${dec.map(card).join("")||`<div class="card" style="padding:18px"><b>All clear.</b> Every material uncertainty has a decision on record.</div>`}
+    ${fyi.length?`<details style="margin-top:14px"><summary>${fyi.length} further observations — handled automatically, for your information</summary>${fyi.map(card).join("")}</details>`:""}
+    <p class="note">Every decision is logged with who/when/why — the audit trail behind the award memo.</p>`;
+}
+function controls(e){
+  const vid=e.vendor,key=(e.type||e.id||"decision");
+  const rid="rv_"+vid+"_"+key.replace(/\W/g,"");
+  let html="";
+  if((e.type||"").includes("PACK")){
+    html+=S.reveal[rid]
+      ?`<input id="pf_${rid}" class="inline" type="number" placeholder="pieces per case" autofocus>
+        <button class="btn primary" onclick="decide('${vid}',{case_pack_pieces:parseInt($('#pf_${rid}').value)||null},'Buyer confirmed case pack size with supplier')">Save</button>
+        <button class="btn" onclick="S.reveal['${rid}']=false;render()">Cancel</button>`
+      :`<button class="btn primary" onclick="S.reveal['${rid}']=true;render()">Confirm factor</button>`;
+  }else{
+    const opts=(e.options||[]).filter(o=>!/request|ask|clarif|follow-up/i.test(o)).slice(0,2);
+    html+=opts.map((o,i)=>{
+      const supplierFact=/vendor|supplier|confirm|email|attachment|included|ex-works/i.test(o);
+      const short=esc(o.length>36?o.slice(0,34)+"…":o);
+      return supplierFact
+        ?`<button class="btn ${i===0?"primary":""}" title="${esc(o)}" onclick='openRecord(${JSON.stringify(vid)},${JSON.stringify(key)},${JSON.stringify(o)})'>${short}</button>`
+        :`<button class="btn ${i===0?"primary":""}" title="${esc(o)}" onclick='decide(${JSON.stringify(vid)},{[${JSON.stringify(key)}]:${JSON.stringify(o)}},${JSON.stringify("Buyer policy decision: "+o)})'>${short}</button>`;
+    }).join("");
+  }
+  html+=`<button class="btn" onclick='askSupplier(${JSON.stringify(vid)},${JSON.stringify(key)},${JSON.stringify(e.title||"")},${JSON.stringify(e.detail||"")})'>Ask supplier</button>`;
+  return html;
+}
+function viewSource(vid,code){
+  if(code&&((S.cmp[vid]||{}).cells||[]).some(c=>c.code===code))cellDrawer(vid,code);
+  else openEvidence(vid);
+}
+/* a claim about the SUPPLIER is never established by a click — it is recorded, with how you know */
+function openRecord(vid,key,option){
+  drawer(`<h3>Record supplier confirmation</h3>
+    <div style="font-size:12.5px;color:var(--ink2);margin-top:4px">${esc(S.vendors[vid]?.name||vid)}</div>
+    <div class="dr-k">What is being recorded</div><div style="font-size:13px">${esc(option)}</div>
+    <div class="dr-k">Confirmed via</div>
+    <div style="display:flex;gap:6px" id="chwrap">
+      ${["Email","Phone","Other"].map((ch,i)=>`<button class="btn ${i===0?"primary":""}" data-ch="${ch}" onclick="[...document.querySelectorAll('#chwrap .btn')].forEach(b=>b.classList.remove('primary'));this.classList.add('primary')">${ch}</button>`).join("")}</div>
+    <div class="dr-k">Note (who / when)</div>
+    <input id="rcnote" class="inline" style="width:100%" placeholder="e.g. ${esc((S.vendors[vid]?.contact||"supplier").split(" ")[0])} confirmed on call, today 3:40 PM">
+    <div style="margin-top:14px;display:flex;gap:8px">
+      <button class="btn primary" onclick='saveRecord(${JSON.stringify(vid)},${JSON.stringify(key)},${JSON.stringify(option)})'>Save &amp; recompute</button>
+      <button class="btn" onclick="closeDrawer()">Cancel</button></div>`);
+}
+function saveRecord(vid,key,option){
+  const ch=(document.querySelector("#chwrap .btn.primary")||{}).dataset?.ch||"Email";
+  const note=`Supplier confirmation recorded via ${ch}: ${$("#rcnote").value||option}`;
+  closeDrawer();decide(vid,{[key]:option},note);
+}
+function askSupplier(vid,key,title,detail){
+  const v=S.vendors[vid]||{};
+  drawer(`<h3>Clarification request</h3>
+    <div class="dr-k">To</div><div style="font-size:13px">${esc(v.contact||"")} · <span class="num">${esc(v.email||"")}</span></div>
+    <div class="dr-k">Subject</div><div style="font-size:13px">Clarification required — FY27 Corrugated Packaging RFQ</div>
+    <div class="dr-k">Message</div>
+    <div class="src" style="font-family:inherit;font-size:13px">Dear ${esc((v.contact||"").split(" ")[0]||"supplier")},
+
+Regarding your quotation: ${esc(title)}.
+
+${esc(detail.split(".")[0])}. Could you confirm by reply — no revised document needed.
+
+Thanks,
+Priya Nair · Suraksha Consumer Products</div>
+    <div style="margin-top:14px;display:flex;gap:8px">
+      <button class="btn primary" onclick='sendClarification(${JSON.stringify(vid)},${JSON.stringify(key)})'>Send email</button>
+      <button class="btn" onclick="closeDrawer()">Cancel</button></div>
+    <p class="note">Replies land back on this event and are processed like any other supplier message.</p>`);
+}
+async function sendClarification(vid,key){
+  closeDrawer();
+  try{
+    await j("/decide/"+vid,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({facts:{[key+"_status"]:"asked_supplier"},note:"Clarification emailed to supplier",rerun:false})});
+    toast("Email sent to "+(S.vendors[vid]?.contact||vid)+" — reply will be processed on arrival");
+  }catch(e){toast("Failed: "+e.message)}
+  await refresh();
+}
+function recordReply(vid,key){
+  if(key.includes("PACK")){
+    drawer(`<h3>Record supplier reply</h3>
+      <div class="dr-k">From</div><div style="font-size:13px">${esc(S.vendors[vid]?.contact||vid)}</div>
+      <div class="dr-k">Reply</div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
+        <input id="rr" class="inline" type="number" placeholder="pieces per case">
+        <button class="btn primary" onclick="decide('${vid}',{case_pack_pieces:parseInt($('#rr').value)||null},'Supplier confirmed case pack by email reply');closeDrawer()">Save &amp; recompute</button></div>`);
+  }else{
+    drawer(`<h3>Record supplier reply</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+        <input id="rr2" class="inline" style="width:100%" placeholder="What did they confirm?">
+        <div><button class="btn primary" onclick="decide('${vid}',{[${JSON.stringify(key)}]:$('#rr2').value||'confirmed by supplier'},'Supplier reply recorded');closeDrawer()">Save &amp; recompute</button></div></div>`);
+  }
+}
+async function decide(vid,facts,note){
+  toast("Recording decision — recomputing "+(S.vendors[vid]?.name||vid)+"…");
+  S.busy[vid]=true;render();
+  try{await j("/decide/"+vid,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({facts,note,rerun:true})});
+    toast("Done — comparison updated")}catch(e){toast("Failed: "+e.message)}
+  S.busy[vid]=false;await refresh();
+}
+
+/* ---------- analyst ---------- */
+function rAna(){
+  const msgs=S.chat.map(m=>m.role==="u"?`<div class="mu">${esc(m.text)}</div>`:`<div class="ma">${m.html}</div>`).join("");
+  $("#main").innerHTML=`<div class="pagehead"><h2>Ask the comparison
+      ${pill("analyst")}</h2>
+    <p>Answers are computed from the priced comparison and your recorded decisions, and every answer states its basis.</p></div>
+    <div class="card"><div class="chat" id="chat">${msgs||`<div class="ma">Try: <i>Split the award cheapest per line, but only among quality-cleared suppliers — what does the constraint cost?</i><br>or <i>What material risks remain before I award?</i></div>`}${S.asking?'<div class="ma"><span class="spin"></span> computing from the comparison…</div>':""}</div>
+    <form class="ask" onsubmit="event.preventDefault();ask($('#q').value)">
+      <input id="q" placeholder="Ask about suppliers, lines, allocations, risks…" autocomplete="off">
+      <button class="btn primary">Ask</button></form></div>`;
+  const c=$("#chat");if(c)c.scrollTop=c.scrollHeight;
+}
+async function ask(q){
+  q=(q||"").trim();if(!q||S.asking)return;
+  S.chat.push({role:"u",text:q});S.asking=true;rAna();setLive();
+  try{
+    const r=await j("/analyst/ask",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});
+    const a=r.answer;let html="";
+    if(a.headline)html+=`<div class="headline"><div class="hl">${esc(a.headline.label||"")}</div><div class="hv">${esc(a.headline.value||"")}</div><div class="hs">${esc(a.headline.sub||"")}</div></div>`;
+    (a.tables||[]).forEach(t=>{
+      const rows=t.rows||[];if(!rows.length)return;
+      const cols=Object.keys(rows[0]);
+      html+=`<div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);font-family:Archivo;margin-top:10px">${esc(t.title||"")}</div>
+      <div class="scroll" style="max-height:240px;margin-top:4px"><table><tr>${cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${rows.map(r=>`<tr>${cols.map(c=>`<td class="num">${esc(r[c])}</td>`).join("")}</tr>`).join("")}</table></div>`;
+    });
+    if((a.assumptions||[]).length)html+=`<div style="margin-top:10px">${a.assumptions.map(x=>`<div class="assump">⚠ ${esc(x)}</div>`).join("")}</div>`;
+    if(a.prose)html+=`<details style="margin-top:10px"><summary>Explain this result</summary><div style="font-size:13px">${esc(a.prose).replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(/\n\n/g,"<br><br>").replace(/\n/g,"<br>")}</div></details>`;
+    if(a.basis)html+=`<div class="basis"><b>Basis</b> — ${esc(a.basis)}</div>`;
+    S.chat.push({role:"a",html:html||esc(JSON.stringify(a)).slice(0,500)});
+  }catch(e){S.chat.push({role:"a",html:"Analyst error: "+esc(e.message)})}
+  S.asking=false;rAna();setLive();
+}
+
+/* ---------- rfx ---------- */
+function rRfx(){
+  const r=S.rfx;
+  const chat=S.draft.map(m=>m.role==="u"?`<div class="mu">${esc(m.text)}</div>`:`<div class="ma">${m.html}</div>`).join("");
+  $("#main").innerHTML=`<div class="pagehead"><h2>${esc(r.title)}</h2>
+    <p>${esc(r.buyer)} · ${esc(r.delivery_basis)} · ${r.payment_terms_days}-day payment · ${r.validity_months} months</p>
+    <div style="margin-top:8px"><span class="chip ok">Sent</span>
+      <span style="font-size:12.5px;color:var(--ink2)"> 5 suppliers · Email · ${r.lines.length} lines · ${r.questionnaire.length} questionnaire items · approved by ${esc(r.buyer.split("·")[1]||"buyer")}</span></div></div>
+    <div class="card"><div class="chat" style="max-height:30vh">${chat||`<div class="ma">Draft or amend this RFx by talking — e.g. <i>"Add a burst-certification requirement for the export carton"</i>. The document updates; you approve before anything goes out.</div>`}${S.drafting?'<div class="ma"><span class="spin"></span> drafting…</div>':""}</div>
+      <form class="ask" onsubmit="event.preventDefault();draftMsg($('#dq').value)">
+        <input id="dq" placeholder="Tell the co-pilot what to change…" autocomplete="off">
+        <button class="btn primary">Send</button>
+        <button class="btn" type="button" onclick="toast('Already sent to 5 suppliers in this event')">Approve &amp; send →</button></form></div>
+    <div class="card scroll" style="margin-top:12px"><table><tr><th>Code</th><th>Description</th><th class="r">Qty/mo</th></tr>
+    ${r.lines.map(l=>`<tr><td class="num">${l.code}</td><td>${esc(l.description)}</td><td class="r num">${l.qty_per_month.toLocaleString("en-IN")}</td></tr>`).join("")}</table></div>
+    <div class="card" style="margin-top:12px;padding:12px 16px">
+    <b>Questionnaire</b> — clearance rule: ${esc(S.policy.clearance_rule||"")}<br>
+    ${r.questionnaire.map((q,i)=>`<div style="font-size:12.5px;padding:3px 0">Q${i+1} · ${esc(q.question)}</div>`).join("")}</div>`;
+}
+async function draftMsg(t){
+  t=(t||"").trim();if(!t||S.drafting)return;
+  S.draft.push({role:"u",text:t});S.drafting=true;rRfx();setLive();
+  try{
+    const r=await j("/draft/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:t})});
+    let d;try{d=JSON.parse(r.reply_raw.replace(/^```(json)?|```$/g,""))}catch(_){d={reply:r.reply_raw}}
+    let html=esc(d.reply||"").replace(/\n/g,"<br>");
+    if((d.patches_applied||[]).length)html+=`<div style="margin-top:7px">${d.patches_applied.map(p=>`<span class="chip acc">${esc(typeof p==="string"?p:(p.label||JSON.stringify(p)))}</span> `).join("")}</div>`;
+    if((d.open_questions||[]).length)html+=`<div style="margin-top:7px">${d.open_questions.map(q=>`<div class="assump">? ${esc(q)}</div>`).join("")}</div>`;
+    S.draft.push({role:"a",html});
+  }catch(e){S.draft.push({role:"a",html:"Draft error: "+esc(e.message)})}
+  S.drafting=false;rRfx();setLive();
+}
+
+/* ---------- award (soft-locked) ---------- */
+function rAward(){
+  const R=readiness();
+  const blocked=(R.dec>0||R.unproc>0)&&!R.waived;
+  $("#main").innerHTML=`<div class="pagehead"><h2>Award recommendation</h2>
+    <p>The award is drafted from the comparison and your decision log — nothing enters it that can't be traced.</p></div>
+    ${blocked?`<div class="card" style="padding:18px 20px;border-color:var(--warn)">
+      <b>Not ready for a defensible award.</b>
+      <div style="font-size:13px;color:var(--ink2);margin-top:4px">
+        ${R.unproc?`${R.unproc} supplier response${R.unproc>1?"s":""} not processed. `:""}
+        ${R.dec?`${R.dec} material decision${R.dec>1?"s":""} still open${R.atStake?` (${fmtL(R.atStake)} at stake)`:""}. `:""}
+        ${R.waiting?`${R.waiting} supplier repl${R.waiting>1?"ies":"y"} awaited. `:""}</div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn primary" onclick="S.tab='flags';render()">Resolve the open items ›</button>
+        <button class="btn" onclick="openWaiver()">Proceed anyway — record a waiver…</button></div></div>`
+    :`<div class="card" style="padding:18px 20px">
+      <b>${R.waived?"Proceeding under a recorded waiver.":"All inputs complete."}</b>
+      <div style="font-size:13px;color:var(--ink2);margin-top:4px">${R.waived?"The open items and your waiver reason are part of the award record.":"Every value confirmed or consciously assumed; the decision log is attached to the record."}</div>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn primary" onclick="S.tab='analyst';render();setTimeout(()=>ask('Draft the award recommendation: allocation among quality-cleared suppliers, savings vs alternatives, open caveats, and the decisions that were applied.'),80)">Draft award recommendation →</button>
+        <button class="btn" onclick="toast('Export pack (comparison + memo + decision log) — stubbed in the prototype')">Export pack</button></div></div>`}
+    <p class="note">Award is soft-locked: it never blocks you outright, but proceeding with open items requires a waiver that is written into the audit trail.</p>`;
+}
+function openWaiver(){
+  drawer(`<h3>Record a waiver</h3>
+    <p style="font-size:12.5px;color:var(--ink2)">You are choosing to proceed to award with open items. This goes on the record with your name.</p>
+    <div class="dr-k">Reason</div>
+    <input id="wv" class="inline" style="width:100%" placeholder="e.g. Timeline critical; open items are non-price compliance gaps under follow-up">
+    <div style="margin-top:14px;display:flex;gap:8px">
+      <button class="btn primary" onclick='saveWaiver()'>Record waiver</button>
+      <button class="btn" onclick="closeDrawer()">Cancel</button></div>`);
+}
+async function saveWaiver(){
+  const reason=$("#wv").value||"Waiver recorded without stated reason";
+  closeDrawer();
+  try{await j("/decide/EVENT",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({facts:{award_waiver:reason},note:"Award waiver: "+reason,rerun:false})});
+    toast("Waiver recorded on the audit trail")}catch(e){toast("Failed: "+e.message)}
+  await refresh();S.tab="award";render();
+}
+
+/* ---------- drawer ---------- */
+function drawer(html){
+  $("#overlay").innerHTML=`<div class="drawer-scrim" onclick="closeDrawer()"></div>
+    <div class="drawer">${html}<div style="margin-top:16px"><button class="btn" onclick="closeDrawer()">Close</button></div></div>`;
+}
+function closeDrawer(){$("#overlay").innerHTML=""}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
+refresh();
+</script>
+</body>
+</html>

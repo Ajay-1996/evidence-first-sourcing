@@ -1,0 +1,716 @@
+{
+ "vendor_id": "ALPHA",
+ "lines": [
+  {
+   "code": "PKG-001",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (9000) + dims 200x150x100 3P match RFX PKG-001",
+   "as_quoted": {
+    "amount": 3.19,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D2",
+    "excerpt": "A2='PKG-001' D2=3.19 E2='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-002",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (8000) + dims 240x180x120 3P match",
+   "as_quoted": {
+    "amount": 4.53,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D3",
+    "excerpt": "A3='PKG-002' D3=4.53 E3='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-003",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (7500) + dims 300x200x150 3P match",
+   "as_quoted": {
+    "amount": 6.11,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D4",
+    "excerpt": "A4='PKG-003' D4=6.11 E4='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-004",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (6200) + dims 300x250x200 3P match",
+   "as_quoted": {
+    "amount": 8.97,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D5",
+    "excerpt": "A5='PKG-004' D5=8.97 E5='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-005",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (7000) + dims 350x250x200 3P match",
+   "as_quoted": {
+    "amount": 9.63,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D6",
+    "excerpt": "A6='PKG-005' D6=9.63 E6='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-006",
+   "match_confidence": 0.95,
+   "match_basis": "code + qty (6500) + dims 400x300x250 3P-PRINT match RFX 3-ply printed 1-col (col count not stated by vendor)",
+   "as_quoted": {
+    "amount": 13.69,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D7",
+    "excerpt": "A7='PKG-006' B7='RSC 400x300x250 3P-PRINT' D7=13.69 E7='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": "Vendor description does not specify print color count"
+  },
+  {
+   "code": "PKG-007",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (4000) + dims 250x200x150 3P match",
+   "as_quoted": {
+    "amount": 5.45,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D8",
+    "excerpt": "A8='PKG-007' D8=5.45 E8='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-008",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (3600) + dims 450x350x300 3P match",
+   "as_quoted": {
+    "amount": 19.18,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D9",
+    "excerpt": "A9='PKG-008' D9=19.18 E9='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-009",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (3000) + dims 400x400x300 3P match",
+   "as_quoted": {
+    "amount": 20.4,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D10",
+    "excerpt": "A10='PKG-009' D10=20.4 E10='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-010",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (4500) + dims 350x300x250 3P match",
+   "as_quoted": {
+    "amount": 12.49,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D11",
+    "excerpt": "A11='PKG-010' D11=12.49 E11='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-011",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (2400) + dims 500x400x350 3P match",
+   "as_quoted": {
+    "amount": 24.4,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D12",
+    "excerpt": "A12='PKG-011' D12=24.4 E12='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-012",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (3300) + dims 300x300x300 3P match",
+   "as_quoted": {
+    "amount": 12.98,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D13",
+    "excerpt": "A13='PKG-012' D13=12.98 E13='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-013",
+   "match_confidence": 0.95,
+   "match_basis": "code + qty (5000) + dims 400x300x300 5P-PRINT match RFX 5-ply printed 2-col (col count not stated by vendor)",
+   "as_quoted": {
+    "amount": 24.55,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D14",
+    "excerpt": "A14='PKG-013' B14='RSC 400x300x300 5P-PRINT' D14=24.55 E14='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": "Vendor description does not specify print color count"
+  },
+  {
+   "code": "PKG-014",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (4500) + dims 450x350x350 5P match",
+   "as_quoted": {
+    "amount": 32.36,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D15",
+    "excerpt": "A15='PKG-014' D15=32.36 E15='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-015",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (4200) + dims 500x400x400 5P match",
+   "as_quoted": {
+    "amount": 42.3,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D16",
+    "excerpt": "A16='PKG-015' D16=42.3 E16='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-016",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (3600) + dims 550x450x400 5P match",
+   "as_quoted": {
+    "amount": 51.08,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D17",
+    "excerpt": "A17='PKG-016' D17=51.08 E17='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-017",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (3900) + dims 600x400x400 5P match",
+   "as_quoted": {
+    "amount": 48.63,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D18",
+    "excerpt": "A18='PKG-017' D18=48.63 E18='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-018",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (2800) + dims 600x500x450 5P match",
+   "as_quoted": {
+    "amount": 63.37,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D19",
+    "excerpt": "A19='PKG-018' D19=63.37 E19='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-019",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (3400) + dims 450x450x400 5P match",
+   "as_quoted": {
+    "amount": 45.12,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D20",
+    "excerpt": "A20='PKG-019' D20=45.12 E20='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-020",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (2500) + dims 500x500x450 5P match",
+   "as_quoted": {
+    "amount": 56.67,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D21",
+    "excerpt": "A21='PKG-020' D21=56.67 E21='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-021",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (2100) + dims 650x500x450 5P match",
+   "as_quoted": {
+    "amount": 68.03,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D22",
+    "excerpt": "A22='PKG-021' D22=68.03 E22='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-022",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (1700) + dims 700x500x500 5P match",
+   "as_quoted": {
+    "amount": 74.96,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D23",
+    "excerpt": "A23='PKG-022' D23=74.96 E23='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-023",
+   "match_confidence": 0.95,
+   "match_basis": "code + qty (2000) + dims 550x550x500 5P-PRINT match RFX 5-ply printed 1-col (col count not stated by vendor)",
+   "as_quoted": {
+    "amount": 70.42,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D24",
+    "excerpt": "A24='PKG-023' B24='RSC 550x550x500 5P-PRINT' D24=70.42 E24='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": "Vendor description does not specify print color count"
+  },
+  {
+   "code": "PKG-024",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (1400) + dims 600x600x500 5P match",
+   "as_quoted": {
+    "amount": 80.38,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D25",
+    "excerpt": "A25='PKG-024' D25=80.38 E25='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-025",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (1300) + dims 750x550x500 5P match",
+   "as_quoted": {
+    "amount": 86.94,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D26",
+    "excerpt": "A26='PKG-025' D26=86.94 E26='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-026",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (1100) + dims 800x600x550 5P match",
+   "as_quoted": {
+    "amount": 101.2,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D27",
+    "excerpt": "A27='PKG-026' D27=101.2 E27='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-027",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (700) + dims 800x600x600 7P match",
+   "as_quoted": {
+    "amount": 154.01,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D28",
+    "excerpt": "A28='PKG-027' D28=154.01 E28='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-028",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (550) + dims 900x700x600 7P match",
+   "as_quoted": {
+    "amount": 197.14,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D29",
+    "excerpt": "A29='PKG-028' D29=197.14 E29='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-029",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (420) + dims 1000x800x700 7P match",
+   "as_quoted": {
+    "amount": 255.09,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D30",
+    "excerpt": "A30='PKG-029' D30=255.09 E30='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  },
+  {
+   "code": "PKG-030",
+   "match_confidence": 0.97,
+   "match_basis": "code + qty (350) + dims 1100x800x800 7P match",
+   "as_quoted": {
+    "amount": 288.2,
+    "currency": "INR",
+    "unit_raw": "per piece"
+   },
+   "confidence": 0.95,
+   "source": {
+    "file": "alpha_quote.xlsx",
+    "locator": "Quote!D31",
+    "excerpt": "A31='PKG-030' D31=288.2 E31='FOR Bhiwandi, GST extra'"
+   },
+   "conditions": [
+    "FOR Bhiwandi",
+    "GST extra"
+   ],
+   "flags": [],
+   "note": null
+  }
+ ],
+ "unquoted": [],
+ "conflicts": [],
+ "vendor_terms": {
+  "payment": null,
+  "freight": null,
+  "validity": null,
+  "discounts": [],
+  "other": [
+   "GST extra (stated in every line's Remarks column)",
+   "Rate column header states 'Rate (INR per piece)', applied uniformly across all lines"
+  ]
+ },
+ "questionnaire": [
+  {
+   "key": "iso",
+   "answer": "Yes - cert AQP-3312, valid to Jun 2028 (attached)",
+   "evidence": "Compliance!B2",
+   "confidence": 0.95
+  },
+  {
+   "key": "burst",
+   "answer": "Yes - all quoted grades, attached",
+   "evidence": "Compliance!B3",
+   "confidence": 0.95
+  },
+  {
+   "key": "fsc",
+   "answer": "Yes - FSC-C140221",
+   "evidence": "Compliance!B4",
+   "confidence": 0.95
+  },
+  {
+   "key": "lead",
+   "answer": "8",
+   "evidence": "Compliance!B5",
+   "confidence": 0.95
+  },
+  {
+   "key": "pay",
+   "answer": "Yes",
+   "evidence": "Compliance!B6",
+   "confidence": 0.95
+  },
+  {
+   "key": "cap",
+   "answer": "35",
+   "evidence": "Compliance!B7",
+   "confidence": 0.95
+  }
+ ],
+ "reading_notes": "All 30 RFX line codes matched 1:1 by code, qty_per_month, and dimensions/ply on the Quote sheet; rates taken as-quoted per the sheet's 'Rate (INR per piece)' header. Every line carries an identical Remarks-column condition ('FOR Bhiwandi, GST extra') - captured verbatim as conditions, not applied to amounts. For printed items (PKG-006, PKG-013, PKG-023) the vendor's description omits the print color-count detail present in the RFX; matched on code/qty/dims/ply/print-flag alone. No payment term, freight term, or validity period was explicitly stated on the Quote sheet itself (only the Compliance sheet's 'Yes' answer to the 45-day payment question). Compliance answers taken as-is from the Compliance sheet; no supporting cert numbers/dates verified beyond what is stated."
+}
