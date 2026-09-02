@@ -1,7 +1,7 @@
 {
  "event_id": "RFQ-FY27-CORR",
- "title": "FY27 Corrugated Packaging — Annual Rate Contract",
- "buyer": "Priya Nair · Suraksha Consumer Products",
+ "title": "FY27 Corrugated Packaging \u2014 Annual Rate Contract",
+ "buyer": "Priya Nair \u00b7 Suraksha Consumer Products",
  "delivery_basis": "Delivered (FOR Bhiwandi DC)",
  "payment_terms_days": 45,
  "validity_months": 12,
@@ -9,7 +9,7 @@
  "lines": [
   {
    "code": "PKG-001",
-   "description": "RSC 200×150×100, 3-ply, plain",
+   "description": "RSC 200\u00d7150\u00d7100, 3-ply, plain",
    "length_mm": 200,
    "width_mm": 150,
    "height_mm": 100,
@@ -22,7 +22,7 @@
   },
   {
    "code": "PKG-002",
-   "description": "RSC 240×180×120, 3-ply, plain",
+   "description": "RSC 240\u00d7180\u00d7120, 3-ply, plain",
    "length_mm": 240,
    "width_mm": 180,
    "height_mm": 120,
@@ -35,7 +35,7 @@
   },
   {
    "code": "PKG-003",
-   "description": "RSC 300×200×150, 3-ply, plain",
+   "description": "RSC 300\u00d7200\u00d7150, 3-ply, plain",
    "length_mm": 300,
    "width_mm": 200,
    "height_mm": 150,
@@ -48,7 +48,7 @@
   },
   {
    "code": "PKG-004",
-   "description": "RSC 300×250×200, 3-ply, plain",
+   "description": "RSC 300\u00d7250\u00d7200, 3-ply, plain",
    "length_mm": 300,
    "width_mm": 250,
    "height_mm": 200,
@@ -61,7 +61,7 @@
   },
   {
    "code": "PKG-005",
-   "description": "RSC 350×250×200, 3-ply, plain",
+   "description": "RSC 350\u00d7250\u00d7200, 3-ply, plain",
    "length_mm": 350,
    "width_mm": 250,
    "height_mm": 200,
@@ -74,7 +74,7 @@
   },
   {
    "code": "PKG-006",
-   "description": "RSC 400×300×250, 3-ply, printed 1-col",
+   "description": "RSC 400\u00d7300\u00d7250, 3-ply, printed 1-col",
    "length_mm": 400,
    "width_mm": 300,
    "height_mm": 250,
@@ -87,7 +87,7 @@
   },
   {
    "code": "PKG-007",
-   "description": "RSC 250×200×150, 3-ply, plain",
+   "description": "RSC 250\u00d7200\u00d7150, 3-ply, plain",
    "length_mm": 250,
    "width_mm": 200,
    "height_mm": 150,
@@ -100,7 +100,7 @@
   },
   {
    "code": "PKG-008",
-   "description": "RSC 450×350×300, 3-ply, plain",
+   "description": "RSC 450\u00d7350\u00d7300, 3-ply, plain",
    "length_mm": 450,
    "width_mm": 350,
    "height_mm": 300,
@@ -113,7 +113,7 @@
   },
   {
    "code": "PKG-009",
-   "description": "RSC 400×400×300, 3-ply, plain",
+   "description": "RSC 400\u00d7400\u00d7300, 3-ply, plain",
    "length_mm": 400,
    "width_mm": 400,
    "height_mm": 300,
@@ -126,7 +126,7 @@
   },
   {
    "code": "PKG-010",
-   "description": "RSC 350×300×250, 3-ply, plain",
+   "description": "RSC 350\u00d7300\u00d7250, 3-ply, plain",
    "length_mm": 350,
    "width_mm": 300,
    "height_mm": 250,
@@ -139,7 +139,7 @@
   },
   {
    "code": "PKG-011",
-   "description": "RSC 500×400×350, 3-ply, plain",
+   "description": "RSC 500\u00d7400\u00d7350, 3-ply, plain",
    "length_mm": 500,
    "width_mm": 400,
    "height_mm": 350,
@@ -152,7 +152,7 @@
   },
   {
    "code": "PKG-012",
-   "description": "RSC 300×300×300, 3-ply, plain",
+   "description": "RSC 300\u00d7300\u00d7300, 3-ply, plain",
    "length_mm": 300,
    "width_mm": 300,
    "height_mm": 300,
@@ -165,7 +165,7 @@
   },
   {
    "code": "PKG-013",
-   "description": "RSC 400×300×300, 5-ply, printed 2-col",
+   "description": "RSC 400\u00d7300\u00d7300, 5-ply, printed 2-col",
    "length_mm": 400,
    "width_mm": 300,
    "height_mm": 300,
@@ -178,7 +178,7 @@
   },
   {
    "code": "PKG-014",
-   "description": "RSC 450×350×350, 5-ply, plain",
+   "description": "RSC 450\u00d7350\u00d7350, 5-ply, plain",
    "length_mm": 450,
    "width_mm": 350,
    "height_mm": 350,
@@ -191,7 +191,7 @@
   },
   {
    "code": "PKG-015",
-   "description": "RSC 500×400×400, 5-ply, plain",
+   "description": "RSC 500\u00d7400\u00d7400, 5-ply, plain",
    "length_mm": 500,
    "width_mm": 400,
    "height_mm": 400,
@@ -204,7 +204,7 @@
   },
   {
    "code": "PKG-016",
-   "description": "RSC 550×450×400, 5-ply, plain",
+   "description": "RSC 550\u00d7450\u00d7400, 5-ply, plain",
    "length_mm": 550,
    "width_mm": 450,
    "height_mm": 400,
@@ -217,7 +217,7 @@
   },
   {
    "code": "PKG-017",
-   "description": "RSC 600×400×400, 5-ply, plain",
+   "description": "RSC 600\u00d7400\u00d7400, 5-ply, plain",
    "length_mm": 600,
    "width_mm": 400,
    "height_mm": 400,
@@ -230,7 +230,7 @@
   },
   {
    "code": "PKG-018",
-   "description": "RSC 600×500×450, 5-ply, plain",
+   "description": "RSC 600\u00d7500\u00d7450, 5-ply, plain",
    "length_mm": 600,
    "width_mm": 500,
    "height_mm": 450,
@@ -243,7 +243,7 @@
   },
   {
    "code": "PKG-019",
-   "description": "RSC 450×450×400, 5-ply, plain",
+   "description": "RSC 450\u00d7450\u00d7400, 5-ply, plain",
    "length_mm": 450,
    "width_mm": 450,
    "height_mm": 400,
@@ -256,7 +256,7 @@
   },
   {
    "code": "PKG-020",
-   "description": "RSC 500×500×450, 5-ply, plain",
+   "description": "RSC 500\u00d7500\u00d7450, 5-ply, plain",
    "length_mm": 500,
    "width_mm": 500,
    "height_mm": 450,
@@ -269,7 +269,7 @@
   },
   {
    "code": "PKG-021",
-   "description": "RSC 650×500×450, 5-ply, plain",
+   "description": "RSC 650\u00d7500\u00d7450, 5-ply, plain",
    "length_mm": 650,
    "width_mm": 500,
    "height_mm": 450,
@@ -282,7 +282,7 @@
   },
   {
    "code": "PKG-022",
-   "description": "RSC 700×500×500, 5-ply, plain",
+   "description": "RSC 700\u00d7500\u00d7500, 5-ply, plain",
    "length_mm": 700,
    "width_mm": 500,
    "height_mm": 500,
@@ -295,7 +295,7 @@
   },
   {
    "code": "PKG-023",
-   "description": "RSC 550×550×500, 5-ply, printed 1-col",
+   "description": "RSC 550\u00d7550\u00d7500, 5-ply, printed 1-col",
    "length_mm": 550,
    "width_mm": 550,
    "height_mm": 500,
@@ -308,7 +308,7 @@
   },
   {
    "code": "PKG-024",
-   "description": "RSC 600×600×500, 5-ply, plain",
+   "description": "RSC 600\u00d7600\u00d7500, 5-ply, plain",
    "length_mm": 600,
    "width_mm": 600,
    "height_mm": 500,
@@ -321,7 +321,7 @@
   },
   {
    "code": "PKG-025",
-   "description": "RSC 750×550×500, 5-ply, plain",
+   "description": "RSC 750\u00d7550\u00d7500, 5-ply, plain",
    "length_mm": 750,
    "width_mm": 550,
    "height_mm": 500,
@@ -334,7 +334,7 @@
   },
   {
    "code": "PKG-026",
-   "description": "RSC 800×600×550, 5-ply, plain",
+   "description": "RSC 800\u00d7600\u00d7550, 5-ply, plain",
    "length_mm": 800,
    "width_mm": 600,
    "height_mm": 550,
@@ -347,7 +347,7 @@
   },
   {
    "code": "PKG-027",
-   "description": "RSC 800×600×600, 7-ply, plain",
+   "description": "RSC 800\u00d7600\u00d7600, 7-ply, plain",
    "length_mm": 800,
    "width_mm": 600,
    "height_mm": 600,
@@ -360,7 +360,7 @@
   },
   {
    "code": "PKG-028",
-   "description": "RSC 900×700×600, 7-ply, plain",
+   "description": "RSC 900\u00d7700\u00d7600, 7-ply, plain",
    "length_mm": 900,
    "width_mm": 700,
    "height_mm": 600,
@@ -373,7 +373,7 @@
   },
   {
    "code": "PKG-029",
-   "description": "RSC 1000×800×700, 7-ply, plain",
+   "description": "RSC 1000\u00d7800\u00d7700, 7-ply, plain",
    "length_mm": 1000,
    "width_mm": 800,
    "height_mm": 700,
@@ -386,7 +386,7 @@
   },
   {
    "code": "PKG-030",
-   "description": "RSC 1100×800×800, 7-ply, plain",
+   "description": "RSC 1100\u00d7800\u00d7800, 7-ply, plain",
    "length_mm": 1100,
    "width_mm": 800,
    "height_mm": 800,
@@ -416,7 +416,7 @@
   },
   {
    "key": "lead",
-   "question": "Standard lead time, order → delivery (days)",
+   "question": "Standard lead time, order \u2192 delivery (days)",
    "answer_type": "number"
   },
   {

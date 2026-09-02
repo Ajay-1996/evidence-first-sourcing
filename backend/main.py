@@ -188,17 +188,66 @@ class DraftBody(BaseModel):
     history: Optional[list[dict[str, str]]] = None
 
 
+def _apply_rfx_patch(patch: dict[str, Any]) -> list[str]:
+    """Model proposes; this code applies — whitelisted fields, validated ranges."""
+    p = ROOT / "data" / "rfx_fy27.json"
+    rfx = json.loads(p.read_text())
+    applied: list[str] = []
+    v = patch.get("payment_terms_days")
+    if isinstance(v, int) and 1 <= v <= 180:
+        rfx["payment_terms_days"] = v; applied.append(f"Payment terms → {v} days")
+    v = patch.get("validity_months")
+    if isinstance(v, int) and 1 <= v <= 60:
+        rfx["validity_months"] = v; applied.append(f"Validity → {v} months")
+    v = patch.get("delivery_basis")
+    if isinstance(v, str) and 3 <= len(v) <= 120:
+        rfx["delivery_basis"] = v; applied.append(f"Basis → {v}")
+    for q in (patch.get("questionnaire_add") or []):
+        if isinstance(q, dict) and q.get("key") and q.get("question") \
+           and q.get("answer_type") in ("boolean", "number", "text", "attachment") \
+           and not any(x["key"] == q["key"] for x in rfx["questionnaire"]):
+            rfx["questionnaire"].append({"key": str(q["key"])[:40], "question": str(q["question"])[:200],
+                                         "answer_type": q["answer_type"]})
+            applied.append(f"+ Questionnaire: {str(q['question'])[:60]}")
+    for key in (patch.get("questionnaire_remove") or []):
+        before = len(rfx["questionnaire"])
+        rfx["questionnaire"] = [x for x in rfx["questionnaire"] if x["key"] != key]
+        if len(rfx["questionnaire"]) < before:
+            applied.append(f"− Questionnaire item '{key}'")
+    for lq in (patch.get("lines_qty") or []):
+        code, qty = (lq or {}).get("code"), (lq or {}).get("qty_per_month")
+        for line in rfx["lines"]:
+            if line["code"] == code and isinstance(qty, int) and 1 <= qty <= 1_000_000:
+                line["qty_per_month"] = qty; applied.append(f"{code} qty → {qty:,}/mo")
+    if applied:
+        p.write_text(json.dumps(rfx, indent=1))
+    return applied
+
+
 @app.post("/draft/chat")
 def draft_chat(body: DraftBody) -> Any:
     rfx_ = json.loads((ROOT / "data" / "rfx_fy27.json").read_text())
     text, trace = run_agent(
         "draft", {"message": body.message, "history": body.history or [],
-                  "current_rfx_summary": {"lines": len(rfx_["lines"]),
-                                          "questionnaire": len(rfx_["questionnaire"]),
-                                          "basis": rfx_["delivery_basis"],
-                                          "payment_days": rfx_["payment_terms_days"]}},
+                  "current_rfx": {"lines": [{"code": l["code"], "qty_per_month": l["qty_per_month"]}
+                                            for l in rfx_["lines"]],
+                                  "questionnaire": [{"key": q["key"], "question": q["question"]}
+                                                    for q in rfx_["questionnaire"]],
+                                  "delivery_basis": rfx_["delivery_basis"],
+                                  "payment_terms_days": rfx_["payment_terms_days"],
+                                  "validity_months": rfx_["validity_months"]}},
     )
-    return {"reply_raw": text, "trace": trace.model_dump()}
+    try:
+        out = pipeline.parse_agent_json(text)
+    except Exception:
+        out = {"reply": text, "patch": {}}
+    applied = _apply_rfx_patch(out.get("patch") or {})
+    reply = out.get("reply") or text
+    if (out.get("patch") and not applied):
+        reply += " (No change could be applied — the requested field failed validation.)"
+    return {"reply": reply, "applied": applied,
+            "open_questions": out.get("open_questions") or [],
+            "reply_raw": text, "trace": trace.model_dump()}
 
 
 # Serve the built React app (frontend/dist) at / when it exists — single-origin deploys.
