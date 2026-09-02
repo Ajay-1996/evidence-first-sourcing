@@ -32,11 +32,14 @@ def load_agent_config(agent: str) -> dict[str, Any]:
     cfg = yaml.safe_load(MODELS_YAML.read_text())
     merged = dict(cfg.get("defaults", {}))
     merged.update(cfg.get("agents", {}).get(agent, {}))
-    if os.environ.get("FORCE_PROVIDER"):  # servers can't run the claude CLI — force 'anthropic'
-        merged["provider"] = os.environ["FORCE_PROVIDER"]
+    if os.environ.get("FORCE_PROVIDER"):  # servers can't run the claude CLI — force an API provider
+        forced = os.environ["FORCE_PROVIDER"]
+        merged["provider"] = forced
         model_env = os.environ.get(f"MODEL_{agent.upper()}") or os.environ.get("FORCE_MODEL")
         if model_env:
             merged["model"] = model_env
+        elif forced == "ollama":
+            merged["model"] = "gpt-oss:120b"
         elif merged.get("model") in ("sonnet", "opus", "haiku"):  # CLI aliases → API ids
             merged["model"] = {"sonnet": "claude-sonnet-5", "opus": "claude-opus-5",
                                "haiku": "claude-haiku-4-5-20251001"}[merged["model"]]

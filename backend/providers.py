@@ -165,10 +165,63 @@ class ClaudeCodeProvider(LLMProvider):
         return ProviderResponse(text=payload.get("result") or "", raw=payload)
 
 
+class OllamaProvider(LLMProvider):
+    """Ollama cloud (ollama.com) — free-tier friendly hosting path. Plain completions only
+    (fits the propose-then-compute design). Vision is opt-in via OLLAMA_VISION_MODEL: the
+    free-tier vision model measurably misread a rate-card row in testing, so image calls
+    fail loudly unless a vision model is explicitly configured."""
+
+    name = "ollama"
+
+    def __init__(self) -> None:
+        if not os.environ.get("OLLAMA_API_KEY"):
+            raise RuntimeError("OLLAMA_API_KEY is not set — required for provider 'ollama'.")
+        self._key = os.environ["OLLAMA_API_KEY"]
+        self._host = os.environ.get("OLLAMA_HOST", "https://ollama.com").rstrip("/")
+
+    def complete(self, *, system, messages, tools, model, max_tokens, temperature) -> ProviderResponse:
+        import urllib.request
+        msgs: list[dict[str, Any]] = [{"role": "system", "content": system}]
+        images: list[str] = []
+        for m in messages:
+            c = m["content"]
+            if isinstance(c, str):
+                msgs.append({"role": m["role"], "content": c})
+                continue
+            texts = []
+            for block in c:
+                t = block.get("type")
+                if t == "text":
+                    texts.append(block["text"])
+                elif t == "image":
+                    images.append(block["source"]["data"])
+                elif t == "tool_result":
+                    texts.append(str(block.get("content", "")))
+            entry: dict[str, Any] = {"role": m["role"], "content": "\n\n".join(texts)}
+            if images and m["role"] == "user":
+                entry["images"] = images
+            msgs.append(entry)
+        if images:
+            vision = os.environ.get("OLLAMA_VISION_MODEL")
+            if not vision:
+                raise RuntimeError(
+                    "Vision is disabled on this hosted demo (no OLLAMA_VISION_MODEL set). "
+                    "Photo suppliers ship pre-processed; text documents process live.")
+            model = vision
+        payload = {"model": model, "messages": msgs, "stream": False,
+                   "options": {"temperature": temperature, "num_predict": max_tokens}}
+        req = urllib.request.Request(
+            self._host + "/api/chat", data=json.dumps(payload).encode(),
+            headers={"Authorization": "Bearer " + self._key, "Content-Type": "application/json"})
+        resp = json.loads(urllib.request.urlopen(req, timeout=900).read())
+        return ProviderResponse(text=(resp.get("message") or {}).get("content") or "", raw=resp)
+
+
 _REGISTRY: dict[str, Callable[[], LLMProvider]] = {
     "mock": MockProvider,
     "anthropic": AnthropicProvider,
     "claude_code": ClaudeCodeProvider,
+    "ollama": OllamaProvider,
 }
 
 

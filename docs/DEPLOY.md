@@ -16,8 +16,19 @@ is set.
    ```
 2. On render.com → **New → Web Service** → connect the repo.
    - Runtime: **Docker** (it auto-detects the Dockerfile). Instance: **Free**.
-3. Environment variables:
-   - `ANTHROPIC_API_KEY` = your fresh console key
+3. Environment variables — pick ONE provider:
+
+   **Option A — Ollama cloud (free tier, $0):**
+   - `FORCE_PROVIDER` = `ollama`
+   - `OLLAMA_API_KEY` = your ollama.com key
+   - (all agents default to `gpt-oss:120b`; override per agent with `MODEL_ANALYST` etc.)
+   - Vision is OFF by design: photo suppliers ship pre-processed; reprocessing a photo
+     shows an honest "vision disabled on hosted demo" error. To enable anyway set
+     `OLLAMA_VISION_MODEL=gemma4:31b` — tested and it misread a rate-card row
+     (confidently returned the adjacent line's price), so this is not recommended.
+
+   **Option B — Anthropic API (a few $ of credits, full fidelity incl. vision):**
+   - `ANTHROPIC_API_KEY` = your console key
    - `ANTHROPIC_WORKSPACE_ID` = `wrkspc_…` (only if the key is identity-linked)
 4. Deploy. The URL Render gives you (`https://<name>.onrender.com`) is the live link.
 
