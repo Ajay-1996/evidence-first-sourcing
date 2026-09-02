@@ -1,0 +1,20 @@
+[
+ {
+  "ts": "2026-09-02 10:57:12",
+  "vendor": "TEST",
+  "facts": {
+   "SOURCE_CONFLICT": "Attribute Rs376.51/pc (row A23) to PKG-027 per label; treat PKG-023 as unquoted"
+  },
+  "note": "Attribute Rs376.51/pc (row A23) to PKG-027 per label; treat PKG-023 as unquoted"
+ },
+ {
+  "ts": "2026-09-02 10:59:58",
+  "vendor": "TEST",
+  "facts": {
+   "QUESTIONNAIRE_GAP_status": "asked_supplier",
+   "SOURCE_CONFLICT_status": "asked_supplier",
+   "FREIGHT_BASIS_status": "asked_supplier"
+  },
+  "note": "Clarification round sent \u2014 8 questions in one email"
+ }
+]

@@ -1,0 +1,8 @@
+{
+ "TEST": {
+  "SOURCE_CONFLICT": "Attribute Rs376.51/pc (row A23) to PKG-027 per label; treat PKG-023 as unquoted",
+  "QUESTIONNAIRE_GAP_status": "asked_supplier",
+  "SOURCE_CONFLICT_status": "asked_supplier",
+  "FREIGHT_BASIS_status": "asked_supplier"
+ }
+}
