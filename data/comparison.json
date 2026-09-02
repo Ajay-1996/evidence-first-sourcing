@@ -1408,11 +1408,10 @@
   "cells": [
    {
     "code": "PKG-001",
-    "normalized_inr_per_unit": 3.2,
+    "normalized_inr_per_unit": 3.38,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1424,6 +1423,29 @@
       },
       "output": 3.2,
       "text": "÷ 100 (per 100 pcs) → ₹3.2 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        200,
+        150,
+        100
+       ],
+       "gsm_combined": 390
+      },
+      "output": 0.085,
+      "text": "box weight ≈ 0.085 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 3.2,
+       "weight_kg": 0.085,
+       "per_kg": 2.1
+      },
+      "output": 3.38,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹3.38 delivered"
      }
     ],
     "as_quoted": {
@@ -1438,15 +1460,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 320/100 pcs; converts to per-piece. 'FOR BHIWANDI' freight inclusion assumed (see CORRUG-FREIGHT_BASIS) pending confirmation."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] 'FOR Bhiwandi' basis treated as pre-freight; policy lane freight (₹2.10/kg, Vapi→Bhiwandi) added to reach delivered basis without vendor query."
    },
    {
     "code": "PKG-002",
-    "normalized_inr_per_unit": 4.55,
+    "normalized_inr_per_unit": 4.81,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1458,6 +1479,29 @@
       },
       "output": 4.55,
       "text": "÷ 100 (per 100 pcs) → ₹4.55 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        240,
+        180,
+        120
+       ],
+       "gsm_combined": 400
+      },
+      "output": 0.122,
+      "text": "box weight ≈ 0.122 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 4.55,
+       "weight_kg": 0.122,
+       "per_kg": 2.1
+      },
+      "output": 4.81,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹4.81 delivered"
      }
     ],
     "as_quoted": {
@@ -1472,15 +1516,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 455/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-003",
-    "normalized_inr_per_unit": 6.1,
+    "normalized_inr_per_unit": 6.45,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1492,6 +1535,29 @@
       },
       "output": 6.1,
       "text": "÷ 100 (per 100 pcs) → ₹6.1 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        300,
+        200,
+        150
+       ],
+       "gsm_combined": 400
+      },
+      "output": 0.166,
+      "text": "box weight ≈ 0.166 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 6.1,
+       "weight_kg": 0.166,
+       "per_kg": 2.1
+      },
+      "output": 6.45,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹6.45 delivered"
      }
     ],
     "as_quoted": {
@@ -1506,15 +1572,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 610/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-004",
-    "normalized_inr_per_unit": 8.65,
+    "normalized_inr_per_unit": 9.15,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1526,6 +1591,29 @@
       },
       "output": 8.65,
       "text": "÷ 100 (per 100 pcs) → ₹8.65 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        300,
+        250,
+        200
+       ],
+       "gsm_combined": 410
+      },
+      "output": 0.236,
+      "text": "box weight ≈ 0.236 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 8.65,
+       "weight_kg": 0.236,
+       "per_kg": 2.1
+      },
+      "output": 9.15,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹9.15 delivered"
      }
     ],
     "as_quoted": {
@@ -1540,15 +1628,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 865/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-005",
-    "normalized_inr_per_unit": 9.65,
+    "normalized_inr_per_unit": 10.19,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1560,6 +1647,29 @@
       },
       "output": 9.65,
       "text": "÷ 100 (per 100 pcs) → ₹9.65 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        350,
+        250,
+        200
+       ],
+       "gsm_combined": 410
+      },
+      "output": 0.256,
+      "text": "box weight ≈ 0.256 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 9.65,
+       "weight_kg": 0.256,
+       "per_kg": 2.1
+      },
+      "output": 10.19,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹10.19 delivered"
      }
     ],
     "as_quoted": {
@@ -1574,16 +1684,15 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 965/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-006",
-    "normalized_inr_per_unit": 13.75,
+    "normalized_inr_per_unit": 14.52,
     "state": "assumed",
     "flags": [
      "unit_converted",
-     "basis_conflict",
-     "assumed"
+     "needs_review"
     ],
     "transform_chain": [
      {
@@ -1595,6 +1704,29 @@
       },
       "output": 13.75,
       "text": "÷ 100 (per 100 pcs) → ₹13.75 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        400,
+        300,
+        250
+       ],
+       "gsm_combined": 420
+      },
+      "output": 0.368,
+      "text": "box weight ≈ 0.368 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 13.75,
+       "weight_kg": 0.368,
+       "per_kg": 2.1
+      },
+      "output": 14.52,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹14.52 delivered"
      }
     ],
     "as_quoted": {
@@ -1609,15 +1741,14 @@
     },
     "confidence": 0.9,
     "buyer_question": null,
-    "note": "Quoted Rs 1,375/100 pcs; converts to per-piece. Vendor marks item PRINTED but does not state color count (RFQ wants 1-col); price treated as covering the quoted print with no stated differential — see CORRUG-AMBIGUOUS_TERM-COLOR. Freight basis per CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. Vendor marks PRINTED but does not state colour count; assumed consistent with RFQ's 1-col spec pending confirmation (see AMBIGUOUS_TERM exception). [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-007",
-    "normalized_inr_per_unit": 5.45,
+    "normalized_inr_per_unit": 5.76,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1629,6 +1760,29 @@
       },
       "output": 5.45,
       "text": "÷ 100 (per 100 pcs) → ₹5.45 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        250,
+        200,
+        150
+       ],
+       "gsm_combined": 395
+      },
+      "output": 0.148,
+      "text": "box weight ≈ 0.148 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 5.45,
+       "weight_kg": 0.148,
+       "per_kg": 2.1
+      },
+      "output": 5.76,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹5.76 delivered"
      }
     ],
     "as_quoted": {
@@ -1643,15 +1797,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 545/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-008",
-    "normalized_inr_per_unit": 18.35,
+    "normalized_inr_per_unit": 19.41,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1663,6 +1816,29 @@
       },
       "output": 18.35,
       "text": "÷ 100 (per 100 pcs) → ₹18.35 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        450,
+        350,
+        300
+       ],
+       "gsm_combined": 430
+      },
+      "output": 0.504,
+      "text": "box weight ≈ 0.504 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 18.35,
+       "weight_kg": 0.504,
+       "per_kg": 2.1
+      },
+      "output": 19.41,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹19.41 delivered"
      }
     ],
     "as_quoted": {
@@ -1677,15 +1853,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 1,835/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-009",
-    "normalized_inr_per_unit": 20.3,
+    "normalized_inr_per_unit": 21.44,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1697,6 +1872,29 @@
       },
       "output": 20.3,
       "text": "÷ 100 (per 100 pcs) → ₹20.3 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        400,
+        400,
+        300
+       ],
+       "gsm_combined": 430
+      },
+      "output": 0.541,
+      "text": "box weight ≈ 0.541 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 20.3,
+       "weight_kg": 0.541,
+       "per_kg": 2.1
+      },
+      "output": 21.44,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹21.44 delivered"
      }
     ],
     "as_quoted": {
@@ -1711,15 +1909,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 2,030/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-010",
-    "normalized_inr_per_unit": 12.55,
+    "normalized_inr_per_unit": 13.26,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1731,6 +1928,29 @@
       },
       "output": 12.55,
       "text": "÷ 100 (per 100 pcs) → ₹12.55 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        350,
+        300,
+        250
+       ],
+       "gsm_combined": 415
+      },
+      "output": 0.339,
+      "text": "box weight ≈ 0.339 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 12.55,
+       "weight_kg": 0.339,
+       "per_kg": 2.1
+      },
+      "output": 13.26,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹13.26 delivered"
      }
     ],
     "as_quoted": {
@@ -1745,15 +1965,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 1,255/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-011",
-    "normalized_inr_per_unit": 24.5,
+    "normalized_inr_per_unit": 25.88,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1765,6 +1984,29 @@
       },
       "output": 24.5,
       "text": "÷ 100 (per 100 pcs) → ₹24.5 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        500,
+        400,
+        350
+       ],
+       "gsm_combined": 435
+      },
+      "output": 0.656,
+      "text": "box weight ≈ 0.656 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 24.5,
+       "weight_kg": 0.656,
+       "per_kg": 2.1
+      },
+      "output": 25.88,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹25.88 delivered"
      }
     ],
     "as_quoted": {
@@ -1779,15 +2021,14 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 2,450/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-012",
-    "normalized_inr_per_unit": 13.0,
+    "normalized_inr_per_unit": 13.72,
     "state": "assumed",
     "flags": [
-     "unit_converted",
-     "basis_conflict"
+     "unit_converted"
     ],
     "transform_chain": [
      {
@@ -1799,6 +2040,29 @@
       },
       "output": 13.0,
       "text": "÷ 100 (per 100 pcs) → ₹13.0 per piece"
+     },
+     {
+      "tool": "estimate_box_weight_kg",
+      "inputs": {
+       "dims_mm": [
+        300,
+        300,
+        300
+       ],
+       "gsm_combined": 420
+      },
+      "output": 0.345,
+      "text": "box weight ≈ 0.345 kg from dimensions + grammage (±4%)"
+     },
+     {
+      "tool": "apply_freight_estimate",
+      "inputs": {
+       "amount": 13.0,
+       "weight_kg": 0.345,
+       "per_kg": 2.1
+      },
+      "output": 13.72,
+      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹13.72 delivered"
      }
     ],
     "as_quoted": {
@@ -1813,15 +2077,15 @@
     },
     "confidence": 0.95,
     "buyer_question": null,
-    "note": "Quoted Rs 1,300/100 pcs; converts to per-piece. See CORRUG-FREIGHT_BASIS."
+    "note": "Per-100-pcs rate converted to per piece. [buyer_confirmed: FREIGHT_BASIS] treated as pre-freight; policy lane freight added."
    },
    {
     "code": "PKG-013",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible",
+     "needs_review"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1835,16 +2099,15 @@
      "excerpt": "PKG-013 400x300x300 PRINTED ......... Rs 2,400"
     },
     "confidence": 0.85,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-013, and does the Rs 2,400 rate apply to 5-ply (per RFQ spec) or 7-ply — the table section header covers both without indicating per-row ply?",
-    "note": "Rs 2,400/case cannot be converted — case-pack quantity illegible (CORRUG-PACK_FACTOR); ply not confirmed as 5-ply vs 7-ply (CORRUG-AMBIGUOUS_TERM-PLY); print color count also unstated (CORRUG-AMBIGUOUS_TERM-COLOR)."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-013, and does this row apply to 5-ply or 7-ply stock (the section header groups both; RFQ requires 5-ply)? Price cannot be normalized to per piece without this.",
+    "note": null
    },
    {
     "code": "PKG-014",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1858,16 +2121,15 @@
      "excerpt": "PKG-014 450x350x350 .................... Rs 3,290"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 3,290/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-014? The rate card's case-pack note is illegible, so the per-case price cannot be converted to per piece.",
+    "note": null
    },
    {
     "code": "PKG-015",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1881,16 +2143,15 @@
      "excerpt": "PKG-015 500x400x400 .................... Rs 4,310"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 4,310/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-015? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-016",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1904,16 +2165,15 @@
      "excerpt": "PKG-016 550x450x400 .................... Rs 5,200"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 5,200/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-016? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-017",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1927,16 +2187,15 @@
      "excerpt": "PKG-017 600x400x400 .................... Rs 4,750"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 4,750/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-017? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-018",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1950,16 +2209,15 @@
      "excerpt": "PKG-018 600x500x450 .................... Rs 6,400"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 6,400/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-018? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-019",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1973,16 +2231,15 @@
      "excerpt": "PKG-019 450x450x400 .................... Rs 4,560"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 4,560/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-019? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-020",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -1996,16 +2253,15 @@
      "excerpt": "PKG-020 500x500x450 .................... Rs 5,850"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 5,850/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-020? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-021",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2019,17 +2275,16 @@
      "excerpt": "PKG-021 650x500x450 .................... Rs 6,750"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 6,750/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-021? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-022",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
      "illegible",
-     "basis_conflict"
+     "needs_review"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2043,16 +2298,16 @@
      "excerpt": "PKG-022 700x500x500 .................... Rs [illegible/faded]"
     },
     "confidence": 0.2,
-    "buyer_question": "The per-case price for PKG-022 is faded/illegible on the rate card — please resend a legible price, along with the standard case-pack quantity (pieces per case) needed to convert to per-piece.",
-    "note": "Price cell is faded/blurred and unreadable (CORRUG-ILLEGIBLE); case-pack quantity also illegible (CORRUG-PACK_FACTOR)."
+    "buyer_question": "Please resend a legible unit price for PKG-022 (700x500x500) — the price digits are faded/blurred on the submitted rate card. Also confirm the case-pack quantity (pieces per case), which is illegible for this section.",
+    "note": null
    },
    {
     "code": "PKG-023",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible",
+     "needs_review"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2066,16 +2321,15 @@
      "excerpt": "PKG-023 550x550x500 PRINTED ......... Rs 6,980"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 6,980/case cannot be converted — case-pack quantity illegible on rate card (CORRUG-PACK_FACTOR). Print color count also unstated vs RFQ's 1-col spec (CORRUG-AMBIGUOUS_TERM-COLOR) — confirm alongside pack size."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-023? The rate card's case-pack note is illegible. Separately, please confirm the print colour count matches the RFQ's 1-col spec (vendor marks this row PRINTED without stating colour count).",
+    "note": null
    },
    {
     "code": "PKG-024",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2089,16 +2343,15 @@
      "excerpt": "PKG-024 600x600x500 .................... Rs 8,300"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 8,300/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-024? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-025",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2112,16 +2365,15 @@
      "excerpt": "PKG-025 750x550x500 .................... Rs 8,620"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 8,620/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-025? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-026",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2135,16 +2387,15 @@
      "excerpt": "PKG-026 800x600x550 .................... Rs 10,030"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 10,030/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-026? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-027",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2158,16 +2409,15 @@
      "excerpt": "PKG-027 800x600x600 .................... Rs 15,890"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 15,890/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-027? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-028",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2181,16 +2431,15 @@
      "excerpt": "PKG-028 900x700x600 .................... Rs 19,700"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 19,700/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-028? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-029",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2204,16 +2453,15 @@
      "excerpt": "PKG-029 1000x800x700 .................... Rs 25,490"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 25,490/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-029? The rate card's case-pack note is illegible.",
+    "note": null
    },
    {
     "code": "PKG-030",
     "normalized_inr_per_unit": null,
     "state": "needs_review",
     "flags": [
-     "needs_review",
-     "basis_conflict"
+     "illegible"
     ],
     "transform_chain": [],
     "as_quoted": {
@@ -2227,17 +2475,30 @@
      "excerpt": "PKG-030 1100x800x800 .................... Rs 28,570"
     },
     "confidence": 0.9,
-    "buyer_question": "What is the standard case-pack quantity (pieces per case) for 5-ply/7-ply RSC cartons on this rate card? The 'STD CASE PACK' note is illegible/obscured in the scanned image.",
-    "note": "Rs 28,570/case cannot be converted — case-pack quantity illegible on rate card. See CORRUG-PACK_FACTOR."
+    "buyer_question": "What is the standard case-pack quantity (pieces per case) for PKG-030? The rate card's case-pack note is illegible.",
+    "note": null
    }
   ],
   "exceptions": [
    {
+    "id": "CORRUG-QUESTIONNAIRE_GAP-CLEARANCE",
+    "type": "QUESTIONNAIRE_GAP",
+    "severity": "AWARD_BLOCKING",
+    "title": "ISO 9001:2015 certificate and burst-strength test certs not provided",
+    "detail": "Vendor submission is a single photographed rate card, not a questionnaire response. No ISO 9001:2015 certificate and no burst-strength test certs (IS 2771) for the quoted grades are attached or referenced anywhere. Policy clearance_rule requires both on file before award.",
+    "affected_lines": [],
+    "options": [
+     "Request ISO 9001:2015 certificate and IS 2771 burst-test certs for quoted grades directly from vendor before clearance"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
     "id": "CORRUG-PACK_FACTOR",
     "type": "PACK_FACTOR",
     "severity": "HIGH",
-    "title": "Case-pack quantity illegible for all 5-ply/7-ply lines (PKG-013–030)",
-    "detail": "The rate card quotes PKG-013 through PKG-030 'per case,' with a note 'STD CASE PACK = [illegible] PCS.' The numeric case-pack value is blurred/obscured in the scanned image and cannot be read. Without this factor, none of these 18 per-case rates (60% of the RFQ's 30 lines) can be converted to the event's per-piece basis, so they cannot be scored against other vendors as-is.",
+    "title": "Case-pack quantity illegible for all 5-ply/7-ply items (18 lines)",
+    "detail": "Vendor's rate card states 'STD CASE PACK = [illegible] PCS' but the numeric value is blurred/obscured in the image. All 5-ply/7-ply SKUs (PKG-013 through PKG-030) are quoted per case, so without this factor a per-piece price cannot be derived from evidence or buyer_confirmed_facts. Not assumed — gated per SKU.",
     "affected_lines": [
      "PKG-013",
      "PKG-014",
@@ -2259,25 +2520,66 @@
      "PKG-030"
     ],
     "options": [
-     "Request a legible copy of the rate card or a written case-pack quantity from the vendor for the 5-ply/7-ply range",
-     "Confirm case-pack quantity via vendor Q&A and record as buyer_confirmed_facts (e.g. case_pack_pieces) for reuse across these lines",
-     "If pack size varies by carton size, request a per-line case-pack table rather than a single figure"
+     "Request legible case-pack quantity per SKU (case pack likely varies with carton size, so a single card-wide figure should not be assumed)",
+     "Request vendor resend/clarify the rate card image"
     ],
     "delta_inr_per_unit": null,
     "annual_impact_inr": null
    },
    {
-    "id": "CORRUG-ILLEGIBLE",
+    "id": "CORRUG-ILLEGIBLE-PKG022",
     "type": "ILLEGIBLE",
-    "severity": "MEDIUM",
+    "severity": "HIGH",
     "title": "PKG-022 unit price illegible on rate card",
-    "detail": "The per-case price cell for PKG-022 (700x500x500, 5-ply/7-ply) is faded/blurred in corrugated_ratecard.jpg and cannot be read with confidence. This compounds the case-pack quantity issue affecting the same line (CORRUG-PACK_FACTOR) — the vendor did quote this line, the value simply isn't legible.",
+    "detail": "The price cell for PKG-022 (700x500x500, 5-ply/7-ply, per case) is faded/blurred in the source image and cannot be read with confidence (evidence confidence 0.2). Vendor did quote this line — it is not unquoted — but the value cannot be safely read, so it is gated rather than treated as missing.",
     "affected_lines": [
      "PKG-022"
     ],
     "options": [
-     "Request a legible/re-scanned rate card from the vendor for this row",
-     "Request the price directly via vendor Q&A"
+     "Request vendor resend a legible price for PKG-022"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "CORRUG-AMBIGUOUS_TERM-PLY",
+    "type": "AMBIGUOUS_TERM",
+    "severity": "MEDIUM",
+    "title": "Ply count for PKG-013 not confirmed as 5-ply",
+    "detail": "The rate card section header reads '5-PLY/7-PLY' without indicating which ply applies to the PKG-013 row specifically. RFQ PKG-013 requires 5-ply construction; a 7-ply carton would be a materially different (heavier-duty, costlier) product. Not gated on this alone since it does not block reading the quoted price, but must be confirmed before award.",
+    "affected_lines": [
+     "PKG-013"
+    ],
+    "options": [
+     "Vendor confirms PKG-013 is 5-ply as quoted",
+     "Vendor clarifies it is 7-ply, requiring re-quote against the RFQ 5-ply spec"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "CORRUG-AMBIGUOUS_TERM-PAYMENT",
+    "type": "AMBIGUOUS_TERM",
+    "severity": "MEDIUM",
+    "title": "Vendor states 30-day payment terms vs RFQ's 45-day requirement",
+    "detail": "Vendor's rate card carries a general note 'PAYMENT 30 DAYS.' This is a term statement, not a direct yes/no answer to the RFQ questionnaire item asking whether 45-day payment terms are accepted, and it conflicts with the RFQ's stated 45-day payment basis. Recorded as evidence only — not treated as an accepted answer, and not resolved in vendor's favor.",
+    "affected_lines": [],
+    "options": [
+     "Ask vendor to explicitly confirm acceptance of RFQ's 45-day payment terms",
+     "Accept vendor's 30-day term as a deviation subject to buyer approval"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "CORRUG-QUESTIONNAIRE_GAP-FSC",
+    "type": "QUESTIONNAIRE_GAP",
+    "severity": "MEDIUM",
+    "title": "FSC chain-of-custody not addressed",
+    "detail": "The RFQ questionnaire asks for FSC chain-of-custody for kraft supply. Nothing in the vendor's rate card addresses this.",
+    "affected_lines": [],
+    "options": [
+     "Request FSC chain-of-custody documentation from vendor"
     ],
     "delta_inr_per_unit": null,
     "annual_impact_inr": null
@@ -2286,8 +2588,8 @@
     "id": "CORRUG-FREIGHT_BASIS",
     "type": "FREIGHT_BASIS",
     "severity": "HIGH",
-    "title": "'FOR BHIWANDI, GST EXTRA' freight inclusion not explicitly confirmed",
-    "detail": "The vendor's blanket header states 'FOR BHIWANDI, GST EXTRA' across all 30 lines. This mirrors the RFQ's own basis label 'Delivered (FOR Bhiwandi DC)', suggesting rates are already delivered/freight-inclusive to Bhiwandi. However, the document does not explicitly confirm this, so it is applied provisionally as freight-inclusive (add_freight=false) for all lines pending buyer confirmation rather than assumed silently.",
+    "title": "Freight basis ambiguity resolved by buyer decision (no vendor input)",
+    "detail": "Vendor's header states 'FOR BHIWANDI, GST EXTRA' on all lines. 'FOR' could mean either a delivered price with freight bundled in, or an ex-works price where 'FOR' only denotes destination without confirming freight inclusion — the document does not clarify. buyer_confirmed_facts (FREIGHT_BASIS: buyer decision, no supplier input) resolves this: all quoted rates are treated as pre-freight, and the policy lane estimate (₹2.10/kg, Vapi→Bhiwandi, trailing 6-month average) is added by code to reach the delivered basis, without querying the vendor.",
     "affected_lines": [
      "PKG-001",
      "PKG-002",
@@ -2320,70 +2622,36 @@
      "PKG-029",
      "PKG-030"
     ],
-    "options": [
-     "Confirm with vendor that 'FOR Bhiwandi' quotes are delivered/freight-inclusive (no freight add-on needed)",
-     "If vendor confirms ex-works, add the policy freight estimate (₹2.1/kg, Vapi→Bhiwandi lane) to all lines"
-    ],
+    "options": [],
     "delta_inr_per_unit": null,
     "annual_impact_inr": 1919636
    },
    {
-    "id": "CORRUG-AMBIGUOUS_TERM-COLOR",
+    "id": "CORRUG-AMBIGUOUS_TERM-PRINT",
     "type": "AMBIGUOUS_TERM",
     "severity": "LOW",
-    "title": "Print color count not stated for printed lines",
-    "detail": "PKG-006, PKG-013, and PKG-023 are marked 'PRINTED' on the rate card but no color count is given. The RFQ specifies 1-col (PKG-006, PKG-023) and 2-col (PKG-013). Price is quoted regardless, with no stated color-based differential, so treated as assumed-compliant rather than gated on this point alone; PKG-013 and PKG-023 remain gated on other grounds (see CORRUG-PACK_FACTOR).",
+    "title": "Print colour count not stated for printed SKUs",
+    "detail": "PKG-006, PKG-013, and PKG-023 are marked PRINTED on the rate card, but no print colour count is given. RFQ specifies 1-col for PKG-006 and PKG-023, and 2-col for PKG-013. Price is quoted (not gated on this) — treated as an assumed match to RFQ spec pending confirmation.",
     "affected_lines": [
      "PKG-006",
      "PKG-013",
      "PKG-023"
     ],
     "options": [
-     "Ask vendor to confirm the printed rate covers the RFQ's specified color count with no differential",
-     "Request itemized per-color pricing if a differential exists"
+     "Vendor confirms print colour count matches RFQ spec for each line"
     ],
     "delta_inr_per_unit": null,
     "annual_impact_inr": null
    },
    {
-    "id": "CORRUG-AMBIGUOUS_TERM-PLY",
-    "type": "AMBIGUOUS_TERM",
-    "severity": "MEDIUM",
-    "title": "PKG-013 ply grade not confirmed (shared 5-ply/7-ply table section)",
-    "detail": "PKG-013's row sits under a combined '5-PLY/7-PLY' table section header with no per-row ply indicator. The RFQ requires 5-ply for this line; a 7-ply quote would carry a materially different cost basis. It cannot be confirmed which ply grade the Rs 2,400 rate reflects.",
-    "affected_lines": [
-     "PKG-013"
-    ],
-    "options": [
-     "Ask vendor to confirm PKG-013's quoted rate is for 5-ply (not 7-ply)"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "CORRUG-QUESTIONNAIRE_GAP",
+    "id": "CORRUG-QUESTIONNAIRE_GAP-OPS",
     "type": "QUESTIONNAIRE_GAP",
-    "severity": "AWARD_BLOCKING",
-    "title": "Compliance/capability questionnaire entirely unanswered",
-    "detail": "The vendor's submission is a photographed rate card, not a questionnaire response. ISO 9001:2015 certificate, burst-strength test certs (IS 2771), FSC chain-of-custody, standard lead time, and spare capacity headroom are all unaddressed (answer=null, confidence=0). Per policy clearance_rule, valid ISO 9001 + burst-test certs on file are required for award clearance — this vendor cannot clear as-is until both are supplied. FSC, lead time, and capacity gaps are not clearance-blocking by policy but are still needed for evaluation.",
+    "severity": "LOW",
+    "title": "Lead time and spare capacity headroom not disclosed",
+    "detail": "The RFQ questionnaire asks for standard lead time (order → delivery) and spare capacity headroom on current volumes. Neither is addressed anywhere in the vendor's rate card.",
     "affected_lines": [],
     "options": [
-     "Request ISO 9001:2015 certificate and IS 2771 burst-strength test certs before proceeding to award (clearance-blocking)",
-     "Request FSC chain-of-custody, lead time, and capacity headroom answers to complete evaluation"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "CORRUG-SOURCE_CONFLICT",
-    "type": "SOURCE_CONFLICT",
-    "severity": "MEDIUM",
-    "title": "Vendor states 30-day payment terms; RFQ basis requires 45 days",
-    "detail": "The vendor's rate card note reads 'PAYMENT 30 DAYS,' conflicting with the RFQ's 45-day payment basis. The questionnaire item directly asking '45-day payment terms accepted' was left unanswered, so this is reported as a stated-term conflict, not a confirmed rejection of the 45-day term.",
-    "affected_lines": [],
-    "options": [
-     "Ask vendor to explicitly confirm acceptance of 45-day payment terms per RFQ basis",
-     "If vendor insists on 30 days, evaluate working-capital impact vs. other bidders"
+     "Request lead time and capacity headroom figures from vendor"
     ],
     "delta_inr_per_unit": null,
     "annual_impact_inr": null
@@ -3905,867 +4173,714 @@
    ]
   }
  },
- "TEST": {
-  "vendor_id": "TEST",
+ "GLOBAL": {
+  "vendor_id": "GLOBAL",
   "cells": [
    {
     "code": "PKG-001",
-    "normalized_inr_per_unit": 3.7,
-    "state": "assumed",
-    "flags": [
-     "currency_inferred"
-    ],
-    "transform_chain": [
-     {
-      "tool": "estimate_box_weight_kg",
-      "inputs": {
-       "dims_mm": [
-        200,
-        150,
-        100
-       ],
-       "gsm_combined": 390
-      },
-      "output": 0.085,
-      "text": "box weight ≈ 0.085 kg from dimensions + grammage (±4%)"
-     },
-     {
-      "tool": "apply_freight_estimate",
-      "inputs": {
-       "amount": 3.52,
-       "weight_kg": 0.085,
-       "per_kg": 2.1
-      },
-      "output": 3.7,
-      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹3.7 delivered"
-     }
-    ],
+    "normalized_inr_per_unit": 3.21,
+    "state": "confirmed",
+    "flags": [],
+    "transform_chain": [],
     "as_quoted": {
-     "amount": 3.52,
+     "amount": 3.21,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A7:F7",
-     "excerpt": "A7='PKG-001', B7='RSC 3-ply 200x150x100 mm', C7=18000, D7=3.52, E7=88, F7=63360"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-001",
+     "excerpt": "PKG-001,RSC 200x150x100 3P,3.21"
     },
-    "confidence": 0.85,
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "Vendor's stated monthly qty (18,000) differs from RFX ask (9,000); per-piece rate unaffected. Ex-works Vasai per vendor terms; freight added per policy lane estimate (buyer-confirmed placeholder pending reconciliation against vendor's actual invoice) — see FREIGHT_BASIS exception."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-002",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 4.65,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 4.65,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-002",
+     "excerpt": "PKG-002,RSC 240x180x120 3P,4.65"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (240x180x120mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-003",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "reference",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 6.39,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
-    "buyer_question": "Your row labeled 'PKG-004' (Rs 7.74/pc) has dimensions 300x200x150mm that match our PKG-003 spec exactly, not PKG-004 — please confirm whether this price is intended for PKG-003, and provide a separate quote for PKG-004 (300x250x200mm) if so.",
-    "note": "See SOURCE_CONFLICT exception (PKG-003/PKG-004) — code label vs. description disagreement, no buyer ruling on file for this pair."
+    "as_quoted": {
+     "amount": 6.39,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-003",
+     "excerpt": "PKG-003,RSC 300x200x150 3P,6.39"
+    },
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-004",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "reference",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 9.2,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 7.74,
+     "amount": 9.2,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A8:F8",
-     "excerpt": "A8='PKG-004', B8='RSC 3-ply 300x200x150 mm', C8=22000, D8=7.74, F8=170280"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-004",
+     "excerpt": "PKG-004,RSC 300x250x200 3P,9.20"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-004' quotes dimensions 300x200x150mm (Rs 7.74/pc), which match our PKG-003 spec, not PKG-004 (300x250x200mm) — please confirm whether this price applies to PKG-004 as labeled, or provide the correct PKG-004 quote.",
-    "note": "See SOURCE_CONFLICT exception (PKG-003/PKG-004) — code label vs. description disagreement, no buyer ruling on file for this pair."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-005",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "reference",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 9.69,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
-    "buyer_question": "Your row labeled 'PKG-006' (Rs 12.47/pc) has dimensions 350x250x200mm matching our PKG-005 spec exactly, not PKG-006 — please confirm whether this price is intended for PKG-005, and provide a quote for PKG-006 (400x300x250mm, printed 1-col) if so.",
-    "note": "See SOURCE_CONFLICT exception (PKG-005/PKG-006) — code label vs. description disagreement, no buyer ruling on file for this pair."
+    "as_quoted": {
+     "amount": 9.69,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-005",
+     "excerpt": "PKG-005,RSC 350x250x200 3P,9.69"
+    },
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-006",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
+    "normalized_inr_per_unit": 14.06,
+    "state": "assumed",
     "flags": [
-     "basis_conflict",
-     "reference",
-     "print_spec_unaddressed",
      "needs_review"
     ],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 12.47,
+     "amount": 14.06,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A9:F9",
-     "excerpt": "A9='PKG-006', B9='RSC 3-ply 350x250x200 mm', C9=14000, D9=12.47, F9=174580"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-006",
+     "excerpt": "PKG-006,RSC 400x300x250 3P-PRINT,14.06"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-006' quotes 350x250x200mm (Rs 12.47/pc), which matches our PKG-005 spec, not PKG-006 (400x300x250mm, printed 1-col) — please confirm whether this price applies to PKG-006 as labeled, including whether 1-color printing is included, or provide the correct PKG-006 quote.",
-    "note": "See SOURCE_CONFLICT exception (PKG-005/PKG-006) — code label vs. description disagreement, no buyer ruling on file for this pair."
+    "confidence": 0.9,
+    "buyer_question": null,
+    "note": "CSV row reads 'RSC 400x300x250 3P-PRINT' with no color count; RFX specifies 1-col. Price taken as quoted — see AMBIGUOUS_TERM exception. [buyer confirmed] freight included per email, no freight added."
    },
    {
     "code": "PKG-007",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 5.71,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 5.71,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-007",
+     "excerpt": "PKG-007,RSC 250x200x150 3P,5.71"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (250x200x150mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-008",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 19.34,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 17.45,
+     "amount": 19.34,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A10:F10",
-     "excerpt": "A10='PKG-008', B10='RSC 3-ply 400x300x200 mm', C10=26000, D10=\"=ROUND(0.3249*('rate card'!$B$2+'rate card'!$B$4),2)\" cached 17.45, F10=453700"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-008",
+     "excerpt": "PKG-008,RSC 450x350x300 3P,19.34"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-008' quotes dimensions 400x300x200mm (Rs 17.45/pc), which don't match our PKG-008 spec (450x350x300mm) or any other line — please confirm the correct dimensions and rate for PKG-008.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension mismatches). Rate is formula-derived from the vendor's rate-card sheet; recomputed and matches cached value, but that verifies arithmetic only, not applicability to PKG-008's spec."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-009",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "ply_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 20.95,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 33.54,
+     "amount": 20.95,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A11:F11",
-     "excerpt": "A11='PKG-009', B11='RSC 5-ply 420x320x240 mm', C11=8000, D11=33.54, E11=838.5, F11=268320"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-009",
+     "excerpt": "PKG-009,RSC 400x400x300 3P,20.95"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-009' quotes 420x320x240mm, 5-ply (Rs 33.54/pc), but our PKG-009 spec is 400x400x300mm, 3-ply — both dimensions and ply-count disagree; please confirm the correct rate for PKG-009 as specified.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension/ply mismatches)."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-010",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "ply_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 12.91,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 39.2,
+     "amount": 12.91,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A12:F12",
-     "excerpt": "A12='PKG-010', B12='RSC 5-ply 450x350x250 mm', C12=13000, D12=39.2, F12=509600"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-010",
+     "excerpt": "PKG-010,RSC 350x300x250 3P,12.91"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-010' quotes 450x350x250mm, 5-ply (Rs 39.20/pc), but our PKG-010 spec is 350x300x250mm, 3-ply — please confirm the correct rate for PKG-010 as specified.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension/ply mismatches)."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-011",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 24.74,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 24.74,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-011",
+     "excerpt": "PKG-011,RSC 500x400x350 3P,24.74"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (500x400x350mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-012",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "ply_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 13.03,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 52.52,
+     "amount": 13.03,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A13:F13",
-     "excerpt": "A13='PKG-012', B13='RSC 5-ply 500x400x300 mm', C13=16000, D13=52.52, F13=840320"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-012",
+     "excerpt": "PKG-012,RSC 300x300x300 3P,13.03"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-012' quotes 500x400x300mm, 5-ply (Rs 52.52/pc), but our PKG-012 spec is 300x300x300mm, 3-ply — please confirm the correct rate for PKG-012 as specified.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension/ply mismatches)."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-013",
-    "normalized_inr_per_unit": 68.95,
+    "normalized_inr_per_unit": 25.16,
     "state": "assumed",
     "flags": [
-     "assumed",
-     "needs_review",
-     "currency_inferred"
+     "needs_review"
     ],
-    "transform_chain": [
-     {
-      "tool": "estimate_box_weight_kg",
-      "inputs": {
-       "dims_mm": [
-        400,
-        300,
-        300
-       ],
-       "gsm_combined": 620
-      },
-      "output": 0.591,
-      "text": "box weight ≈ 0.591 kg from dimensions + grammage (±4%)"
-     },
-     {
-      "tool": "apply_freight_estimate",
-      "inputs": {
-       "amount": 67.71,
-       "weight_kg": 0.591,
-       "per_kg": 2.1
-      },
-      "output": 68.95,
-      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹68.95 delivered"
-     }
-    ],
+    "transform_chain": [],
     "as_quoted": {
-     "amount": 67.71,
+     "amount": 25.16,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A14:F14",
-     "excerpt": "A14='PKG-013', B14='RSC 5-ply 500x400x400 mm', C14=19000, D14=67.71, F14=1286490"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-013",
+     "excerpt": "PKG-013,RSC 400x300x300 5P-PRINT,25.16"
     },
-    "confidence": 0.85,
+    "confidence": 0.9,
     "buyer_question": null,
-    "note": "[buyer-confirmed] Applying Rs 67.71/pc (row labeled 'PKG-013', code-label match) per buyer decision, in preference to the exact dims match to PKG-015 (see decision log). PKG-015 is treated as unquoted per the same decision. Print status (2-col per spec) is not addressed in the vendor's row description — assumed included; see AMBIGUOUS_TERM exception. Freight added per FREIGHT_BASIS decision."
+    "note": "CSV row reads 'RSC 400x300x300 5P-PRINT' with no color count; RFX specifies 2-col. Price taken as quoted — see AMBIGUOUS_TERM exception. [buyer confirmed] freight included per email, no freight added."
    },
    {
     "code": "PKG-014",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 33.95,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 70.35,
+     "amount": 33.95,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A15:F15",
-     "excerpt": "A15='PKG-014', B15='RSC 5-ply 550x400x350 mm', C15=6200, D15=\"=ROUND(1.31*('rate card'!$B$2+'rate card'!$B$4),2)\" cached 70.35, E15=1700.25, F15=436170"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-014",
+     "excerpt": "PKG-014,RSC 450x350x350 5P,33.95"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-014' quotes 550x400x350mm, 5-ply (Rs 70.35/pc), but our PKG-014 spec is 450x350x350mm — please confirm the correct rate for PKG-014 as specified.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension mismatches). Rate is formula-derived from the vendor's rate-card sheet; recomputed and matches cached value, but that verifies arithmetic only, not applicability to PKG-014's spec."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-015",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 43.53,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 43.53,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-015",
+     "excerpt": "PKG-015,RSC 500x400x400 5P,43.53"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "[buyer-confirmed] Per buyer decision, PKG-015 remains unquoted; the exact-dims-matching row (labeled 'PKG-013', Rs 67.71/pc) is attributed to PKG-013 instead."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-016",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 51.47,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 77.99,
+     "amount": 51.47,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A16:F16",
-     "excerpt": "A16='PKG-016', B16='RSC 5-ply 600x400x400 mm', C16=21000, D16=77.99, F16=1637790"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-016",
+     "excerpt": "PKG-016,RSC 550x450x400 5P,51.47"
     },
-    "confidence": 0.85,
-    "buyer_question": "Two of your rows may apply to our PKG-016/PKG-017 items: row 'PKG-016' (600x400x400mm, Rs 77.99/pc) exactly matches our PKG-017 spec, not PKG-016 (550x450x400mm); row 'PKG-017' (600x450x450mm, Rs 89.43/pc) matches neither exactly. Please confirm which price, if either, applies to PKG-016.",
-    "note": "See SOURCE_CONFLICT exception (PKG-016/PKG-017) — two candidate rows, neither cleanly matches PKG-016's own spec."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-017",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 50.03,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 89.43,
+     "amount": 50.03,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A17:F17",
-     "excerpt": "A17='PKG-017', B17='RSC 5-ply 600x450x450 mm', C17=8800, D17=89.43, F17=786984"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-017",
+     "excerpt": "PKG-017,RSC 600x400x400 5P,50.03"
     },
-    "confidence": 0.85,
-    "buyer_question": "Two of your rows may apply to our PKG-017 spec (600x400x400mm, 5-ply): row 'PKG-016' quotes Rs 77.99/pc with exactly matching dimensions, while row 'PKG-017' quotes Rs 89.43/pc at 600x450x450mm. Please confirm which price applies to PKG-017.",
-    "note": "See SOURCE_CONFLICT exception (PKG-016/PKG-017) — two candidate prices for this spec, no buyer ruling on file."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-018",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 65.0,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 65.0,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-018",
+     "excerpt": "PKG-018,RSC 600x500x450 5P,65.00"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (600x500x450mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-019",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 45.39,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 105.11,
+     "amount": 45.39,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A18:F18",
-     "excerpt": "A18='PKG-019', B18='RSC 5-ply 700x500x400 mm', C18=9600, D18=105.11, F18=1009056"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-019",
+     "excerpt": "PKG-019,RSC 450x450x400 5P,45.39"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-019' quotes 700x500x400mm, 5-ply (Rs 105.11/pc), but our PKG-019 spec is 450x450x400mm — please confirm the correct rate for PKG-019 as specified.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension mismatches)."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-020",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 59.14,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 113.24,
+     "amount": 59.14,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A19:F19",
-     "excerpt": "A19='PKG-020', B19='RSC 5-ply 700x500x500 mm', C19=6100, D19=113.24, E19=2831, F19=690764"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-020",
+     "excerpt": "PKG-020,RSC 500x500x450 5P,59.14"
     },
-    "confidence": 0.85,
-    "buyer_question": "Two of your rows may apply to our PKG-020/PKG-022 items: row 'PKG-020' (700x500x500mm, Rs 113.24/pc) exactly matches our PKG-022 spec, not PKG-020 (500x500x450mm); row 'PKG-022' (800x600x400mm, 7-ply, Rs 206.25/pc) matches neither exactly. Please confirm which price, if either, applies to PKG-020.",
-    "note": "See SOURCE_CONFLICT exception (PKG-020/PKG-022) — two candidate rows, neither cleanly matches PKG-020's own spec."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-021",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 69.51,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 69.51,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-021",
+     "excerpt": "PKG-021,RSC 650x500x450 5P,69.51"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (650x500x450mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-022",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "ply_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 75.15,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 206.25,
+     "amount": 75.15,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A20:F20",
-     "excerpt": "A20='PKG-022', B20='RSC 7-ply 800x600x400 mm', C20=4200, D20=206.25, F20=866250"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-022",
+     "excerpt": "PKG-022,RSC 700x500x500 5P,75.15"
     },
-    "confidence": 0.85,
-    "buyer_question": "Two of your rows may apply to our PKG-022 spec (700x500x500mm, 5-ply): row 'PKG-020' quotes Rs 113.24/pc with exactly matching dimensions, while row 'PKG-022' quotes Rs 206.25/pc at 800x600x400mm, 7-ply. Please confirm which price applies to PKG-022.",
-    "note": "See SOURCE_CONFLICT exception (PKG-020/PKG-022) — two candidate prices for this spec, no buyer ruling on file."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-023",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
+    "normalized_inr_per_unit": 71.96,
+    "state": "assumed",
     "flags": [
-     "basis_conflict",
-     "ply_mismatch",
-     "print_spec_unaddressed",
      "needs_review"
     ],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 249.85,
+     "amount": 71.96,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A21:F21",
-     "excerpt": "A21='PKG-023', B21='RSC 7-ply 800x600x600 mm', C21=3300, D21=\"=ROUND(4.6527*('rate card'!$B$2+'rate card'!$B$4),2)\" cached 249.85, F21=824505"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-023",
+     "excerpt": "PKG-023,RSC 550x550x500 5P-PRINT,71.96"
     },
-    "confidence": 0.85,
-    "buyer_question": "Two of your rows may relate to PKG-023/PKG-027: row 'PKG-023' (800x600x600mm, 7-ply, Rs 249.85/pc) exactly matches our PKG-027 spec, not PKG-023 (550x550x500mm, 5-ply, printed 1-col); row 'PKG-027' (1000x700x600mm, Rs 376.51/pc) matches neither exactly. Please confirm the correct rate for PKG-023, including whether 1-color printing is included.",
-    "note": "See SOURCE_CONFLICT exception (PKG-023/PKG-027) — two candidate rows, neither cleanly matches PKG-023's own spec, and printing (1-col) is unaddressed either way."
+    "confidence": 0.9,
+    "buyer_question": null,
+    "note": "CSV row reads 'RSC 550x550x500 5P-PRINT' with no color count; RFX specifies 1-col. Price taken as quoted — see AMBIGUOUS_TERM exception. [buyer confirmed] freight included per email, no freight added."
    },
    {
     "code": "PKG-024",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 84.21,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 84.21,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-024",
+     "excerpt": "PKG-024,RSC 600x600x500 5P,84.21"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (600x600x500mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-025",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "description_mismatch",
-     "ply_mismatch",
-     "needs_review"
-    ],
+    "normalized_inr_per_unit": 89.17,
+    "state": "confirmed",
+    "flags": [],
     "transform_chain": [],
     "as_quoted": {
-     "amount": 253.75,
+     "amount": 89.17,
      "currency": "INR",
-     "unit_raw": "Per pc"
+     "unit_raw": "rate_inr_per_piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A22:F22",
-     "excerpt": "A22='PKG-025', B22='RSC 7-ply 900x600x600 mm', C22=3600, D22=253.75, F22=913500"
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-025",
+     "excerpt": "PKG-025,RSC 750x550x500 5P,89.17"
     },
-    "confidence": 0.85,
-    "buyer_question": "Your row labeled 'PKG-025' quotes 900x600x600mm, 7-ply (Rs 253.75/pc), but our PKG-025 spec is 750x550x500mm, 5-ply — please confirm the correct rate for PKG-025 as specified.",
-    "note": "See bundled SOURCE_CONFLICT exception (single-candidate dimension/ply mismatches)."
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-026",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
+    "normalized_inr_per_unit": 101.84,
+    "state": "confirmed",
     "flags": [],
     "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
+    "as_quoted": {
+     "amount": 101.84,
+     "currency": "INR",
+     "unit_raw": "rate_inr_per_piece"
+    },
+    "source": {
+     "file": "globalpack_rates.csv",
+     "locator": "row PKG-026",
+     "excerpt": "PKG-026,RSC 800x600x550 5P,101.84"
+    },
+    "confidence": 0.97,
     "buyer_question": null,
-    "note": "No code label or matching dimensions (800x600x550mm) found anywhere in vendor response."
+    "note": "[buyer confirmed] freight_authority=email — rates treated as delivered/freight-included; CSV 'ex-works Daman, freight at actuals' note overridden; no freight added."
    },
    {
     "code": "PKG-027",
-    "normalized_inr_per_unit": null,
-    "state": "needs_review",
-    "flags": [
-     "basis_conflict",
-     "needs_review"
-    ],
-    "transform_chain": [],
-    "as_quoted": {
-     "amount": 376.51,
-     "currency": "INR",
-     "unit_raw": "Per pc"
-    },
-    "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A23:F23",
-     "excerpt": "A23='PKG-027', B23='RSC 7-ply 1000x700x600 mm', C23=2600, D23=376.51, E23=9412.75, F23=978926"
-    },
-    "confidence": 0.85,
-    "buyer_question": "Two of your rows may apply to our PKG-027 spec (800x600x600mm, 7-ply): row 'PKG-023' quotes Rs 249.85/pc with exactly matching dimensions, while row 'PKG-027' quotes Rs 376.51/pc at 1000x700x600mm. Please confirm which price applies to PKG-027.",
-    "note": "See SOURCE_CONFLICT exception (PKG-023/PKG-027) — two candidate prices for this spec, no buyer ruling on file."
-   },
-   {
-    "code": "PKG-028",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
-    "flags": [],
-    "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
-    "buyer_question": null,
-    "note": "No code label or matching dimensions (900x700x600mm) found anywhere in vendor response."
-   },
-   {
-    "code": "PKG-029",
-    "normalized_inr_per_unit": null,
-    "state": "missing",
-    "flags": [],
-    "transform_chain": [],
-    "as_quoted": null,
-    "source": null,
-    "confidence": 0.0,
-    "buyer_question": null,
-    "note": "No exact match found; closest vendor row (labeled 'PKG-027', 1000x700x600mm) does not match our PKG-029 spec (1000x800x700mm) and is separately contested between PKG-023/PKG-027 (see SOURCE_CONFLICT) — treated as not quoted."
-   },
-   {
-    "code": "PKG-030",
-    "normalized_inr_per_unit": 560.0,
+    "normalized_inr_per_unit": 147.14,
     "state": "assumed",
     "flags": [
-     "currency_inferred"
+     "fx",
+     "reference"
     ],
     "transform_chain": [
      {
-      "tool": "estimate_box_weight_kg",
+      "tool": "convert_currency",
       "inputs": {
-       "dims_mm": [
-        1100,
-        800,
-        800
-       ],
-       "gsm_combined": 980
+       "amount": 1.76,
+       "currency": "USD",
+       "rate": 83.6
       },
-      "output": 6.441,
-      "text": "box weight ≈ 6.441 kg from dimensions + grammage (±4%)"
-     },
-     {
-      "tool": "apply_freight_estimate",
-      "inputs": {
-       "amount": 546.47,
-       "weight_kg": 6.441,
-       "per_kg": 2.1
-      },
-      "output": 560.0,
-      "text": "+ ₹2.1/kg freight estimate (Vapi → Bhiwandi, trailing 6-month lane average) → ₹560.0 delivered"
+      "output": 147.14,
+      "text": "× ₹83.6/USD (2026-08-28 (RBI reference rate)) → ₹147.14"
      }
     ],
     "as_quoted": {
-     "amount": 546.47,
-     "currency": "INR",
-     "unit_raw": "Per pc"
+     "amount": 1.76,
+     "currency": "USD",
+     "unit_raw": "per piece"
     },
     "source": {
-     "file": "EC08_shakti_packaging_quote.xlsx",
-     "locator": "Quote!A24:F24",
-     "excerpt": "A24='PKG-030', B24='RSC 7-ply 1100x800x800 mm', C24=1200, D24=546.47, F24=655764"
+     "file": "globalpack_email.txt",
+     "locator": "email body, para 2",
+     "excerpt": "PKG-027 at USD 1.76"
     },
-    "confidence": 0.85,
+    "confidence": 0.95,
     "buyer_question": null,
-    "note": "Vendor's stated monthly qty (1,200) differs from RFX ask (350); per-piece rate unaffected. Freight added per policy lane estimate (buyer-confirmed placeholder pending reconciliation) — see FREIGHT_BASIS exception."
+    "note": "Quoted USD 1.76/pc in email body (7-ply export cartons); convert at policy FX 83.6 INR/USD (2026-08-28 RBI ref). Matched to RFX line by item code only — dimensions not restated in email. [buyer confirmed] freight included per email, no freight added."
+   },
+   {
+    "code": "PKG-028",
+    "normalized_inr_per_unit": 185.59,
+    "state": "assumed",
+    "flags": [
+     "fx",
+     "reference"
+    ],
+    "transform_chain": [
+     {
+      "tool": "convert_currency",
+      "inputs": {
+       "amount": 2.22,
+       "currency": "USD",
+       "rate": 83.6
+      },
+      "output": 185.59,
+      "text": "× ₹83.6/USD (2026-08-28 (RBI reference rate)) → ₹185.59"
+     }
+    ],
+    "as_quoted": {
+     "amount": 2.22,
+     "currency": "USD",
+     "unit_raw": "per piece"
+    },
+    "source": {
+     "file": "globalpack_email.txt",
+     "locator": "email body, para 2",
+     "excerpt": "PKG-028 at USD 2.22"
+    },
+    "confidence": 0.95,
+    "buyer_question": null,
+    "note": "Quoted USD 2.22/pc in email body (7-ply export cartons); convert at policy FX 83.6 INR/USD (2026-08-28 RBI ref). Matched to RFX line by item code only — dimensions not restated in email. [buyer confirmed] freight included per email, no freight added."
+   },
+   {
+    "code": "PKG-029",
+    "normalized_inr_per_unit": 244.95,
+    "state": "assumed",
+    "flags": [
+     "fx",
+     "reference"
+    ],
+    "transform_chain": [
+     {
+      "tool": "convert_currency",
+      "inputs": {
+       "amount": 2.93,
+       "currency": "USD",
+       "rate": 83.6
+      },
+      "output": 244.95,
+      "text": "× ₹83.6/USD (2026-08-28 (RBI reference rate)) → ₹244.95"
+     }
+    ],
+    "as_quoted": {
+     "amount": 2.93,
+     "currency": "USD",
+     "unit_raw": "per piece"
+    },
+    "source": {
+     "file": "globalpack_email.txt",
+     "locator": "email body, para 2",
+     "excerpt": "PKG-029 at USD 2.93"
+    },
+    "confidence": 0.95,
+    "buyer_question": null,
+    "note": "Quoted USD 2.93/pc in email body (7-ply export cartons); convert at policy FX 83.6 INR/USD (2026-08-28 RBI ref). Matched to RFX line by item code only — dimensions not restated in email. [buyer confirmed] freight included per email, no freight added."
+   },
+   {
+    "code": "PKG-030",
+    "normalized_inr_per_unit": 272.54,
+    "state": "assumed",
+    "flags": [
+     "fx",
+     "reference"
+    ],
+    "transform_chain": [
+     {
+      "tool": "convert_currency",
+      "inputs": {
+       "amount": 3.26,
+       "currency": "USD",
+       "rate": 83.6
+      },
+      "output": 272.54,
+      "text": "× ₹83.6/USD (2026-08-28 (RBI reference rate)) → ₹272.54"
+     }
+    ],
+    "as_quoted": {
+     "amount": 3.26,
+     "currency": "USD",
+     "unit_raw": "per piece"
+    },
+    "source": {
+     "file": "globalpack_email.txt",
+     "locator": "email body, para 2",
+     "excerpt": "PKG-030 at USD 3.26"
+    },
+    "confidence": 0.95,
+    "buyer_question": null,
+    "note": "Quoted USD 3.26/pc in email body (7-ply export cartons); convert at policy FX 83.6 INR/USD (2026-08-28 RBI ref). Matched to RFX line by item code only — dimensions not restated in email. [buyer confirmed] freight included per email, no freight added."
    }
   ],
   "exceptions": [
    {
-    "id": "TEST-QUESTIONNAIRE_GAP-1",
+    "id": "GLOBAL-QUESTIONNAIRE_GAP-ISOBURST",
     "type": "QUESTIONNAIRE_GAP",
     "severity": "AWARD_BLOCKING",
-    "title": "Compliance questionnaire not completed",
-    "detail": "None of the 6 questionnaire items (ISO 9001, burst-strength certs, FSC chain-of-custody, lead time, 45-day payment acceptance, spare capacity headroom) are addressed anywhere in the vendor's response. Policy clearance_rule requires a valid ISO 9001 certificate and burst-test certs on file before award. Per buyer_confirmed_facts, the vendor has already been asked (status: asked_supplier) — reply is pending.",
+    "title": "ISO 9001 and burst-strength certificates not provided",
+    "detail": "Clearance rule requires a valid ISO 9001:2015 certificate and burst-strength test certs (per IS 2771) on file. GLOBAL's response has no answer, evidence, or attachment for either questionnaire item ('iso', 'burst') in the CSV or email. This is a vendor-level gap, not tied to individual lines, and blocks award of any line to GLOBAL until resolved.",
     "affected_lines": [],
     "options": [
-     "Withhold award until ISO 9001 + burst-test certs are received and verified",
-     "Request vendor complete all 6 questionnaire items before scoring"
+     "Request ISO 9001:2015 certificate and IS 2771 burst-test certs from GLOBAL before shortlisting",
+     "Exclude GLOBAL from award pending certs on file"
     ],
     "delta_inr_per_unit": null,
     "annual_impact_inr": null
    },
    {
-    "id": "TEST-MISSING_LINE-1",
-    "type": "MISSING_LINE",
-    "severity": "HIGH",
-    "title": "10 of 30 RFX lines not quoted",
-    "detail": "PKG-002, PKG-007, PKG-011, PKG-018, PKG-021, PKG-024, PKG-026, PKG-028 have no code label or matching dimensions anywhere in the vendor's response. PKG-029's closest candidate (row 'PKG-027', 1000x700x600mm) does not exactly match its spec (1000x800x700mm) and is already contested elsewhere. PKG-015 is treated as unquoted per buyer decision (its exact-match row was attributed to PKG-013 instead). The vendor's own stated total (Quote!F25) covers only the 18 rows it listed, not all 30 RFX items.",
-    "affected_lines": [
-     "PKG-002",
-     "PKG-007",
-     "PKG-011",
-     "PKG-015",
-     "PKG-018",
-     "PKG-021",
-     "PKG-024",
-     "PKG-026",
-     "PKG-028",
-     "PKG-029"
-    ],
-    "options": [
-     "Request vendor complete quotes for all missing lines",
-     "Source missing lines from an alternate supplier",
-     "Proceed with partial award and flag remaining volume as sourcing risk"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "TEST-SOURCE_CONFLICT-1",
-    "type": "SOURCE_CONFLICT",
-    "severity": "HIGH",
-    "title": "Code label vs. description mismatch: PKG-003 / PKG-004",
-    "detail": "Vendor's row labeled 'PKG-004' (Quote!A8) quotes Rs 7.74/pc for dims 300x200x150mm, 3-ply — this matches RFX-PKG-003 exactly, not RFX-PKG-004 (300x250x200mm). No row exists with dims matching PKG-004. buyer_confirmed_facts does not address this pair (only PKG-013/PKG-015 was resolved), so neither line can be safely priced without confirmation.",
-    "affected_lines": [
-     "PKG-003",
-     "PKG-004"
-    ],
-    "options": [
-     "Attribute Rs 7.74/pc to PKG-003 (per exact dims match); treat PKG-004 as unquoted",
-     "Attribute Rs 7.74/pc to PKG-004 (per code label as stated); treat PKG-003 as unquoted",
-     "Request vendor clarification/re-quote for both"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "TEST-SOURCE_CONFLICT-2",
-    "type": "SOURCE_CONFLICT",
-    "severity": "HIGH",
-    "title": "Code label vs. description mismatch: PKG-005 / PKG-006",
-    "detail": "Vendor's row labeled 'PKG-006' (Quote!A9) quotes Rs 12.47/pc for dims 350x250x200mm, 3-ply — this matches RFX-PKG-005 exactly, not RFX-PKG-006 (400x300x250mm, printed 1-col). No row exists with dims matching PKG-006, and the row doesn't mention printing either way. Not addressed by buyer_confirmed_facts.",
-    "affected_lines": [
-     "PKG-005",
-     "PKG-006"
-    ],
-    "options": [
-     "Attribute Rs 12.47/pc to PKG-005 (per exact dims match); treat PKG-006 as unquoted",
-     "Attribute Rs 12.47/pc to PKG-006 (per code label); confirm print inclusion; treat PKG-005 as unquoted",
-     "Request vendor clarification/re-quote for both"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "TEST-SOURCE_CONFLICT-3",
-    "type": "SOURCE_CONFLICT",
-    "severity": "HIGH",
-    "title": "Two candidate rows for PKG-016/PKG-017 spec pair",
-    "detail": "Row labeled 'PKG-016' (600x400x400mm, Rs 77.99/pc) matches RFX-PKG-017's spec exactly, not PKG-016 (550x450x400mm). Row labeled 'PKG-017' (600x450x450mm, Rs 89.43/pc) matches neither PKG-016 nor PKG-017 exactly. Which code either price belongs to, if any, is unresolved.",
-    "affected_lines": [
-     "PKG-016",
-     "PKG-017"
-    ],
-    "options": [
-     "Apply Rs 77.99/pc to PKG-017 (exact dims match); treat PKG-016 as unquoted",
-     "Apply Rs 89.43/pc to PKG-017 (per code label); treat PKG-016 as unquoted or re-quoted",
-     "Request vendor clarification/re-quote for both PKG-016 and PKG-017"
-    ],
-    "delta_inr_per_unit": 11.44,
-    "annual_impact_inr": 1029600
-   },
-   {
-    "id": "TEST-SOURCE_CONFLICT-4",
-    "type": "SOURCE_CONFLICT",
-    "severity": "HIGH",
-    "title": "Two candidate rows for PKG-020/PKG-022 spec pair",
-    "detail": "Row labeled 'PKG-020' (700x500x500mm, Rs 113.24/pc) matches RFX-PKG-022's spec exactly, not PKG-020 (500x500x450mm). Row labeled 'PKG-022' (800x600x400mm, 7-ply, Rs 206.25/pc) matches neither PKG-020 nor PKG-022 exactly (ply also disagrees). Which code either price belongs to, if any, is unresolved.",
-    "affected_lines": [
-     "PKG-020",
-     "PKG-022"
-    ],
-    "options": [
-     "Apply Rs 113.24/pc to PKG-022 (exact dims match); treat PKG-020 as unquoted",
-     "Apply Rs 206.25/pc to PKG-022 (per code label); treat PKG-020 as unquoted or re-quoted",
-     "Request vendor clarification/re-quote for both PKG-020 and PKG-022"
-    ],
-    "delta_inr_per_unit": 93.01,
-    "annual_impact_inr": 4687704
-   },
-   {
-    "id": "TEST-SOURCE_CONFLICT-5",
-    "type": "SOURCE_CONFLICT",
-    "severity": "HIGH",
-    "title": "Two candidate rows for PKG-023/PKG-027 spec pair",
-    "detail": "Row labeled 'PKG-023' (800x600x600mm, 7-ply, Rs 249.85/pc, rate-card derived) matches RFX-PKG-027's spec exactly, not PKG-023 (550x550x500mm, 5-ply, printed 1-col). Row labeled 'PKG-027' (1000x700x600mm, Rs 376.51/pc) matches neither PKG-023 nor PKG-027 exactly (ply also disagrees for PKG-023). Which code either price belongs to, if any, is unresolved, and printing on PKG-023 is unaddressed either way.",
-    "affected_lines": [
-     "PKG-023",
-     "PKG-027"
-    ],
-    "options": [
-     "Apply Rs 249.85/pc to PKG-027 (exact dims match); treat PKG-023 as unquoted",
-     "Apply Rs 376.51/pc to PKG-027 (per code label); treat PKG-023 as unquoted or re-quoted",
-     "Request vendor clarification/re-quote for both PKG-023 and PKG-027, including print confirmation for PKG-023"
-    ],
-    "delta_inr_per_unit": 126.66,
-    "annual_impact_inr": 4103784
-   },
-   {
-    "id": "TEST-SOURCE_CONFLICT-6",
-    "type": "SOURCE_CONFLICT",
-    "severity": "HIGH",
-    "title": "Code label vs. description dimension/ply mismatches with no alternate candidate",
-    "detail": "Seven rows carry a code label matching an RFX line, but their described dimensions/ply disagree with that line's spec and don't match any other RFX line either, so the price cannot be confirmed as applicable: PKG-008 (quoted 400x300x200mm vs spec 450x350x300mm, Rs 17.45/pc), PKG-009 (420x320x240mm 5-ply vs spec 400x400x300mm 3-ply, Rs 33.54/pc), PKG-010 (450x350x250mm 5-ply vs spec 350x300x250mm 3-ply, Rs 39.20/pc), PKG-012 (500x400x300mm 5-ply vs spec 300x300x300mm 3-ply, Rs 52.52/pc), PKG-014 (550x400x350mm vs spec 450x350x350mm, Rs 70.35/pc), PKG-019 (700x500x400mm vs spec 450x450x400mm, Rs 105.11/pc), PKG-025 (900x600x600mm 7-ply vs spec 750x550x500mm 5-ply, Rs 253.75/pc).",
-    "affected_lines": [
-     "PKG-008",
-     "PKG-009",
-     "PKG-010",
-     "PKG-012",
-     "PKG-014",
-     "PKG-019",
-     "PKG-025"
-    ],
-    "options": [
-     "Accept each quoted price as applying to its labeled code despite the dimension/ply mismatch",
-     "Treat each as unquoted pending vendor re-quote at the correct spec",
-     "Request line-by-line vendor clarification"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "TEST-FREIGHT_BASIS-1",
-    "type": "FREIGHT_BASIS",
-    "severity": "HIGH",
-    "title": "Ex-works Vasai basis vs. delivered Bhiwandi requirement",
-    "detail": "Vendor's rates are ex-works Vasai; freight to Bhiwandi DC is stated as 'extra at actuals,' against the event's delivered (FOR Bhiwandi DC) basis. Per buyer_confirmed_facts, the policy lane estimate (Rs 2.1/kg, Vapi->Bhiwandi trailing 6-month average) is applied as a placeholder to all vendor-quoted lines pending reconciliation against the vendor's actual Vasai-origin freight invoice.",
-    "affected_lines": [
-     "PKG-001",
-     "PKG-004",
-     "PKG-006",
-     "PKG-008",
-     "PKG-009",
-     "PKG-010",
-     "PKG-012",
-     "PKG-013",
-     "PKG-014",
-     "PKG-016",
-     "PKG-017",
-     "PKG-019",
-     "PKG-020",
-     "PKG-022",
-     "PKG-023",
-     "PKG-025",
-     "PKG-027",
-     "PKG-030"
-    ],
-    "options": [],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": 1198680
-   },
-   {
-    "id": "TEST-AMBIGUOUS_TERM-1",
-    "type": "AMBIGUOUS_TERM",
-    "severity": "LOW",
-    "title": "PKG-013 print status (2-color) unconfirmed",
-    "detail": "The buyer-confirmed Rs 67.71/pc price for PKG-013 comes from a row description ('RSC 5-ply 500x400x400mm') that does not mention printing, while RFX-PKG-013 requires 5-ply, printed 2-col. The price is applied per buyer decision; print inclusion is assumed but not confirmed by the vendor.",
-    "affected_lines": [
-     "PKG-013"
-    ],
-    "options": [
-     "Confirm with vendor that Rs 67.71/pc includes 2-color printing",
-     "Request a separate print surcharge if printing is not included"
-    ],
-    "delta_inr_per_unit": null,
-    "annual_impact_inr": null
-   },
-   {
-    "id": "TEST-TERM_REFERENCE-1",
-    "type": "TERM_REFERENCE",
+    "id": "GLOBAL-QUESTIONNAIRE_GAP-INFO",
+    "type": "QUESTIONNAIRE_GAP",
     "severity": "MEDIUM",
-    "title": "Vendor commercial terms diverge from RFX assumptions",
-    "detail": "Vendor states payment as '50% advance, balance against delivery,' inconsistent with the RFX's 45-day payment terms (questionnaire item 'pay' is also unanswered — see QUESTIONNAIRE_GAP). Quoted rates are stated firm for only 30 days, which may be shorter than the award/PO cycle. Note for data hygiene only: the vendor's workbook also contains a hidden sheet ('old', titled 'SUPERSEDED - Jan 2026 rates - do not send') with prior per-piece rates for the same 18 codes; these are excluded from the active quote and not used in this evaluation.",
+    "title": "FSC chain-of-custody, lead time, and spare capacity not answered",
+    "detail": "GLOBAL's response has no answer for FSC chain-of-custody ('fsc'), standard lead time ('lead'), or spare capacity headroom ('cap'). Not clearance-blocking per policy, but needed for evaluation and supply-risk assessment.",
     "affected_lines": [],
     "options": [
-     "Confirm vendor's willingness to accept 45-day payment terms",
-     "Request extended quote validity if the award timeline exceeds 30 days"
+     "Request FSC, lead-time, and spare-capacity answers in the clarification round"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "GLOBAL-AMBIGUOUS_TERM-PRINTCOLOR",
+    "type": "AMBIGUOUS_TERM",
+    "severity": "MEDIUM",
+    "title": "Printed-carton color count not confirmed against RFX spec",
+    "detail": "CSV rows for PKG-006, PKG-013, and PKG-023 are labeled only '...-PRINT' with no color count stated, while RFX specifies 1-col (PKG-006, PKG-023) and 2-col (PKG-013). Price is quoted and usable as-is; only the color-count spec match is unconfirmed, which could mean the quoted rate assumes fewer colors than required.",
+    "affected_lines": [
+     "PKG-006",
+     "PKG-013",
+     "PKG-023"
+    ],
+    "options": [
+     "Confirm with GLOBAL that the quoted PRINT rate covers the RFX-specified color count (1-col for PKG-006/023, 2-col for PKG-013)",
+     "Request per-color pricing to true up if the actual requirement differs"
     ],
     "delta_inr_per_unit": null,
     "annual_impact_inr": null
@@ -4776,47 +4891,46 @@
     "key": "iso",
     "answer": null,
     "evidence": null,
-    "confidence": 0.9
+    "confidence": 0.95
    },
    {
     "key": "burst",
     "answer": null,
     "evidence": null,
-    "confidence": 0.9
+    "confidence": 0.95
    },
    {
     "key": "fsc",
     "answer": null,
     "evidence": null,
-    "confidence": 0.9
+    "confidence": 0.95
    },
    {
     "key": "lead",
     "answer": null,
     "evidence": null,
-    "confidence": 0.9
+    "confidence": 0.95
    },
    {
     "key": "pay",
-    "answer": null,
-    "evidence": null,
-    "confidence": 0.9
+    "answer": "45 days payment is fine",
+    "evidence": "email body: '45 days payment is fine.'",
+    "confidence": 0.95
    },
    {
     "key": "cap",
     "answer": null,
     "evidence": null,
-    "confidence": 0.9
+    "confidence": 0.95
    }
   ],
   "vendor_terms": {
-   "payment": "50% advance, balance against delivery",
-   "freight": "Rates ex-works Vasai. Freight to Bhiwandi extra at actuals.",
-   "validity": "Rates firm for 30 days only",
+   "payment": "45 days payment is fine",
+   "freight": null,
+   "validity": null,
    "discounts": [],
    "other": [
-    "GST 18% extra (not included in quoted rates)",
-    "Bundle rates are for standard bundle (bundle size not specified)"
+    "PKG-027–030 quoted in USD per piece rather than INR (RFX basis currency is INR)."
    ]
   }
  }

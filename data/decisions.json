@@ -1,5 +1,6 @@
 {
- "PACKRT": {
-  "FREIGHT_BASIS": "Apply policy lane freight estimate (\u20b92.10/kg, trailing 6-month lane average) \u2014 SELECTED per buyer_confirmed_facts"
+ "GLOBAL": {
+  "FREIGHT_BASIS": "Confirm freight_authority = email: rates are delivered/freight-included as stated; no freight added.",
+  "QUESTIONNAIRE_GAP_status": "asked_supplier"
  }
 }

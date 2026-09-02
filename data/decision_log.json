@@ -1,10 +1,18 @@
 [
  {
-  "ts": "2026-09-02 11:08:58",
-  "vendor": "PACKRT",
+  "ts": "2026-09-02 11:16:15",
+  "vendor": "GLOBAL",
   "facts": {
-   "FREIGHT_BASIS": "Apply policy lane freight estimate (\u20b92.10/kg, trailing 6-month lane average) \u2014 SELECTED per buyer_confirmed_facts"
+   "FREIGHT_BASIS": "Confirm freight_authority = email: rates are delivered/freight-included as stated; no freight added."
   },
-  "note": "Apply policy lane freight estimate (\u20b92.10/kg, trailing 6-month lane average) \u2014 SELECTED per buyer_confirmed_facts"
+  "note": "Confirm freight_authority = email: rates are delivered/freight-included as stated; no freight added."
+ },
+ {
+  "ts": "2026-09-02 11:18:43",
+  "vendor": "GLOBAL",
+  "facts": {
+   "QUESTIONNAIRE_GAP_status": "asked_supplier"
+  },
+  "note": "Clarification round sent \u2014 1 questions in one email"
  }
 ]
