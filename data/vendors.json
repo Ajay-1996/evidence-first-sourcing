@@ -39,13 +39,5 @@
   ],
   "contact": "Dinesh Mehta",
   "email": "dinesh@globalpack.co"
- },
- "TEST": {
-  "name": "Test Supplier",
-  "files": [
-   "EC08_shakti_packaging_quote.xlsx"
-  ],
-  "contact": "You",
-  "email": "test@local"
  }
 }

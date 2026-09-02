@@ -1,36 +1,10 @@
 [
  {
-  "ts": "2026-09-02 10:57:12",
-  "vendor": "TEST",
+  "ts": "2026-09-02 11:08:58",
+  "vendor": "PACKRT",
   "facts": {
-   "SOURCE_CONFLICT": "Attribute Rs376.51/pc (row A23) to PKG-027 per label; treat PKG-023 as unquoted"
+   "FREIGHT_BASIS": "Apply policy lane freight estimate (\u20b92.10/kg, trailing 6-month lane average) \u2014 SELECTED per buyer_confirmed_facts"
   },
-  "note": "Attribute Rs376.51/pc (row A23) to PKG-027 per label; treat PKG-023 as unquoted"
- },
- {
-  "ts": "2026-09-02 10:59:58",
-  "vendor": "TEST",
-  "facts": {
-   "QUESTIONNAIRE_GAP_status": "asked_supplier",
-   "SOURCE_CONFLICT_status": "asked_supplier",
-   "FREIGHT_BASIS_status": "asked_supplier"
-  },
-  "note": "Clarification round sent \u2014 8 questions in one email"
- },
- {
-  "ts": "2026-09-02 11:00:58",
-  "vendor": "TEST",
-  "facts": {
-   "FREIGHT_BASIS": "Apply policy lane estimate (Rs2.1/kg) as a placeholder and flag for reconciliation against vendor's actual Vasai-origin freight invoice"
-  },
-  "note": "Apply policy lane estimate (Rs2.1/kg) as a placeholder and flag for reconciliation against vendor's actual Vasai-origin freight invoice"
- },
- {
-  "ts": "2026-09-02 11:02:49",
-  "vendor": "TEST",
-  "facts": {
-   "SOURCE_CONFLICT": "Apply Rs 67.71/pc to PKG-013 (code-label match, print status unconfirmed); PKG-015 remains unquoted"
-  },
-  "note": "Apply Rs 67.71/pc to PKG-013 (code-label match, print status unconfirmed); PKG-015 remains unquoted"
+  "note": "Apply policy lane freight estimate (\u20b92.10/kg, trailing 6-month lane average) \u2014 SELECTED per buyer_confirmed_facts"
  }
 ]

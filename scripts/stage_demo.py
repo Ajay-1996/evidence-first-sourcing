@@ -17,6 +17,12 @@ cmp_p = DATA / "comparison.json"
 cmp_ = json.loads(cmp_p.read_text()) if cmp_p.exists() else {}
 if "GLOBAL" in cmp_:
     del cmp_["GLOBAL"]
+# purge any vendor not in the registry (e.g. a leftover TEST supplier) everywhere
+registry = set(json.loads((DATA / "vendors.json").read_text()).keys())
+for stray in [v for v in cmp_ if v not in registry]:
+    del cmp_[stray]
+    (DATA / "evidence" / f"{stray}.json").unlink(missing_ok=True)
+(DATA / "progress.json").unlink(missing_ok=True)
 cmp_p.write_text(json.dumps(cmp_, indent=1, ensure_ascii=False))
 (DATA / "evidence" / "GLOBAL.json").unlink(missing_ok=True)
 

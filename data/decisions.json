@@ -1,9 +1,5 @@
 {
- "TEST": {
-  "SOURCE_CONFLICT": "Apply Rs 67.71/pc to PKG-013 (code-label match, print status unconfirmed); PKG-015 remains unquoted",
-  "QUESTIONNAIRE_GAP_status": "asked_supplier",
-  "SOURCE_CONFLICT_status": "asked_supplier",
-  "FREIGHT_BASIS_status": "asked_supplier",
-  "FREIGHT_BASIS": "Apply policy lane estimate (Rs2.1/kg) as a placeholder and flag for reconciliation against vendor's actual Vasai-origin freight invoice"
+ "PACKRT": {
+  "FREIGHT_BASIS": "Apply policy lane freight estimate (\u20b92.10/kg, trailing 6-month lane average) \u2014 SELECTED per buyer_confirmed_facts"
  }
 }
