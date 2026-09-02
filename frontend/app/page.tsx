@@ -23,7 +23,7 @@ function vendorIssues(E:EventData,vid:string):Exc[]{return E.open.filter(e=>e.ve
 function priorDecision(E:EventData,exc:Exc){const t=exc.type??'';if(!t||/QUESTIONNAIRE/.test(t))return null;for(const [vid,facts] of Object.entries(E.decisions)){if(vid===exc.vendor||vid==='EVENT')continue;const f=facts as Record<string,any>;if(f[t]!==undefined)return {vendor:vid,action:String(f[t])};}return null;}
 function ruleFor(E:EventData,t?:string){return E.rules.find((r:any)=>r.type===t&&r.enabled);}
 const RECVT:Record<string,{recv:string,proc:string}>={ALPHA:{recv:'27 Aug · 10:42',proc:'31 Aug · 09:02'},BOXCO:{recv:'28 Aug · 16:05',proc:'31 Aug · 09:07'},PACKRT:{recv:'29 Aug · 11:19',proc:'31 Aug · 09:12'},CORRUG:{recv:'30 Aug · 09:31',proc:'31 Aug · 09:18'},GLOBAL:{recv:'31 Aug · 21:12',proc:''}};
-type TL={ts:string,kind:'received'|'processed'|'exception'|'decision'|'recompute'|'rule',title:string,detail?:string};
+type TL={ts:string,kind:'received'|'processed'|'exception'|'decision'|'recompute'|'rule'|'round'|'reply',title:string,detail?:string};
 function timelineFor(E:EventData,vid:string|null):TL[]{
  const out:TL[]=[];
  const vends=vid?E.vendors.filter(v=>v.vid===vid):E.vendors;
@@ -37,13 +37,24 @@ function timelineFor(E:EventData,vid:string|null):TL[]{
  });
  E.decisionLog.filter(d=>!vid||d.vendor===vid).forEach(d=>{
   const nm=E.vendors.find(v=>v.vid===d.vendor)?.short??d.vendor;
-  out.push({ts:d.ts,kind:'decision',title:`Buyer decision · ${nm}`,detail:Object.entries(d.facts).map(([k,x])=>k.replace(/_/g,' ')+' → '+String(x).slice(0,60)).join('; ')});
-  if(d.vendor!=='EVENT')out.push({ts:d.ts,kind:'recompute',title:`Resolution re-run with the fact on record`,detail:`${nm}'s comparison recalculated from evidence`});
+  const entries=Object.entries(d.facts);
+  const askedN=entries.filter(([k,x])=>k.endsWith('_status')&&x==='asked_supplier').length;
+  const answeredN=entries.filter(([k,x])=>k.endsWith('_status')&&x==='answered').length;
+  const substantive=entries.filter(([k])=>!k.endsWith('_status'));
+  if(askedN>0&&substantive.length===0){
+   out.push({ts:d.ts,kind:'round',title:`Clarification round sent · ${nm} · ${askedN} question${askedN>1?'s':''}, one email`,detail:'Awaiting supplier — no further emails until the reply (or an award-blocker forces one)'});
+  }else if(answeredN>0){
+   out.push({ts:d.ts,kind:'reply',title:`Supplier replies recorded · ${nm} · ${answeredN} of the round answered`,detail:d.note});
+   out.push({ts:d.ts,kind:'recompute',title:'Resolution re-run once for the whole reply set',detail:`${nm}'s comparison recalculated from evidence`});
+  }else{
+   out.push({ts:d.ts,kind:'decision',title:`Buyer decision · ${nm}`,detail:substantive.map(([k,x])=>k.replace(/_/g,' ')+' → '+String(x).slice(0,60)).join('; ')||d.note});
+   if(d.vendor!=='EVENT')out.push({ts:d.ts,kind:'recompute',title:`Resolution re-run with the fact on record`,detail:`${nm}'s comparison recalculated from evidence`});
+  }
  });
  E.rules.filter((r:any)=>!vid||r.created_from?.vendor===vid).forEach((r:any)=>out.push({ts:r.created_from?.ts??'',kind:'rule',title:`Standing rule created · ${r.id}`,detail:r.label}));
  return out;
 }
-const TLC:Record<TL['kind'],string>={received:'#8a8578',processed:'#72909d',exception:'#c07b28',decision:'#263d4b',recompute:'#6e9788',rule:'#c5a025'};
+const TLC:Record<TL['kind'],string>={received:'#8a8578',processed:'#72909d',exception:'#c07b28',decision:'#263d4b',recompute:'#6e9788',rule:'#c5a025',round:'#4a5b8c',reply:'#3d7a5c'};
 
 export default function Home(){
  const [E,setE]=useState<EventData|null>(null),[loadError,setLoadError]=useState('');

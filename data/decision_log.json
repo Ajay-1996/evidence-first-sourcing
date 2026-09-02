@@ -16,5 +16,21 @@
    "FREIGHT_BASIS_status": "asked_supplier"
   },
   "note": "Clarification round sent \u2014 8 questions in one email"
+ },
+ {
+  "ts": "2026-09-02 11:00:58",
+  "vendor": "TEST",
+  "facts": {
+   "FREIGHT_BASIS": "Apply policy lane estimate (Rs2.1/kg) as a placeholder and flag for reconciliation against vendor's actual Vasai-origin freight invoice"
+  },
+  "note": "Apply policy lane estimate (Rs2.1/kg) as a placeholder and flag for reconciliation against vendor's actual Vasai-origin freight invoice"
+ },
+ {
+  "ts": "2026-09-02 11:02:49",
+  "vendor": "TEST",
+  "facts": {
+   "SOURCE_CONFLICT": "Apply Rs 67.71/pc to PKG-013 (code-label match, print status unconfirmed); PKG-015 remains unquoted"
+  },
+  "note": "Apply Rs 67.71/pc to PKG-013 (code-label match, print status unconfirmed); PKG-015 remains unquoted"
  }
 ]
