@@ -1,0 +1,11 @@
+item_code,description,qty_month,rate_inr_per_piece,line_total_month
+PKG-001,RSC 200x150x100 3-ply,9000,3.40,30600
+PKG-004,RSC 300x250x200 3-ply,6200,9.10,60200
+PKG-010,RSC 350x300x250 3-ply,4500,12.80,57600
+PKG-016,RSC 550x450x400 5-ply,3600,52.00,190000
+PKG-020,RSC 500x500x450 5-ply,2500,58.20,145500
+PKG-020,RSC 500x500x450 5-ply,2500,54.75,136875
+PKG-023,RSC 550x550x500 5-ply printed,2000,73.00,146000
+PKG-024,RSC 600x600x500 5-ply,1400,82.50,115500
+TOTAL,,,,"961275"
+Note: all rates delivered Bhiwandi with freight included.

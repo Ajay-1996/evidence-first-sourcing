@@ -43,9 +43,8 @@
  "TEST": {
   "name": "Test Supplier",
   "files": [
-   "EC10_nova_corrugators_quote.pdf",
-   "EC17_nova_certificates.pdf",
-   "EC17_nova_questionnaire.docx"
+   "KS_omni_quote_email.txt",
+   "KS_omni_rates.csv"
   ],
   "contact": "You",
   "email": "test@local"
