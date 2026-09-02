@@ -5402,5 +5402,783 @@
     "CSV rate list carries a footer stating rates are ex-works Daman with freight at actuals — conflicts with email's freight-included claim; see FREIGHT_BASIS exception."
    ]
   }
+ },
+ "TEST": {
+  "vendor_id": "TEST",
+  "cells": [
+   {
+    "code": "PKG-001",
+    "normalized_inr_per_unit": 3.46,
+    "state": "confirmed",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 3.46,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-001",
+     "excerpt": "PKG-001 RSC 3-ply 200x150x100 mm 18,000 3.46 62,280"
+    },
+    "confidence": 0.97,
+    "buyer_question": null,
+    "note": "Dims/ply (200×150×100mm, 3-ply, plain) match RFx spec exactly. Vendor's stated qty/mo (18,000) differs from RFx's 9,000 but has no bearing on the quoted per-piece rate."
+   },
+   {
+    "code": "PKG-002",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 5.59,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-002",
+     "excerpt": "PKG-002 RSC 3-ply 250x200x120 mm 15,000 5.59 83,850"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹5.59/pc rate quoted for RSC 250×200×120mm (3-ply) apply to the RFx spec of 240×180×120mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹5.59/pc is quoted against RSC 250×200×120mm; RFx spec for PKG-002 is 240×180×120mm (3-ply matches)."
+   },
+   {
+    "code": "PKG-003",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 5.99,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-003",
+     "excerpt": "PKG-003 RSC 3-ply 280x180x150 mm 12,000 5.99 71,880"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹5.99/pc rate quoted for RSC 280×180×150mm (3-ply) apply to the RFx spec of 300×200×150mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹5.99/pc is quoted against RSC 280×180×150mm; RFx spec for PKG-003 is 300×200×150mm (3-ply matches)."
+   },
+   {
+    "code": "PKG-004",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 7.43,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-004",
+     "excerpt": "PKG-004 RSC 3-ply 300x200x150 mm 22,000 7.43 163,460"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹7.43/pc rate quoted for RSC 300×200×150mm (3-ply) apply to PKG-004's spec of 300×250×200mm — note vendor's stated dims instead match PKG-003's description — or can vendor requote/clarify?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹7.43/pc is quoted against RSC 300×200×150mm (3-ply) — those dims instead match the RFx's PKG-003 description, not PKG-004's 300×250×200mm."
+   },
+   {
+    "code": "PKG-005",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-006",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "print_unconfirmed",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 11.55,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-006",
+     "excerpt": "PKG-006 RSC 3-ply 350x250x200 mm 14,000 11.55 161,700"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹11.55/pc rate for RSC 350×250×200mm (3-ply, no print stated) apply to PKG-006's spec of 400×300×250mm printed 1-colour, or can vendor requote confirming both dimensions and printing?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹11.55/pc is quoted against RSC 350×250×200mm (3-ply) with no print attribute stated; RFx's PKG-006 calls for 400×300×250mm printed 1-colour."
+   },
+   {
+    "code": "PKG-007",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 15.28,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-007",
+     "excerpt": "PKG-007 RSC 3-ply 380x280x220 mm 11,000 15.28 168,080"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹15.28/pc rate quoted for RSC 380×280×220mm (3-ply) apply to the RFx spec of 250×200×150mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹15.28/pc is quoted against RSC 380×280×220mm; RFx spec for PKG-007 is 250×200×150mm (3-ply matches)."
+   },
+   {
+    "code": "PKG-008",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 16.03,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-008",
+     "excerpt": "PKG-008 RSC 3-ply 400x300x200 mm 26,000 16.03 416,780"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹16.03/pc rate quoted for RSC 400×300×200mm (3-ply) apply to the RFx spec of 450×350×300mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹16.03/pc is quoted against RSC 400×300×200mm; RFx spec for PKG-008 is 450×350×300mm (3-ply matches)."
+   },
+   {
+    "code": "PKG-009",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 32.84,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-009",
+     "excerpt": "PKG-009 RSC 5-ply 420x320x240 mm 8,000 32.84 262,720"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹32.84/pc rate is for RSC 420×320×240mm in 5-ply, but RFx's PKG-009 calls for 400×400×300mm in 3-ply — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹32.84/pc is quoted against RSC 420×320×240mm in 5-ply; RFx's PKG-009 calls for 400×400×300mm in 3-ply."
+   },
+   {
+    "code": "PKG-010",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 37.44,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-010",
+     "excerpt": "PKG-010 RSC 5-ply 450x350x250 mm 13,000 37.44 486,720"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹37.44/pc rate is for RSC 450×350×250mm in 5-ply, but RFx's PKG-010 calls for 350×300×250mm in 3-ply — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹37.44/pc is quoted against RSC 450×350×250mm in 5-ply; RFx's PKG-010 calls for 350×300×250mm in 3-ply."
+   },
+   {
+    "code": "PKG-011",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 47.35,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-011",
+     "excerpt": "PKG-011 RSC 5-ply 480x360x300 mm 7,500 47.35 355,125"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹47.35/pc rate is for RSC 480×360×300mm in 5-ply, but RFx's PKG-011 calls for 500×400×350mm in 3-ply — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹47.35/pc is quoted against RSC 480×360×300mm in 5-ply; RFx's PKG-011 calls for 500×400×350mm in 3-ply."
+   },
+   {
+    "code": "PKG-012",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 53.14,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-012",
+     "excerpt": "PKG-012 RSC 5-ply 500x400x300 mm 16,000 53.14 850,240"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹53.14/pc rate is for RSC 500×400×300mm in 5-ply, but RFx's PKG-012 calls for 300×300×300mm in 3-ply — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹53.14/pc is quoted against RSC 500×400×300mm in 5-ply; RFx's PKG-012 calls for 300×300×300mm in 3-ply."
+   },
+   {
+    "code": "PKG-013",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "print_unconfirmed",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 65.45,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-013",
+     "excerpt": "PKG-013 RSC 5-ply 500x400x400 mm 19,000 65.45 1,243,550"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹65.45/pc rate for RSC 500×400×400mm (5-ply, no print stated) apply to PKG-013's spec of 400×300×300mm printed 2-colour, or can vendor requote confirming both dimensions and printing?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹65.45/pc is quoted against RSC 500×400×400mm (5-ply) with no print attribute stated; RFx's PKG-013 calls for 400×300×300mm printed 2-colour."
+   },
+   {
+    "code": "PKG-014",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 65.34,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-014",
+     "excerpt": "PKG-014 RSC 5-ply 550x400x350 mm 6,200 65.34 405,108"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹65.34/pc rate quoted for RSC 550×400×350mm (5-ply) apply to the RFx spec of 450×350×350mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹65.34/pc is quoted against RSC 550×400×350mm; RFx spec for PKG-014 is 450×350×350mm (5-ply matches)."
+   },
+   {
+    "code": "PKG-015",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-016",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 74.17,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 2, items table, row PKG-016",
+     "excerpt": "PKG-016 RSC 5-ply 600x400x400 mm 21,000 74.17 1,557,570"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹74.17/pc rate quoted for RSC 600×400×400mm (5-ply) apply to the RFx spec of 550×450×400mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹74.17/pc is quoted against RSC 600×400×400mm; RFx spec for PKG-016 is 550×450×400mm (5-ply matches)."
+   },
+   {
+    "code": "PKG-017",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 82.97,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-017",
+     "excerpt": "PKG-017 RSC 5-ply 600x450x450 mm 8,800 82.97 730,136"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹82.97/pc rate quoted for RSC 600×450×450mm (5-ply) apply to the RFx spec of 600×400×400mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹82.97/pc is quoted against RSC 600×450×450mm; RFx spec for PKG-017 is 600×400×400mm (5-ply matches)."
+   },
+   {
+    "code": "PKG-018",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 82.27,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-018",
+     "excerpt": "PKG-018 RSC 5-ply 650x450x400 mm 4,700 82.27 386,669"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹82.27/pc rate quoted for RSC 650×450×400mm (5-ply) apply to the RFx spec of 600×500×450mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹82.27/pc is quoted against RSC 650×450×400mm; RFx spec for PKG-018 is 600×500×450mm (5-ply matches)."
+   },
+   {
+    "code": "PKG-019",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 96.05,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-019",
+     "excerpt": "PKG-019 RSC 5-ply 700x500x400 mm 9,600 96.05 922,080"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹96.05/pc rate quoted for RSC 700×500×400mm (5-ply) apply to the RFx spec of 450×450×400mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹96.05/pc is quoted against RSC 700×500×400mm; RFx spec for PKG-019 is 450×450×400mm (5-ply matches)."
+   },
+   {
+    "code": "PKG-020",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 107.74,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-020",
+     "excerpt": "PKG-020 RSC 5-ply 700x500x500 mm 6,100 107.74 657,214"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹107.74/pc rate quoted for RSC 700×500×500mm (5-ply) apply to the RFx spec of 500×500×450mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹107.74/pc is quoted against RSC 700×500×500mm; RFx spec for PKG-020 is 500×500×450mm (5-ply matches)."
+   },
+   {
+    "code": "PKG-021",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-022",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 194.27,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-022",
+     "excerpt": "PKG-022 RSC 7-ply 800x600x400 mm 4,200 194.27 815,934"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹194.27/pc rate is for RSC 800×600×400mm in 7-ply, but RFx's PKG-022 calls for 700×500×500mm in 5-ply — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹194.27/pc is quoted against RSC 800×600×400mm in 7-ply; RFx's PKG-022 calls for 700×500×500mm in 5-ply."
+   },
+   {
+    "code": "PKG-023",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "print_unconfirmed",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 231.88,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-023",
+     "excerpt": "PKG-023 RSC 7-ply 800x600x600 mm 3,300 231.88 765,204"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹231.88/pc rate is for RSC 800×600×600mm in 7-ply with no print stated, but RFx's PKG-023 calls for 550×550×500mm in 5-ply printed 1-colour — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹231.88/pc is quoted against RSC 800×600×600mm in 7-ply with no print attribute stated; RFx's PKG-023 calls for 550×550×500mm in 5-ply printed 1-colour."
+   },
+   {
+    "code": "PKG-024",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-025",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "ply_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 269.34,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-025",
+     "excerpt": "PKG-025 RSC 7-ply 900x600x600 mm 3,600 269.34 969,624"
+    },
+    "confidence": 0.97,
+    "buyer_question": "The ₹269.34/pc rate is for RSC 900×600×600mm in 7-ply, but RFx's PKG-025 calls for 750×550×500mm in 5-ply — can vendor confirm or requote against the exact spec?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹269.34/pc is quoted against RSC 900×600×600mm in 7-ply; RFx's PKG-025 calls for 750×550×500mm in 5-ply."
+   },
+   {
+    "code": "PKG-026",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-027",
+    "normalized_inr_per_unit": null,
+    "state": "needs_review",
+    "flags": [
+     "spec_mismatch",
+     "needs_review"
+    ],
+    "transform_chain": [],
+    "as_quoted": {
+     "amount": 341.23,
+     "currency": "INR",
+     "unit_raw": "Rate/pc (Rs)"
+    },
+    "source": {
+     "file": "EC10_nova_corrugators_quote.pdf",
+     "locator": "page 1, items table, row PKG-027",
+     "excerpt": "PKG-027 RSC 7-ply 1000x700x600 mm 2,600 341.23 887,198"
+    },
+    "confidence": 0.97,
+    "buyer_question": "Does the ₹341.23/pc rate quoted for RSC 1000×700×600mm (7-ply) apply to the RFx spec of 800×600×600mm, or can vendor requote for the exact dimensions?",
+    "note": "[see TEST-SOURCE_CONFLICT-SPEC] ₹341.23/pc is quoted against RSC 1000×700×600mm; RFx spec for PKG-027 is 800×600×600mm (7-ply matches)."
+   },
+   {
+    "code": "PKG-028",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-029",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   },
+   {
+    "code": "PKG-030",
+    "normalized_inr_per_unit": null,
+    "state": "missing",
+    "flags": [],
+    "transform_chain": [],
+    "as_quoted": null,
+    "source": null,
+    "confidence": 0.0,
+    "buyer_question": null,
+    "note": "Not present anywhere in vendor's quotation table."
+   }
+  ],
+  "exceptions": [
+   {
+    "id": "TEST-SOURCE_CONFLICT-SPEC",
+    "type": "SOURCE_CONFLICT",
+    "severity": "HIGH",
+    "title": "Quoted dimensions/ply don't match RFx spec on 21 of 22 priced lines",
+    "detail": "Only PKG-001 matches the RFx description exactly on dims and ply. Every other priced code (PKG-002,003,004,006,007,008,009,010,011,012,013,014,016,017,018,019,020,022,023,025,027) carries vendor dimensions that diverge from the RFx spec for that code, and PKG-009/010/011/012/022/023/025 additionally carry a different ply count (5-ply or 7-ply where RFx specifies 3-ply or 5-ply). Required print attributes (PKG-006 printed 1-col, PKG-013 printed 2-col, PKG-023 printed 1-col) are also unconfirmed in the vendor's technical spec table. The vendor's quotation and questionnaire both cite reference 'RFQ/PKG/2026/07' rather than this event's 'RFQ-FY27-CORR', consistent with these rows being drawn from a related but distinct tender's item list. Prices cannot be safely mapped to the RFx-specified boxes without vendor confirmation or a corrected quote.",
+    "affected_lines": [
+     "PKG-002",
+     "PKG-003",
+     "PKG-004",
+     "PKG-006",
+     "PKG-007",
+     "PKG-008",
+     "PKG-009",
+     "PKG-010",
+     "PKG-011",
+     "PKG-012",
+     "PKG-013",
+     "PKG-014",
+     "PKG-016",
+     "PKG-017",
+     "PKG-018",
+     "PKG-019",
+     "PKG-020",
+     "PKG-022",
+     "PKG-023",
+     "PKG-025",
+     "PKG-027"
+    ],
+    "options": [
+     "Request a corrected quote itemized against the exact RFx dimensions/ply/print for each code",
+     "Ask vendor to confirm the as-quoted rates already apply to the RFx spec despite the dims shown",
+     "Score these lines as no-bid for comparison purposes until corrected"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-MISSING_LINE",
+    "type": "MISSING_LINE",
+    "severity": "HIGH",
+    "title": "8 of 30 RFx lines not quoted",
+    "detail": "PKG-005, PKG-015, PKG-021, PKG-024, PKG-026, PKG-028, PKG-029, PKG-030 do not appear anywhere in the vendor's quotation table.",
+    "affected_lines": [
+     "PKG-005",
+     "PKG-015",
+     "PKG-021",
+     "PKG-024",
+     "PKG-026",
+     "PKG-028",
+     "PKG-029",
+     "PKG-030"
+    ],
+    "options": [
+     "Request vendor to quote the missing codes",
+     "Score vendor as partial/no-bid on these lines for comparison purposes"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-QUESTIONNAIRE_GAP-ISO",
+    "type": "QUESTIONNAIRE_GAP",
+    "severity": "AWARD_BLOCKING",
+    "title": "ISO 9001 certificate appears expired, contradicting questionnaire answer",
+    "detail": "Questionnaire states the ISO 9001:2015 certificate is 'current and in force for the full contract period,' but the attached certificate itself shows 'valid until 14 March 2026' and a surveillance audit 'due 14 March 2025' — both dates precede the 21 Aug 2026 quote date. Policy's clearance_rule requires a valid ISO 9001 certificate on file.",
+    "affected_lines": [],
+    "options": [
+     "Request an updated, currently-valid ISO 9001 certificate before clearance",
+     "Request written clarification reconciling the questionnaire claim with the certificate dates"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-QUESTIONNAIRE_GAP-BURST",
+    "type": "QUESTIONNAIRE_GAP",
+    "severity": "AWARD_BLOCKING",
+    "title": "Burst-strength test certificates not provided",
+    "detail": "No answer or supporting document was provided for burst-strength test certs (IS 2771) on quoted grades. Policy's clearance_rule requires these on file.",
+    "affected_lines": [],
+    "options": [
+     "Request burst-strength test certificates for all quoted grades before clearance"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-QUESTIONNAIRE_GAP-FSC",
+    "type": "QUESTIONNAIRE_GAP",
+    "severity": "MEDIUM",
+    "title": "FSC chain-of-custody not provided",
+    "detail": "No answer was given for FSC chain-of-custody on kraft supply.",
+    "affected_lines": [],
+    "options": [
+     "Request FSC chain-of-custody documentation"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   },
+   {
+    "id": "TEST-SOURCE_CONFLICT-RECYCLED",
+    "type": "SOURCE_CONFLICT",
+    "severity": "MEDIUM",
+    "title": "Recycled-content percentage differs between questionnaire and certificate",
+    "detail": "Questionnaire claims 32% post-consumer recycled content across all grades; the Materials Declaration in the certificate pack states 18% (averaged, unaudited, FY2025-26). Neither source is treated as authoritative here.",
+    "affected_lines": [],
+    "options": [
+     "Ask vendor to reconcile and confirm the audited figure"
+    ],
+    "delta_inr_per_unit": null,
+    "annual_impact_inr": null
+   }
+  ],
+  "questionnaire": [
+   {
+    "key": "iso",
+    "answer": "Yes - we hold a valid ISO 9001:2015 certificate, current and in force for the full contract period. Copy attached.",
+    "evidence": "EC17_nova_questionnaire.docx table 1 row 2 (Q1); contradicted by EC17_nova_certificates.pdf page 1 ('Certificate valid until 14 March 2026', prior to the 21 August 2026 quote date)",
+    "confidence": 0.5
+   },
+   {
+    "key": "burst",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.85
+   },
+   {
+    "key": "fsc",
+    "answer": null,
+    "evidence": null,
+    "confidence": 0.9
+   },
+   {
+    "key": "lead",
+    "answer": "12-14 days from confirmed PO",
+    "evidence": "EC10_nova_corrugators_quote.pdf page 1, Commercial terms",
+    "confidence": 0.95
+   },
+   {
+    "key": "pay",
+    "answer": "Payment 30 days from receipt of material — does not match the RFx's 45-day payment term basis",
+    "evidence": "EC10_nova_corrugators_quote.pdf page 1, Commercial terms",
+    "confidence": 0.9
+   },
+   {
+    "key": "cap",
+    "answer": "1,450 MT/month across two units; adequate headroom for the indicated volumes stated qualitatively (no % figure given)",
+    "evidence": "EC17_nova_questionnaire.docx table 1 row 4 (Q3)",
+    "confidence": 0.55
+   }
+  ],
+  "vendor_terms": {
+   "payment": "30 days from receipt of material",
+   "freight": "Rates delivered Bhiwandi",
+   "validity": "Rates valid 45 days (from quote date 21 August 2026)",
+   "discounts": [],
+   "other": [
+    "GST 18% extra",
+    "Delivery 12-14 days from confirmed PO",
+    "Sample approval before bulk despatch"
+   ]
+  }
  }
 }
